@@ -1,8 +1,7 @@
 # Semo
 
 # 팀 Za:DO
-자, 시작하자!
-Apple Developer Academy @ POSTECH
+자, 두가자!
 
 ![iOS](https://img.shields.io/badge/Swift-iOS-51a9e8?logo=Swift)
 
