@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39FE869928828DB300D0F24F /* TestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE869828828DB300D0F24F /* TestManager.swift */; };
+		39FE869B28828DBD00D0F24F /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE869A28828DBD00D0F24F /* TestModel.swift */; };
+		39FE869D28828DD600D0F24F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE869C28828DD600D0F24F /* TestView.swift */; };
 		EEAD176628828B46009388DD /* SemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD176528828B46009388DD /* SemoApp.swift */; };
 		EEAD176828828B46009388DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD176728828B46009388DD /* ContentView.swift */; };
 		EEAD176A28828B47009388DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEAD176928828B47009388DD /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39FE869828828DB300D0F24F /* TestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestManager.swift; sourceTree = "<group>"; };
+		39FE869A28828DBD00D0F24F /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		39FE869C28828DD600D0F24F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		EEAD176228828B46009388DD /* Semo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Semo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEAD176528828B46009388DD /* SemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemoApp.swift; sourceTree = "<group>"; };
 		EEAD176728828B46009388DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +38,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39FE869328828D0E00D0F24F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				39FE869C28828DD600D0F24F /* TestView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		39FE869528828D1D00D0F24F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				39FE869A28828DBD00D0F24F /* TestModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		39FE869628828D2200D0F24F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				39FE869828828DB300D0F24F /* TestManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		EEAD175928828B46009388DD = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +81,9 @@
 		EEAD176428828B46009388DD /* Semo */ = {
 			isa = PBXGroup;
 			children = (
+				39FE869628828D2200D0F24F /* Managers */,
+				39FE869528828D1D00D0F24F /* Models */,
+				39FE869328828D0E00D0F24F /* Views */,
 				EEAD176528828B46009388DD /* SemoApp.swift */,
 				EEAD176728828B46009388DD /* ContentView.swift */,
 				EEAD176928828B47009388DD /* Assets.xcassets */,
@@ -138,7 +171,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEAD176828828B46009388DD /* ContentView.swift in Sources */,
+				39FE869D28828DD600D0F24F /* TestView.swift in Sources */,
+				39FE869928828DB300D0F24F /* TestManager.swift in Sources */,
 				EEAD176628828B46009388DD /* SemoApp.swift in Sources */,
+				39FE869B28828DBD00D0F24F /* TestModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
