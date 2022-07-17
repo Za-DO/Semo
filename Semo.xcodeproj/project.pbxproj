@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3916A1392883AD0500C21828 /* Song+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916A1352883AD0500C21828 /* Song+CoreDataClass.swift */; };
+		3916A13A2883AD0500C21828 /* Song+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916A1362883AD0500C21828 /* Song+CoreDataProperties.swift */; };
+		3916A13B2883AD0500C21828 /* SingingList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916A1372883AD0500C21828 /* SingingList+CoreDataClass.swift */; };
+		3916A13C2883AD0500C21828 /* SingingList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916A1382883AD0500C21828 /* SingingList+CoreDataProperties.swift */; };
 		39FE869928828DB300D0F24F /* TestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE869828828DB300D0F24F /* TestManager.swift */; };
 		39FE869B28828DBD00D0F24F /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE869A28828DBD00D0F24F /* TestModel.swift */; };
 		39FE869D28828DD600D0F24F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE869C28828DD600D0F24F /* TestView.swift */; };
+		39FE86A62882AD8000D0F24F /* CoreDataInitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE86A52882AD8000D0F24F /* CoreDataInitManager.swift */; };
+		39FE86AC2882CDE300D0F24F /* Semo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39FE86AA2882CDE300D0F24F /* Semo.xcdatamodeld */; };
 		EEAD176628828B46009388DD /* SemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD176528828B46009388DD /* SemoApp.swift */; };
 		EEAD176828828B46009388DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD176728828B46009388DD /* ContentView.swift */; };
 		EEAD176A28828B47009388DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEAD176928828B47009388DD /* Assets.xcassets */; };
@@ -17,9 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3916A1352883AD0500C21828 /* Song+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Song+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3916A1362883AD0500C21828 /* Song+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Song+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3916A1372883AD0500C21828 /* SingingList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingingList+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3916A1382883AD0500C21828 /* SingingList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingingList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		39FE869828828DB300D0F24F /* TestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestManager.swift; sourceTree = "<group>"; };
 		39FE869A28828DBD00D0F24F /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		39FE869C28828DD600D0F24F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		39FE86A52882AD8000D0F24F /* CoreDataInitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataInitManager.swift; sourceTree = "<group>"; };
+		39FE86AB2882CDE300D0F24F /* Semo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Semo.xcdatamodel; sourceTree = "<group>"; };
 		EEAD176228828B46009388DD /* Semo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Semo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEAD176528828B46009388DD /* SemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemoApp.swift; sourceTree = "<group>"; };
 		EEAD176728828B46009388DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				39FE869828828DB300D0F24F /* TestManager.swift */,
+				39FE86A52882AD8000D0F24F /* CoreDataInitManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -81,6 +94,11 @@
 		EEAD176428828B46009388DD /* Semo */ = {
 			isa = PBXGroup;
 			children = (
+				3916A1352883AD0500C21828 /* Song+CoreDataClass.swift */,
+				3916A1362883AD0500C21828 /* Song+CoreDataProperties.swift */,
+				3916A1372883AD0500C21828 /* SingingList+CoreDataClass.swift */,
+				3916A1382883AD0500C21828 /* SingingList+CoreDataProperties.swift */,
+				39FE86AA2882CDE300D0F24F /* Semo.xcdatamodeld */,
 				39FE869628828D2200D0F24F /* Managers */,
 				39FE869528828D1D00D0F24F /* Models */,
 				39FE869328828D0E00D0F24F /* Views */,
@@ -174,7 +192,13 @@
 				39FE869D28828DD600D0F24F /* TestView.swift in Sources */,
 				39FE869928828DB300D0F24F /* TestManager.swift in Sources */,
 				EEAD176628828B46009388DD /* SemoApp.swift in Sources */,
+				39FE86A62882AD8000D0F24F /* CoreDataInitManager.swift in Sources */,
+				39FE86AC2882CDE300D0F24F /* Semo.xcdatamodeld in Sources */,
+				3916A13C2883AD0500C21828 /* SingingList+CoreDataProperties.swift in Sources */,
+				3916A13A2883AD0500C21828 /* Song+CoreDataProperties.swift in Sources */,
+				3916A1392883AD0500C21828 /* Song+CoreDataClass.swift in Sources */,
 				39FE869B28828DBD00D0F24F /* TestModel.swift in Sources */,
+				3916A13B2883AD0500C21828 /* SingingList+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +255,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -285,7 +309,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -303,7 +327,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = KMT22L7NMB;
+				DEVELOPMENT_TEAM = PQ5FS4VVLR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -332,7 +356,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = KMT22L7NMB;
+				DEVELOPMENT_TEAM = PQ5FS4VVLR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -375,6 +399,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		39FE86AA2882CDE300D0F24F /* Semo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				39FE86AB2882CDE300D0F24F /* Semo.xcdatamodel */,
+			);
+			currentVersion = 39FE86AB2882CDE300D0F24F /* Semo.xcdatamodel */;
+			path = Semo.xcdatamodeld;
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EEAD175A28828B46009388DD /* Project object */;
 }
