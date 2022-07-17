@@ -33,6 +33,9 @@
 		EEC3B54C28839FB30036BE34 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B54B28839FB30036BE34 /* TabBarView.swift */; };
 		EEC3B54E2883A79C0036BE34 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B54D2883A79C0036BE34 /* MainView.swift */; };
 		EEC3B551288402610036BE34 /* TestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B550288402610036BE34 /* TestDetailView.swift */; };
+		EEC3B553288408390036BE34 /* SingingListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B552288408390036BE34 /* SingingListDetailView.swift */; };
+		EEC3B55728843AE80036BE34 /* AddSongButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B55628843AE80036BE34 /* AddSongButtonView.swift */; };
+		EEC3B55A288441590036BE34 /* SingingListDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B559288441590036BE34 /* SingingListDetailCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +66,9 @@
 		EEC3B54B28839FB30036BE34 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		EEC3B54D2883A79C0036BE34 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EEC3B550288402610036BE34 /* TestDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailView.swift; sourceTree = "<group>"; };
+		EEC3B552288408390036BE34 /* SingingListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListDetailView.swift; sourceTree = "<group>"; };
+		EEC3B55628843AE80036BE34 /* AddSongButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongButtonView.swift; sourceTree = "<group>"; };
+		EEC3B559288441590036BE34 /* SingingListDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListDetailCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 				EEC3B54F2883B1990036BE34 /* TabBar */,
 				EEAD17752882ABF4009388DD /* AllSongList */,
 				EEAD17822882E495009388DD /* SingingList */,
+				EEC3B55828843B010036BE34 /* SingingListDetail */,
 				209E12E82883F51E006FB3A8 /* Others */,
 				EEC3B550288402610036BE34 /* TestDetailView.swift */,
 			);
@@ -205,6 +212,16 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		EEC3B55828843B010036BE34 /* SingingListDetail */ = {
+			isa = PBXGroup;
+			children = (
+				EEC3B552288408390036BE34 /* SingingListDetailView.swift */,
+				EEC3B559288441590036BE34 /* SingingListDetailCellView.swift */,
+				EEC3B55628843AE80036BE34 /* AddSongButtonView.swift */,
+			);
+			path = SingingListDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -288,6 +305,8 @@
 				EEAD177F2882DB15009388DD /* SongListCellView.swift in Sources */,
 				EEAD17862882FB6C009388DD /* EditButtonView.swift in Sources */,
 				39FE86A62882AD8000D0F24F /* CoreDataInitManager.swift in Sources */,
+				EEC3B55A288441590036BE34 /* SingingListDetailCellView.swift in Sources */,
+				EEC3B55728843AE80036BE34 /* AddSongButtonView.swift in Sources */,
 				EEC3B551288402610036BE34 /* TestDetailView.swift in Sources */,
 				209E12E32883F1CA006FB3A8 /* TextFieldView.swift in Sources */,
 				209E12E72883F3F3006FB3A8 /* ConfirmButtonView.swift in Sources */,
@@ -299,6 +318,7 @@
 				3916A1392883AD0500C21828 /* Song+CoreDataClass.swift in Sources */,
 				39FE869B28828DBD00D0F24F /* TestModel.swift in Sources */,
 				3916A13B2883AD0500C21828 /* SingingList+CoreDataClass.swift in Sources */,
+				EEC3B553288408390036BE34 /* SingingListDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,7 +447,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = PQ5FS4VVLR;
+				DEVELOPMENT_TEAM = KMT22L7NMB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -456,7 +476,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = PQ5FS4VVLR;
+				DEVELOPMENT_TEAM = KMT22L7NMB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
