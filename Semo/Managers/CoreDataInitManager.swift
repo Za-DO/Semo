@@ -8,9 +8,9 @@
 import Foundation
 import CoreData
 
-class CoreDataInitializationManager {
+class CoreDataInitManager {
     // 싱글턴
-    static let shared = CoreDataInitializationManager()
+    static let shared = CoreDataInitManager()
     lazy var context = persistentContainer.viewContext
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Semo")
