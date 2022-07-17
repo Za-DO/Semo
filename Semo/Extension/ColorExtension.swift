@@ -18,4 +18,5 @@ extension Color {
     static let mainpurplecolor = Color("Mainpurplecolor")
     static let mancolor = Color("Mancolor")
     static let womancolor = Color("Womancolor")
+    static let sampleBlack = Color(red: 21/255, green: 20/255, blue: 20/255)
 }

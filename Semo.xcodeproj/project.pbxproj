@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		209E12D72883E9EF006FB3A8 /* AddSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E12D62883E9EF006FB3A8 /* AddSongView.swift */; };
+		209E12D92883EA01006FB3A8 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E12D82883EA01006FB3A8 /* ViewExtension.swift */; };
+		209E12DB2883EAA6006FB3A8 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E12DA2883EAA6006FB3A8 /* TextFieldView.swift */; };
+		209E12DD2883EB1A006FB3A8 /* ConfirmButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E12DC2883EB1A006FB3A8 /* ConfirmButtonView.swift */; };
 		39FE869928828DB300D0F24F /* TestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE869828828DB300D0F24F /* TestManager.swift */; };
 		39FE869B28828DBD00D0F24F /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE869A28828DBD00D0F24F /* TestModel.swift */; };
 		39FE869D28828DD600D0F24F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE869C28828DD600D0F24F /* TestView.swift */; };
@@ -25,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		209E12D62883E9EF006FB3A8 /* AddSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongView.swift; sourceTree = "<group>"; };
+		209E12D82883EA01006FB3A8 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		209E12DA2883EAA6006FB3A8 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		209E12DC2883EB1A006FB3A8 /* ConfirmButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmButtonView.swift; sourceTree = "<group>"; };
 		39FE869828828DB300D0F24F /* TestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestManager.swift; sourceTree = "<group>"; };
 		39FE869A28828DBD00D0F24F /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		39FE869C28828DD600D0F24F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -54,13 +62,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		209E12DE2883EB48006FB3A8 /* AddSong */ = {
+			isa = PBXGroup;
+			children = (
+				209E12D62883E9EF006FB3A8 /* AddSongView.swift */,
+			);
+			path = AddSong;
+			sourceTree = "<group>";
+		};
 		39FE869328828D0E00D0F24F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				209E12DE2883EB48006FB3A8 /* AddSong */,
 				39FE869C28828DD600D0F24F /* TestView.swift */,
 				EEAD176728828B46009388DD /* ContentView.swift */,
 				EEAD17752882ABF4009388DD /* AllSongList */,
 				EEAD17822882E495009388DD /* SingingList */,
+				209E12DA2883EAA6006FB3A8 /* TextFieldView.swift */,
+				209E12DC2883EB1A006FB3A8 /* ConfirmButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				EEAD177C2882BE63009388DD /* ColorExtension.swift */,
+				209E12D82883EA01006FB3A8 /* ViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -220,16 +240,20 @@
 			files = (
 				EEAD176828828B46009388DD /* ContentView.swift in Sources */,
 				EEAD17742882AA2F009388DD /* SongListView.swift in Sources */,
+				209E12DB2883EAA6006FB3A8 /* TextFieldView.swift in Sources */,
 				EEC3B54C28839FB30036BE34 /* TabBarView.swift in Sources */,
+				209E12D72883E9EF006FB3A8 /* AddSongView.swift in Sources */,
 				EEAD17842882E4CD009388DD /* SingingListCellView.swift in Sources */,
 				EEAD177D2882BE63009388DD /* ColorExtension.swift in Sources */,
 				39FE869D28828DD600D0F24F /* TestView.swift in Sources */,
 				EEC3B54A28839F250036BE34 /* TabBarItemView.swift in Sources */,
 				39FE869928828DB300D0F24F /* TestManager.swift in Sources */,
+				209E12D92883EA01006FB3A8 /* ViewExtension.swift in Sources */,
 				EEAD176628828B46009388DD /* SemoApp.swift in Sources */,
 				EEAD17812882E48D009388DD /* SingingListView.swift in Sources */,
 				39FE869B28828DBD00D0F24F /* TestModel.swift in Sources */,
 				EEAD177F2882DB15009388DD /* SongListCellView.swift in Sources */,
+				209E12DD2883EB1A006FB3A8 /* ConfirmButtonView.swift in Sources */,
 				EEAD17862882FB6C009388DD /* EditButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,7 +383,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = KMT22L7NMB;
+				DEVELOPMENT_TEAM = Y6P5ZFWBM8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -388,7 +412,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = KMT22L7NMB;
+				DEVELOPMENT_TEAM = Y6P5ZFWBM8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
