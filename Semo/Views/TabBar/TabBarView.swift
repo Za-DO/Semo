@@ -30,9 +30,7 @@ struct TabBarView: View {
             }
             Spacer()
             // MARK: - 탭바 우측 노래 리스트 추가 버튼
-            Button {
-                print(tabBarOptions[currentTab] == "전체 노래" ? "노래 추가" : "리스트 추가")
-            } label: {
+            NavigationLink(destination: AddSongView()) {
                 Image(tabBarOptions[currentTab] == "전체 노래" ? "Songlistbuttonimage" : "Singinglistbuttonimage")
             }
         }

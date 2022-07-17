@@ -32,6 +32,7 @@
 		EEC3B54A28839F250036BE34 /* TabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B54928839F250036BE34 /* TabBarItemView.swift */; };
 		EEC3B54C28839FB30036BE34 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B54B28839FB30036BE34 /* TabBarView.swift */; };
 		EEC3B54E2883A79C0036BE34 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B54D2883A79C0036BE34 /* MainView.swift */; };
+		EEC3B551288402610036BE34 /* TestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B550288402610036BE34 /* TestDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		EEC3B54928839F250036BE34 /* TabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemView.swift; sourceTree = "<group>"; };
 		EEC3B54B28839FB30036BE34 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		EEC3B54D2883A79C0036BE34 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		EEC3B550288402610036BE34 /* TestDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				EEAD17752882ABF4009388DD /* AllSongList */,
 				EEAD17822882E495009388DD /* SingingList */,
 				209E12E82883F51E006FB3A8 /* Others */,
+				EEC3B550288402610036BE34 /* TestDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				EEAD177F2882DB15009388DD /* SongListCellView.swift in Sources */,
 				EEAD17862882FB6C009388DD /* EditButtonView.swift in Sources */,
 				39FE86A62882AD8000D0F24F /* CoreDataInitManager.swift in Sources */,
+				EEC3B551288402610036BE34 /* TestDetailView.swift in Sources */,
 				209E12E32883F1CA006FB3A8 /* TextFieldView.swift in Sources */,
 				209E12E72883F3F3006FB3A8 /* ConfirmButtonView.swift in Sources */,
 				39FE86AC2882CDE300D0F24F /* Semo.xcdatamodeld in Sources */,
