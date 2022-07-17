@@ -16,6 +16,10 @@
 		39FE869D28828DD600D0F24F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE869C28828DD600D0F24F /* TestView.swift */; };
 		39FE86A62882AD8000D0F24F /* CoreDataInitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE86A52882AD8000D0F24F /* CoreDataInitManager.swift */; };
 		39FE86AC2882CDE300D0F24F /* Semo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39FE86AA2882CDE300D0F24F /* Semo.xcdatamodeld */; };
+		B2108F1428845A5A002CED9D /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1328845A5A002CED9D /* LevelView.swift */; };
+		B2108F1628845A67002CED9D /* TuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1528845A67002CED9D /* TuneView.swift */; };
+		B2108F1828845A74002CED9D /* SingingListTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1728845A74002CED9D /* SingingListTagView.swift */; };
+		B2108F1A28845AE9002CED9D /* SongInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1928845AE9002CED9D /* SongInfoView.swift */; };
 		B235402628844FB6006DDAEE /* TestSongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B235402528844FB6006DDAEE /* TestSongListView.swift */; };
 		B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262DD0C2883F86F00E1B527 /* SongDetailView.swift */; };
 		EEAD176628828B46009388DD /* SemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD176528828B46009388DD /* SemoApp.swift */; };
@@ -43,6 +47,10 @@
 		39FE869C28828DD600D0F24F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		39FE86A52882AD8000D0F24F /* CoreDataInitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataInitManager.swift; sourceTree = "<group>"; };
 		39FE86AB2882CDE300D0F24F /* Semo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Semo.xcdatamodel; sourceTree = "<group>"; };
+		B2108F1328845A5A002CED9D /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
+		B2108F1528845A67002CED9D /* TuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuneView.swift; sourceTree = "<group>"; };
+		B2108F1728845A74002CED9D /* SingingListTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListTagView.swift; sourceTree = "<group>"; };
+		B2108F1928845AE9002CED9D /* SongInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongInfoView.swift; sourceTree = "<group>"; };
 		B235402528844FB6006DDAEE /* TestSongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSongListView.swift; sourceTree = "<group>"; };
 		B262DD0C2883F86F00E1B527 /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
 		EEAD176228828B46009388DD /* Semo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Semo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +115,10 @@
 			isa = PBXGroup;
 			children = (
 				B262DD0C2883F86F00E1B527 /* SongDetailView.swift */,
+				B2108F1928845AE9002CED9D /* SongInfoView.swift */,
+				B2108F1328845A5A002CED9D /* LevelView.swift */,
+				B2108F1528845A67002CED9D /* TuneView.swift */,
+				B2108F1728845A74002CED9D /* SingingListTagView.swift */,
 				B235402528844FB6006DDAEE /* TestSongListView.swift */,
 			);
 			path = SongDetail;
@@ -261,13 +273,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2108F1628845A67002CED9D /* TuneView.swift in Sources */,
 				EEAD176828828B46009388DD /* ContentView.swift in Sources */,
 				EEC3B54E2883A79C0036BE34 /* MainView.swift in Sources */,
+				B2108F1A28845AE9002CED9D /* SongInfoView.swift in Sources */,
 				EEAD17742882AA2F009388DD /* SongListView.swift in Sources */,
+				B2108F1428845A5A002CED9D /* LevelView.swift in Sources */,
 				EEC3B54C28839FB30036BE34 /* TabBarView.swift in Sources */,
 				EEAD17842882E4CD009388DD /* SingingListCellView.swift in Sources */,
 				B235402628844FB6006DDAEE /* TestSongListView.swift in Sources */,
 				EEAD177D2882BE63009388DD /* ColorExtension.swift in Sources */,
+				B2108F1828845A74002CED9D /* SingingListTagView.swift in Sources */,
 				39FE869D28828DD600D0F24F /* TestView.swift in Sources */,
 				B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */,
 				EEC3B54A28839F250036BE34 /* TabBarItemView.swift in Sources */,
@@ -411,7 +427,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = PQ5FS4VVLR;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -440,7 +456,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = PQ5FS4VVLR;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

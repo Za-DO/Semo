@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SongDetailView: View {
-    @State var gender = 1
     
+    // MARK: - BODY
     var body: some View {
         ZStack(alignment: .top) {
             Image("backgroundImage")
@@ -21,47 +21,12 @@ struct SongDetailView: View {
                 .ignoresSafeArea()
             VStack {
                 // MARK: - 곡 기본 정보
-                Spacer()
-                    .frame(height: 70)
-                Text("노래 제목입니다")
-                    .font(.system(size: 24, weight: .semibold))
-                    .foregroundColor(.white)
-                Text("노래 가수입니다")
-                    .font(.system(size: 18, weight: .medium))
-                    .foregroundColor(.grayScale2)
-                    .padding(.top, 2)
-                    .padding(.bottom, 20)
-                // MARK: - 곡 숙련도
+                SongInfoView()
                 ScrollView {
-                    HStack {
-                        Text("숙련도")
-                            .font(.system(size: 15, weight: .medium))
-                            .foregroundColor(.grayScale2)
-                            .padding([.top, .leading], 20)
-                        Spacer()
-                    }
-                    // pickerView 들어갈 부분
-                    Spacer()
-                        .frame(height: 102)
+                    // MARK: - 곡 숙련도
+                    LevelView()
                     // MARK: - 키 설정
-                    HStack {
-                        Text("키")
-                            .font(.system(size: 15, weight: .medium))
-                            .foregroundColor(.grayScale2)
-                            .padding([.top, .leading], 20)
-                        Spacer()
-                    }
-                    Picker("pick gender", selection: $gender, content: {
-                        Text("여성").tag(0)
-                        Text("혼성").tag(1)
-                        Text("남성").tag(2)
-                    })
-                    .pickerStyle(SegmentedPickerStyle())
-                    .padding([.leading, .trailing], 24)
-                    .padding(.top, 24)
-                    // pickerView 들어갈 부분
-                    Spacer()
-                        .frame(height: 102)
+                    TuneView()
                     // MARK: - 싱잉리스트 태그
                     HStack {
                         Text("싱잉리스트")
@@ -94,6 +59,7 @@ struct SongDetailView: View {
                         .padding(.top, 20)
                     }
                 }
+                // MARK: - 상단 네비게이션 바 삭제 버튼
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button{
