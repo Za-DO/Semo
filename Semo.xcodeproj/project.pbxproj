@@ -16,6 +16,8 @@
 		39FE869D28828DD600D0F24F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE869C28828DD600D0F24F /* TestView.swift */; };
 		39FE86A62882AD8000D0F24F /* CoreDataInitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE86A52882AD8000D0F24F /* CoreDataInitManager.swift */; };
 		39FE86AC2882CDE300D0F24F /* Semo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39FE86AA2882CDE300D0F24F /* Semo.xcdatamodeld */; };
+		B235402628844FB6006DDAEE /* TestSongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B235402528844FB6006DDAEE /* TestSongListView.swift */; };
+		B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262DD0C2883F86F00E1B527 /* SongDetailView.swift */; };
 		EEAD176628828B46009388DD /* SemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD176528828B46009388DD /* SemoApp.swift */; };
 		EEAD176828828B46009388DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD176728828B46009388DD /* ContentView.swift */; };
 		EEAD176A28828B47009388DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEAD176928828B47009388DD /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		39FE869C28828DD600D0F24F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		39FE86A52882AD8000D0F24F /* CoreDataInitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataInitManager.swift; sourceTree = "<group>"; };
 		39FE86AB2882CDE300D0F24F /* Semo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Semo.xcdatamodel; sourceTree = "<group>"; };
+		B235402528844FB6006DDAEE /* TestSongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSongListView.swift; sourceTree = "<group>"; };
+		B262DD0C2883F86F00E1B527 /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
 		EEAD176228828B46009388DD /* Semo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Semo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEAD176528828B46009388DD /* SemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemoApp.swift; sourceTree = "<group>"; };
 		EEAD176728828B46009388DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 				39FE869C28828DD600D0F24F /* TestView.swift */,
 				EEAD176728828B46009388DD /* ContentView.swift */,
 				EEC3B54D2883A79C0036BE34 /* MainView.swift */,
+				B262DD0E288408C400E1B527 /* SongDetail */,
 				EEC3B54F2883B1990036BE34 /* TabBar */,
 				EEAD17752882ABF4009388DD /* AllSongList */,
 				EEAD17822882E495009388DD /* SingingList */,
@@ -96,6 +101,15 @@
 				39FE86A52882AD8000D0F24F /* CoreDataInitManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		B262DD0E288408C400E1B527 /* SongDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B262DD0C2883F86F00E1B527 /* SongDetailView.swift */,
+				B235402528844FB6006DDAEE /* TestSongListView.swift */,
+			);
+			path = SongDetail;
 			sourceTree = "<group>";
 		};
 		EEAD175928828B46009388DD = {
@@ -252,8 +266,10 @@
 				EEAD17742882AA2F009388DD /* SongListView.swift in Sources */,
 				EEC3B54C28839FB30036BE34 /* TabBarView.swift in Sources */,
 				EEAD17842882E4CD009388DD /* SingingListCellView.swift in Sources */,
+				B235402628844FB6006DDAEE /* TestSongListView.swift in Sources */,
 				EEAD177D2882BE63009388DD /* ColorExtension.swift in Sources */,
 				39FE869D28828DD600D0F24F /* TestView.swift in Sources */,
+				B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */,
 				EEC3B54A28839F250036BE34 /* TabBarItemView.swift in Sources */,
 				39FE869928828DB300D0F24F /* TestManager.swift in Sources */,
 				EEAD176628828B46009388DD /* SemoApp.swift in Sources */,
