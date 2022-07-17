@@ -11,7 +11,8 @@ import SwiftUI
 struct SemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
+                .environment(\.colorScheme, .dark)
         }
     }
 }
