@@ -20,8 +20,7 @@ struct SingingListView: View {
                 Spacer()
                 EditButtonView(buttonName: "리스트 편집", buttonWidth: 93)
             }
-            .padding(EdgeInsets(top: 15, leading: 20, bottom: 15, trailing: 30))
-            
+            .padding(EdgeInsets(top: 15, leading: 20, bottom: 15, trailing: 30))            
             // MARK: - 싱잉리스트 생성 및 스크롤 추가
             ScrollView {
                 Divider()
@@ -38,5 +37,11 @@ struct SingingListView: View {
             Spacer()
         }
         .padding(.top, 80)
+    }
+}
+
+struct SingingListView_Preview: PreviewProvider {
+    static var previews: some View {
+        SingingListView()
     }
 }

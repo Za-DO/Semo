@@ -31,6 +31,7 @@ struct MainView: View {
             .navigationTitle("메인뷰")
             .navigationBarHidden(true)
         }
+        .accentColor(.mainPurpleColor)
     }
 }
 
