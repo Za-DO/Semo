@@ -33,7 +33,5 @@ struct EditButtonView: View {
                         .opacity(0.1)
                 )
         }
-//        .buttonStyle(.bordered)
-//        .buttonBorderShape(.capsule)
     }
 }
