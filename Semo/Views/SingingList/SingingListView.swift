@@ -8,31 +8,29 @@
 import SwiftUI
 
 struct SingingListView: View {
+    // MARK: - BODY
     var body: some View {
-        // Custom List
         VStack {
-            // 목록 편집바
             HStack {
-                // 데이터 크기로 값 받아오기
+                // TODO: - 리스트 개수 나타내도록 코드 수정하기
                 Text("리스트 3개")
                     .font(.subheadline)
-                    .foregroundColor(.grayscale2)
+                    .foregroundColor(.grayScale2)
                     .fontWeight(.medium)
                 Spacer()
                 EditButtonView(buttonName: "리스트 편집", buttonWidth: 93)
             }
             .padding(EdgeInsets(top: 15, leading: 20, bottom: 15, trailing: 30))
             
+            // MARK: - 싱잉리스트 생성 및 스크롤 추가
             ScrollView {
                 Divider()
-                    .background(Color.grayscale6)
+                    .background(Color.grayScale6)
                     .frame(width: 350)
-                // ForEach문에 data 받아와야됨
                 ForEach(0..<15) { _ in
-                    SingingListCellView()
-                    
+                    SingingListCellView()                    
                     Divider()
-                        .background(Color.grayscale6)
+                        .background(Color.grayScale6)
                         .frame(width: 350)
                 }
                 .padding(.top, 10)
@@ -40,12 +38,5 @@ struct SingingListView: View {
             Spacer()
         }
         .padding(.top, 80)
-    }
-}
-
-struct SingingListView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-            .environment(\.colorScheme, .dark)
     }
 }

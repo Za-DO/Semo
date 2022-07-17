@@ -8,40 +8,33 @@
 import SwiftUI
 
 struct SongListCellView: View {
+    // MARK: - BODY
     var body: some View {
-        // 노래 제목, 가수 이름, 키 정보는 따로 받아서 넘겨줘야할듯        
+        // TODO: - 리스트 각 셀 데이터 반환 액션 추가
         Button {
-            
+
         } label: {
             HStack {
+                // MARK: - 노래 정보 표시
                 VStack(alignment: .leading, spacing: 10) {
                     Text("노래 제목")
                         .font(.system(size: 20, weight: .semibold))
-                        .foregroundColor(.white)
+                        .foregroundColor(.grayScale1)
                     Text("가수 이름")
                         .font(.system(size: 15, weight: .medium))
-                        .foregroundColor(.grayscale2)
+                        .foregroundColor(.grayScale2)
                 }
-                
                 Spacer()
-                
+                // MARK: - Tune 정보 표시
                 Capsule()
                     .frame(width: 62, height: 32)
-                    .foregroundColor(.grayscale7)
+                    .foregroundColor(.grayScale7)
                     .overlay(
-                        Text("\(Text("여").foregroundColor(.womancolor)) +3")
-                            .foregroundColor(.white)
+                        Text("\(Text("여").foregroundColor(.womanColor)) +3")
+                            .foregroundColor(.grayScale1)
                     )
             }
             .padding(.horizontal, 20)
         }
-
-    }
-}
-
-struct SongListCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        SongListView()
-            .environment(\.colorScheme, .dark)
     }
 }

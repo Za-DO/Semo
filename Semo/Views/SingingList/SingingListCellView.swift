@@ -8,24 +8,30 @@
 import SwiftUI
 
 struct SingingListCellView: View {
+    // MARK: - BODY
     var body: some View {
-        // 노래 제목, 가수 이름, 키 정보는 따로 받아서 넘겨줘야할듯
-        HStack {
-            VStack(alignment: .leading, spacing: 10) {
-                Text("빠른 싱잉리스트")
-                    .font(.system(size: 20, weight: .semibold))
-                    .foregroundColor(.white)
-                Text("총 7곡")
-                    .font(.system(size: 15, weight: .medium))
-                    .foregroundColor(.grayscale2)
+        // TODO: - 리스트 각 셀 데이터 반환 액션 추가
+        Button {
+            
+        } label: {
+            HStack {
+                // MARK: - 노래 정보 표시
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("빠른 싱잉리스트")
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundColor(.grayScale1)
+                    Text("총 7곡")
+                        .font(.system(size: 15, weight: .medium))
+                        .foregroundColor(.grayScale2)
+                }
+                Spacer()
+                // MARK: - Tune 정보 표시
+                Image(systemName: "chevron.right")
+                    .scaledToFit()
+                    .foregroundColor(.grayScale1)
             }
-            
-            Spacer()
-            
-            Image(systemName: "chevron.right")
-                .scaledToFit()
-                .foregroundColor(.white)
+            .padding(.horizontal, 20)
         }
-        .padding(.horizontal, 20)
+
     }
 }

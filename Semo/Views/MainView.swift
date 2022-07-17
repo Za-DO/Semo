@@ -10,10 +10,13 @@ import SwiftUI
 struct MainView: View {
     @State var currentTab: Int = 0
     
+    // MARK: - BODY
     var body: some View {
         ZStack(alignment: .top) {
             Image("backgroundImage")
                 .ignoresSafeArea()
+            
+            // MARK: - 상단 탭바
             TabView(selection: self.$currentTab) {
                 SongListView().tag(0)
                 SingingListView().tag(1)
