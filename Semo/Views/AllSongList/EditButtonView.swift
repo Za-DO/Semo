@@ -11,25 +11,27 @@ struct EditButtonView: View {
     @State var buttonName: String
     @State var buttonWidth: CGFloat
     
+    // MARK: - BODY
     var body: some View {
+        // MARK: - 목록, 리스트 편집 버튼
         Button {
             print("\(buttonName) 가능")
         } label: {
             Text(buttonName)
                 .font(.system(size: 15, weight: .medium))
-                .foregroundColor(.white)
-                // overlay 2개 겹치는 것 이외에 좋은 방법이 없을까
+                .foregroundColor(.grayScale1)
+                // TODO: - overlay를 2번 사용하지 않고 구현
                 .overlay(
-                    // RoundedRectangle에 stroke를 추가하고 싶다면 맨 위에 넣기
+                    // RoundedRectangle에 stroke를 추가할 땐 맨 위에 넣기
                     RoundedRectangle(cornerRadius: UIScreen.main.bounds.height)
-                        .stroke(Color.white, lineWidth: 1)
+                        .stroke(Color.grayScale1, lineWidth: 1)
                         .frame(width: buttonWidth, height: 32)
                         .opacity(0.2)
                 )
                 .overlay(
                     RoundedRectangle(cornerRadius: UIScreen.main.bounds.height)
                         .frame(width: buttonWidth, height: 32)
-                        .foregroundColor(.white)
+                        .foregroundColor(.grayScale1)
                         .opacity(0.1)
                 )
         }

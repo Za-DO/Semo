@@ -12,18 +12,19 @@ struct TabBarItemView: View {
     @Binding var currentTab: Int
     
     let namespace: Namespace.ID
-
     var tab: Int
 
+    // MARK: - BODY
     var body: some View {
         Button {
             self.currentTab = tab
         } label: {
+            // MARK: - 탭바 형태, 애니메이션
             VStack {
                 Spacer()
                 Text(tabBarItemName)
                 if currentTab == tab {
-                    Color.mainpurplecolor
+                    Color.mainPurpleColor
                         .frame(width: 24, height: 4)
                         .matchedGeometryEffect(id: "underline",
                                                in: namespace,
@@ -36,12 +37,6 @@ struct TabBarItemView: View {
             .animation(.spring(), value: self.currentTab)
         }
         .font(.system(size: 20, weight: .semibold))
-        .foregroundColor(.white)
-    }
-}
-
-struct TabBarItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
+        .foregroundColor(.grayScale1)
     }
 }
