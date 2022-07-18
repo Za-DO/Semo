@@ -25,15 +25,12 @@ struct SongDetailView: View {
                     LevelPickerView()
                     TunePickerView()
                     HStack {
-                        Text("싱잉리스트")
-                            .font(.system(size: 15, weight: .medium))
-                            .foregroundColor(.grayScale2)
-                            .padding([.top, .leading], 20)
+                        ContentsTitleView(titleName: "싱잉리스트")
                         Spacer()
                         EditButtonView(buttonName: "추가하기", buttonWidth: 80)
-                            .padding(.top, 16)
-                            .padding(.trailing, 34)
+                            .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 34))
                     }
+                    
                     // TODO: - 싱잉리스트 데이터 받아오기
                     ForEach(0..<10) { _ in
                         HStack {
@@ -42,8 +39,7 @@ struct SongDetailView: View {
                             } label: {
                                 Image(systemName: "minus.circle.fill")
                                     .foregroundColor(.grayScale4)
-                                    .padding(.trailing, 10)
-                                    .padding(.leading, 20)
+                                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
                             }
                             HStack {
                                 Text("싱잉리스트")

@@ -14,10 +14,7 @@ struct TunePickerView: View {
         VStack {
             // MARK: - 남/여/혼성 세그먼트
             HStack {
-                Text("키")
-                    .font(.system(size: 15, weight: .medium))
-                    .foregroundColor(.grayScale2)
-                    .padding([.top, .leading], 20)
+                ContentsTitleView(titleName: "키")
                 Spacer()
             }
             Picker("pick gender", selection: $gender, content: {
@@ -28,6 +25,7 @@ struct TunePickerView: View {
             .pickerStyle(SegmentedPickerStyle())
             .padding(EdgeInsets(top: 24, leading: 24, bottom: 0, trailing: 24))
             // MARK: - 키 picker
+            
             // TODO: - pickerView 가져오기
             Spacer()
                 .frame(height: 102)

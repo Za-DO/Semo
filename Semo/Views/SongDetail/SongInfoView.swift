@@ -18,8 +18,7 @@ struct SongInfoView: View {
             Text("노래 가수입니다")
                 .font(.system(size: 18, weight: .medium))
                 .foregroundColor(.grayScale2)
-                .padding(.top, 2)
-                .padding(.bottom, 20)
+                .padding(EdgeInsets(top: 2, leading: 0, bottom: 20, trailing: 0))
         }
     }
 }

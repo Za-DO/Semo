@@ -11,13 +11,12 @@ struct LevelPickerView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("숙련도")
-                    .font(.system(size: 15, weight: .medium))
-                    .foregroundColor(.grayScale2)
-                    .padding([.top, .leading], 20)
+                ContentsTitleView(titleName: "숙련도")
                 Spacer()
             }
+            
             // TODO: - pickerView 가져오기
+            // pickerView가 들어갈 부분
             Spacer()
                 .frame(height: 102)
         }
