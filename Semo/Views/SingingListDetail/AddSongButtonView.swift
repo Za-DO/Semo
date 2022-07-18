@@ -13,20 +13,22 @@ struct AddSongButtonView: View {
         HStack {
             Button {
             } label: {
+                // TODO: - destination 수정 필요
                 NavigationLink(destination: AddSongView()) {
                     Label {
                         Text("노래 추가하기")
-                            .font(.system(size: 15, weight: .medium))
+                            .font(.system(size: 18, weight: .medium))
                             .foregroundColor(.grayScale1)
                     } icon: {
                         Image(systemName: "plus")
+                            .font(.system(size: 18))
                             .foregroundColor(.mainPurpleColor)
                     }
                 }
             }
             Spacer()
         }
-        .padding(EdgeInsets(top: 15, leading: 20, bottom: 100, trailing: 0))
+        .padding(EdgeInsets(top: 15, leading: 20, bottom: 120, trailing: 0))
     }
 }
 

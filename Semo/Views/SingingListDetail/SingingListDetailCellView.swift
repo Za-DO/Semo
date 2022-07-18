@@ -38,7 +38,7 @@ struct SingingListDetailCellView: View {
                 Spacer()
             }
         }
-        .padding(.top, 130)
+        .padding(.top, 110)
     }
 }
 

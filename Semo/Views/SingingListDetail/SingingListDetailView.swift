@@ -16,7 +16,7 @@ struct SingingListDetailView: View {
             VStack {
                 Rectangle()
                     .edgesIgnoringSafeArea(.all)
-                    .frame(height: UIScreen.main.bounds.height * 0.15)
+                    .frame(height: UIScreen.main.bounds.height * 0.12)
                     .foregroundColor(.grayScale6)
                     .opacity(0.4)
                 Spacer()
