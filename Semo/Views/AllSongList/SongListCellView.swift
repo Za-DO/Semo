@@ -13,7 +13,7 @@ struct SongListCellView: View {
         // TODO: - 리스트 각 셀 데이터 반환 액션 추가
         Button {
         } label: {
-            NavigationLink(destination: TestDetailView()) {
+            NavigationLink(destination: SongDetailView()) {
                 HStack {
                     // MARK: - 노래 정보 표시
                     VStack(alignment: .leading, spacing: 10) {
