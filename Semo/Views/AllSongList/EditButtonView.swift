@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct EditButtonView: View {
-    @State var buttonName: String
-    @State var buttonWidth: CGFloat
+    var buttonName: String
+    var buttonWidth: CGFloat
     
     // MARK: - BODY
     var body: some View {
