@@ -12,21 +12,26 @@ struct MainView: View {
     
     // MARK: - BODY
     var body: some View {
-        ZStack(alignment: .top) {
-            Image("backgroundImage")
-                .ignoresSafeArea()
-            
-            // MARK: - 상단 탭바
-            TabView(selection: self.$currentTab) {
-                SongListView().tag(0)
-                SingingListView().tag(1)
+        NavigationView {
+            ZStack(alignment: .top) {
+                Image("backgroundImage")
+                    .ignoresSafeArea()
+                
+                // MARK: - 상단 탭바
+                TabView(selection: self.$currentTab) {
+                    SongListView().tag(0)
+                    SingingListView().tag(1)
+                }
+                .tabViewStyle(.page(indexDisplayMode: .never))
+                .edgesIgnoringSafeArea(.all)
+                
+                TabBarView(currentTab: self.$currentTab)
+                    .padding(.top, 60)
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            .edgesIgnoringSafeArea(.all)
-            
-            TabBarView(currentTab: self.$currentTab)
-                .padding(.top, 60)
+            .navigationTitle("메인뷰")
+            .navigationBarHidden(true)
         }
+        .accentColor(.mainPurpleColor)
     }
 }
 
