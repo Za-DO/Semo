@@ -19,6 +19,7 @@ struct SongDetailView: View {
                 .opacity(0.4)
                 .frame(height: 220)
                 .ignoresSafeArea()
+            // MARK: - 디테일뷰 컨텐츠
             VStack {
                 SongInfoView()
                 ScrollView {

@@ -27,6 +27,7 @@ struct TunePickerView: View {
             // MARK: - 키 picker
             
             // TODO: - pickerView 가져오기
+            // pickerView가 들어갈 부분
             Spacer()
                 .frame(height: 102)
         }

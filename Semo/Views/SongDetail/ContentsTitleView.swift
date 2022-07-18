@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentsTitleView: View {
-    @State var titleName: String
+    var titleName: String
     
     var body: some View {
         Text(titleName)
