@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TuneView: View {
+struct TunePickerView: View {
     @State var gender = 1
     
     var body: some View {
@@ -35,8 +35,8 @@ struct TuneView: View {
     }
 }
 
-struct TuneView_Previews: PreviewProvider {
+struct TunePickerView_Previews: PreviewProvider {
     static var previews: some View {
-        TuneView().preferredColorScheme(.dark)
+        TunePickerView().preferredColorScheme(.dark)
     }
 }

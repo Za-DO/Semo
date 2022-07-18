@@ -20,14 +20,10 @@ struct SongDetailView: View {
                 .frame(height: 220)
                 .ignoresSafeArea()
             VStack {
-                // MARK: - 곡 기본 정보
                 SongInfoView()
                 ScrollView {
-                    // MARK: - 곡 숙련도
-                    LevelView()
-                    // MARK: - 키 설정
-                    TuneView()
-                    // MARK: - 싱잉리스트 태그
+                    LevelPickerView()
+                    TunePickerView()
                     HStack {
                         Text("싱잉리스트")
                             .font(.system(size: 15, weight: .medium))

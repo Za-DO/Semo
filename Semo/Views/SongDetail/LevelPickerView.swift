@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LevelView: View {
+struct LevelPickerView: View {
     var body: some View {
         VStack {
             HStack {
@@ -24,8 +24,8 @@ struct LevelView: View {
     }
 }
 
-struct LevelView_Previews: PreviewProvider {
+struct LevelPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        LevelView().preferredColorScheme(.dark)
+        LevelPickerView().preferredColorScheme(.dark)
     }
 }
