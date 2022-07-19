@@ -26,19 +26,18 @@ struct AddMoreInfoView: View {
                 TunePickerView()
                 Spacer()
                 
-                // TODO: - 데이터 저장하기
+                // TODO: - 데이터 저장하고 다음 단계로 넘어가기
                 NavigationLink(destination: TestDetailView()) {
                     ConfirmButtonView(buttonName: "확인")
                 }
                 .navigationTitle("")
-                Button {
-                    print("기본 데이터만 저장하고 다음 단계로 이동")
-                } label: {
+                NavigationLink(destination: TestDetailView()) {
                     Text("건너뛰기")
                         .foregroundColor(.grayScale1)
                         .font(.system(size: 16, weight: .semibold))
                         .padding(EdgeInsets(top: 28, leading: 0, bottom: 60, trailing: 0))
                 }
+                .navigationTitle("")
             }
         }
         .navigationBarTitle("", displayMode: .inline)
