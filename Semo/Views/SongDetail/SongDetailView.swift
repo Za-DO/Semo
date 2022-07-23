@@ -8,23 +8,42 @@
 import SwiftUI
 
 struct SongDetailView: View {
+    @State var levelPickerIndex: Int = 1
+    var levelPickerItems: [String] = ["하", "중", "상"]
+    
+    var genderItems = ["여성", "혼성", "남성"]
+    @State var genderIndex = "혼성"
+    
+    @State var tunePickerIndex:Int = 6
+    var tunePickerItems: [String] = ["-6", "-5", "-4", "-3", "-2", "-1",
+                                            "0", "1", "2", "3", "4", "5", "6"]
     
     // MARK: - BODY
+    
     var body: some View {
         ZStack(alignment: .top) {
             Image("backgroundImage")
                 .ignoresSafeArea()
+            
             Rectangle()
                 .foregroundColor(.grayScale6)
                 .opacity(0.4)
                 .frame(height: 220)
                 .ignoresSafeArea()
+            
             // MARK: - 디테일뷰 컨텐츠
+            
             VStack {
                 SongInfoView()
+                    .padding(.bottom, 52)
+                
                 ScrollView {
-                    LevelPickerView()
-                    TunePickerView()
+                    LevelPickerView(levelIndexBase: $levelPickerIndex, levelItems: levelPickerItems)
+                    
+                    TunePickerView(genderIndexBase: $genderIndex, genderItems: genderItems, tuneIndexBase: $tunePickerIndex, tuneItems: tunePickerItems)
+                        // TODO: Padding 세부 간격 조절 필요
+                        .padding(.bottom, 42)
+                
                     HStack {
                         ContentsTitleView(titleName: "싱잉리스트")
                         Spacer()
@@ -33,6 +52,7 @@ struct SongDetailView: View {
                     }
                     
                     // TODO: - 싱잉리스트 데이터 받아오기
+                    
                     ForEach(0..<10) { _ in
                         HStack {
                             Button {
@@ -42,17 +62,21 @@ struct SongDetailView: View {
                                     .foregroundColor(.grayScale4)
                                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
                             }
+                            
                             HStack {
                                 Text("싱잉리스트")
                                     .font(.system(size: 20, weight: .semibold))
                                     .foregroundColor(.white)
                             }
+                            
                             Spacer()
                         }
                         .padding(.top, 20)
                     }
                 }
+                
                 // MARK: - 상단 네비게이션 바 삭제 버튼
+                
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button{

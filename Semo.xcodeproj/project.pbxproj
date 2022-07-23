@@ -180,7 +180,6 @@
 				6ABBD324455D15FC10163A3D /* Pods-Semo.debug.xcconfig */,
 				324780C526FC5F50D6BD8D3A /* Pods-Semo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

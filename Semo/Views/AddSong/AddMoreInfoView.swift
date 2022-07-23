@@ -8,6 +8,16 @@
 import SwiftUI
 
 struct AddMoreInfoView: View {
+    @State var levelPickerIndex: Int = 1
+    var levelPickerItems: [String] = ["하", "중", "상"]
+    
+    var genderItems = ["여성", "혼성", "남성"]
+    @State var genderIndex = "혼성"
+    
+    @State var tunePickerIndex:Int = 6
+    @State var tunePickerItems: [String] = ["-6", "-5", "-4", "-3", "-2", "-1",
+                                            "0", "1", "2", "3", "4", "5", "6"]
+    
     var body: some View {
         ZStack {
             Color.backgroundBlack.ignoresSafeArea()
@@ -21,9 +31,9 @@ struct AddMoreInfoView: View {
                     .foregroundColor(.white)
                     .font(.system(size: 24, weight: .semibold))
                     .padding(EdgeInsets(top: 14, leading: 20, bottom: 0, trailing: 0))
-                LevelPickerView()
+                LevelPickerView(levelIndexBase: $levelPickerIndex, levelItems: levelPickerItems)
                     .padding(.top, 60)
-                TunePickerView()
+                TunePickerView(genderIndexBase: $genderIndex, genderItems: genderItems, tuneIndexBase: $tunePickerIndex, tuneItems: tunePickerItems)
                 Spacer()
                 
                 // TODO: - 데이터 저장하고 다음 단계로 넘어가기
@@ -45,6 +55,6 @@ struct AddMoreInfoView: View {
 
 struct AddMoreInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        AddMoreInfoView()
+        AddMoreInfoView().preferredColorScheme(.dark)
     }
 }
