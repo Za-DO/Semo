@@ -26,6 +26,7 @@
 		B2108F1A28845AE9002CED9D /* SongInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1928845AE9002CED9D /* SongInfoView.swift */; };
 		B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262DD0C2883F86F00E1B527 /* SongDetailView.swift */; };
 		B2A36E322885A6560031D282 /* ContentsTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A36E312885A6560031D282 /* ContentsTitleView.swift */; };
+		C5200BDEAC2C4BE3A51404E6 /* Pods_Semo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533DF943DAA76770EFE704E6 /* Pods_Semo.framework */; };
 		EEAD176628828B46009388DD /* SemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD176528828B46009388DD /* SemoApp.swift */; };
 		EEAD176A28828B47009388DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEAD176928828B47009388DD /* Assets.xcassets */; };
 		EEAD176D28828B47009388DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEAD176C28828B47009388DD /* Preview Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		209E12E22883F1CA006FB3A8 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		209E12E42883F1F9006FB3A8 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		209E12E62883F3F3006FB3A8 /* ConfirmButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmButtonView.swift; sourceTree = "<group>"; };
+		324780C526FC5F50D6BD8D3A /* Pods-Semo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Semo.release.xcconfig"; path = "Target Support Files/Pods-Semo/Pods-Semo.release.xcconfig"; sourceTree = "<group>"; };
 		3916A1352883AD0500C21828 /* Song+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Song+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3916A1362883AD0500C21828 /* Song+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Song+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3916A1372883AD0500C21828 /* SingingList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingingList+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -58,6 +60,8 @@
 		39FE869C28828DD600D0F24F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		39FE86A52882AD8000D0F24F /* CoreDataInitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataInitManager.swift; sourceTree = "<group>"; };
 		39FE86AB2882CDE300D0F24F /* Semo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Semo.xcdatamodel; sourceTree = "<group>"; };
+		533DF943DAA76770EFE704E6 /* Pods_Semo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Semo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6ABBD324455D15FC10163A3D /* Pods-Semo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Semo.debug.xcconfig"; path = "Target Support Files/Pods-Semo/Pods-Semo.debug.xcconfig"; sourceTree = "<group>"; };
 		B2108F1328845A5A002CED9D /* LevelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPickerView.swift; sourceTree = "<group>"; };
 		B2108F1528845A67002CED9D /* TunePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunePickerView.swift; sourceTree = "<group>"; };
 		B2108F1728845A74002CED9D /* SingingListTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListTagView.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5200BDEAC2C4BE3A51404E6 /* Pods_Semo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +114,14 @@
 				209E12E62883F3F3006FB3A8 /* ConfirmButtonView.swift */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		35016DB83ACE382A29C8B547 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				533DF943DAA76770EFE704E6 /* Pods_Semo.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		39FE869328828D0E00D0F24F /* Views */ = {
@@ -158,11 +171,23 @@
 			path = SongDetail;
 			sourceTree = "<group>";
 		};
+		E737A7F306AB7D6519D0F6BA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6ABBD324455D15FC10163A3D /* Pods-Semo.debug.xcconfig */,
+				324780C526FC5F50D6BD8D3A /* Pods-Semo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		EEAD175928828B46009388DD = {
 			isa = PBXGroup;
 			children = (
 				EEAD176428828B46009388DD /* Semo */,
 				EEAD176328828B46009388DD /* Products */,
+				E737A7F306AB7D6519D0F6BA /* Pods */,
+				35016DB83ACE382A29C8B547 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -255,9 +280,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEAD177028828B47009388DD /* Build configuration list for PBXNativeTarget "Semo" */;
 			buildPhases = (
+				A0159275A22FEEEB37104A00 /* [CP] Check Pods Manifest.lock */,
 				EEAD175E28828B46009388DD /* Sources */,
 				EEAD175F28828B46009388DD /* Frameworks */,
 				EEAD176028828B46009388DD /* Resources */,
+				675FCFD6DA4399817B1C4019 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,13 +340,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		675FCFD6DA4399817B1C4019 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Semo/Pods-Semo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Semo/Pods-Semo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Semo/Pods-Semo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0159275A22FEEEB37104A00 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Semo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EEAD175E28828B46009388DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B2108F1628845A67002CED9D /* TunePickerView.swift in Sources */,
-				EEAD176828828B46009388DD /* ContentView.swift in Sources */,
 				EEC3B54E2883A79C0036BE34 /* MainView.swift in Sources */,
 				B2108F1A28845AE9002CED9D /* SongInfoView.swift in Sources */,
 				EEAD17742882AA2F009388DD /* SongListView.swift in Sources */,
@@ -474,6 +542,7 @@
 		};
 		EEAD177128828B47009388DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6ABBD324455D15FC10163A3D /* Pods-Semo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -503,6 +572,7 @@
 		};
 		EEAD177228828B47009388DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 324780C526FC5F50D6BD8D3A /* Pods-Semo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
