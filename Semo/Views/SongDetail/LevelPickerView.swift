@@ -21,21 +21,24 @@ struct LevelPickerView: View {
             // TODO: - pickerView 가져오기
             // pickerView가 들어갈 부분
 
-            SwiftUIWheelPicker($indexBasic, items: $items) { value in
-                GeometryReader { reader in
-                    Text("\(value)")
-                        .frame(width: reader.size.width, height: reader.size.height,
-                               alignment: .center)
-                        .font(.system(size: 50))
+            ZStack {
+                Circle()
+                    .foregroundColor(.mainPurpleColor)
+                    .opacity(0.5)
+                    .frame(width: 64, height: 64, alignment: .center)
+                    .shadow(color: .mainPurpleColor, radius: 10, x: 0, y: 0)
+                SwiftUIWheelPicker($indexBasic, items: $items) { value in
+                    GeometryReader { reader in
+                        Text("\(value)")
+                            .frame(width: reader.size.width, height: reader.size.height,
+                                   alignment: .center)
+                            .font(.system(size: 24, weight: .semibold))
+                    }
                 }
-            }
-            .scrollAlpha(0.2)
-            .frame(width: UIScreen.main.bounds.width, height: 70, alignment: .center)
+                .scrollAlpha(0.1)
+                .frame(width: UIScreen.main.bounds.width, height: 30, alignment: .center)
             .padding(.horizontal, -20)
-            
-            
-            Spacer()
-                .frame(height: 102)
+            }
         }
     }
 }
