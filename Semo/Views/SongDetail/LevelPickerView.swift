@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LevelPickerView: View {
-    @State var levels = ["하", "중", "상"]
+    var levels = ["하", "중", "상"]
     @State var level = "중"
     
     var body: some View {

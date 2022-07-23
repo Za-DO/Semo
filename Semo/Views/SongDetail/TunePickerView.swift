@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TunePickerView: View {
-    @State var genders = ["여성", "혼성", "남성"]
-    @State var tunes = ["-6", "-5", "-4", "-3", "-2", "-1",
+    var genders = ["여성", "혼성", "남성"]
+    var tunes = ["-6", "-5", "-4", "-3", "-2", "-1",
                          "0", "1", "2", "3", "4", "5", "6"]
     @State var gender = "혼성"
     @State var tune = "0"
