@@ -9,6 +9,9 @@ import SwiftUI
 import SwiftUIWheelPicker
 
 struct LevelPickerView: View {
+    var levels = ["하", "중", "상"]
+    @State var level = "중"
+    
     var body: some View {
         VStack {
             HStack {
