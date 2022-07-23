@@ -19,5 +19,5 @@ extension Color {
     static let manColor = Color("Mancolor")
     static let womanColor = Color("Womancolor")
     static let duetColor = Color("Duetcolor")
-    static let sampleBlack = Color(red: 21/255, green: 20/255, blue: 20/255)
+    static let backgroundBlack = Color("Backgroundcolor")
 }

@@ -12,8 +12,8 @@ struct AddSongView: View {
     @State var songSinger: String = ""
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
-            LinearGradient(gradient: Gradient(colors: [Color.grayScale6, Color.sampleBlack]),                         startPoint: .top, endPoint: UnitPoint(x: 0.5, y: 0.3))
+            Color.backgroundBlack.ignoresSafeArea()
+            LinearGradient(gradient: Gradient(colors: [Color.grayScale6, Color.backgroundBlack]), startPoint: .top, endPoint: UnitPoint(x: 0.5, y: 0.3))
                 .edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .leading) {
