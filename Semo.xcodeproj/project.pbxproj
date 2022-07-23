@@ -319,7 +319,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2108F1628845A67002CED9D /* TunePickerView.swift in Sources */,
-				EEAD176828828B46009388DD /* ContentView.swift in Sources */,
 				EEC3B54E2883A79C0036BE34 /* MainView.swift in Sources */,
 				B2108F1A28845AE9002CED9D /* SongInfoView.swift in Sources */,
 				EEAD17742882AA2F009388DD /* SongListView.swift in Sources */,

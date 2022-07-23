@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct TunePickerView: View {
-    @State var gender = 1
+    @State var genders = ["여성", "혼성", "남성"]
+    @State var tunes = ["-6", "-5", "-4", "-3", "-2", "-1",
+                         "0", "1", "2", "3", "4", "5", "6"]
+    @State var gender = "혼성"
+    @State var tune = "0"
     
     var body: some View {
         VStack {
@@ -17,11 +21,11 @@ struct TunePickerView: View {
                 ContentsTitleView(titleName: "키")
                 Spacer()
             }
-            Picker("pick gender", selection: $gender, content: {
-                Text("여성").tag(0)
-                Text("혼성").tag(1)
-                Text("남성").tag(2)
-            })
+            Picker("pick gender", selection: $gender) {
+                ForEach(genders, id: \.self) {
+                    Text($0)
+                }
+            }
             .pickerStyle(SegmentedPickerStyle())
             .padding(EdgeInsets(top: 24, leading: 24, bottom: 0, trailing: 24))
             // MARK: - 키 picker
