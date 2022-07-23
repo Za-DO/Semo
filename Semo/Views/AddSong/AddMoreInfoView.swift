@@ -10,9 +10,9 @@ import SwiftUI
 struct AddMoreInfoView: View {
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
-            LinearGradient(gradient: Gradient(colors: [Color.grayScale6, Color.sampleBlack]),                         startPoint: .top, endPoint: UnitPoint(x: 0.5, y: 0.3))
-                .edgesIgnoringSafeArea(.all)
+            Color.backgroundBlack.ignoresSafeArea()
+            LinearGradient(gradient: Gradient(colors: [Color.grayScale6, Color.backgroundBlack]), startPoint: .top, endPoint: UnitPoint(x: 0.5, y: 0.3))
+            .edgesIgnoringSafeArea(.all)
             // MARK: - 추가 정보 입력란
             VStack(alignment: .center) {
                 Text("노래방에서 필요한 정보를 \n입력하세요.")
@@ -37,7 +37,6 @@ struct AddMoreInfoView: View {
                         .font(.system(size: 16, weight: .semibold))
                         .padding(EdgeInsets(top: 28, leading: 0, bottom: 60, trailing: 0))
                 }
-                .navigationTitle("")
             }
         }
         .navigationBarTitle("", displayMode: .inline)
