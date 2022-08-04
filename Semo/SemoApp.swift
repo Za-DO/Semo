@@ -10,9 +10,11 @@ import SwiftUI
 @main
 struct SemoApp: App {
     var body: some Scene {
+        let coreDataInitManager: CoreDataInitManager = CoreDataInitManager.shared
         WindowGroup {
             MainView()
                 .environment(\.colorScheme, .dark)
+                .environment(\.managedObjectContext, coreDataInitManager.context)
         }
     }
 }
