@@ -6,40 +6,70 @@
 //
 
 import SwiftUI
+import SwiftUIWheelPicker
 
+/// 노래 키를 선택해주는 Picker 입니다.
+/// - genderIndexBase: 처음 표기되는 성별의 초기 값으로 **State String 변수**를 받습니다.
+/// - genderItems: 성별 Picker에 표시되는 모든 값들로 **String 배열**을 받습니다.
+/// - tuneIndexBase: 처음 표기되는 키 조절값의 초기 값으로 **State Int 변수**를 받습니다.
+/// - tunerItems: 키 조절값 Picker에 표시되는 모든 값들로 **String 배열**을 받습니다.
 struct TunePickerView: View {
-    var genders = ["여성", "혼성", "남성"]
-    var tunes = ["-6", "-5", "-4", "-3", "-2", "-1",
-                         "0", "1", "2", "3", "4", "5", "6"]
-    @State var gender = "혼성"
-    @State var tune = "0"
+    @Binding var genderIndexBase: String
+    var genderItems: [String]
+    
+    @Binding var tuneIndexBase: Int
+    var tuneItems: [String]
+
+    init(genderIndexBase: Binding<String>, genderItems: [String], tuneIndexBase: Binding<Int>, tuneItems: [String]){
+        self._genderIndexBase = genderIndexBase
+        self.genderItems = genderItems
+        self._tuneIndexBase = tuneIndexBase
+        self.tuneItems = tuneItems
+    }
     
     var body: some View {
         VStack {
+            
             // MARK: - 남/여/혼성 세그먼트
+            
             HStack {
                 ContentsTitleView(titleName: "키")
                 Spacer()
             }
-            Picker("pick gender", selection: $gender) {
-                ForEach(genders, id: \.self) {
+            Picker("pick gender", selection: $genderIndexBase) {
+                ForEach(genderItems, id: \.self) {
                     Text($0)
                 }
             }
             .pickerStyle(SegmentedPickerStyle())
-            .padding(EdgeInsets(top: 24, leading: 24, bottom: 0, trailing: 24))
-            // MARK: - 키 picker
+            .padding(EdgeInsets(top: 24, leading: 24, bottom: 48, trailing: 24))
             
-            // TODO: - pickerView 가져오기
-            // pickerView가 들어갈 부분
-            Spacer()
-                .frame(height: 102)
+            // MARK: - 키 조절값 설정 Picker
+            
+            ZStack {
+                Circle()
+                    .foregroundColor(.mainPurpleColor)
+                    .opacity(0.5)
+                    .frame(width: 64, height: 64, alignment: .center)
+                    .shadow(color: .mainPurpleColor, radius: 10, x: 0, y: 0)
+                SwiftUIWheelPicker($tuneIndexBase, items: tuneItems) { value in
+                    GeometryReader { reader in
+                        Text("\(value)")
+                            .frame(width: reader.size.width, height: reader.size.height,
+                                   alignment: .center)
+                            .font(.system(size: 24, weight: .semibold))
+                    }
+                }
+                .scrollAlpha(0.1)
+                .frame(width: UIScreen.main.bounds.width, height: 30, alignment: .center)
+            .padding(.horizontal, -20)
+            }
         }
     }
 }
 
-struct TunePickerView_Previews: PreviewProvider {
-    static var previews: some View {
-        TunePickerView().preferredColorScheme(.dark)
-    }
-}
+//struct TunePickerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TunePickerView().preferredColorScheme(.dark)
+//    }
+//}
