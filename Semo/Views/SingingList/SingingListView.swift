@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct SingingListView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
+    
     // MARK: - BODY
     var body: some View {
         VStack {
             HStack {
                 // TODO: - 리스트 개수 나타내도록 코드 수정하기
-                Text("리스트 3개")
+                Text("리스트 \(singingList.count)개")
                     .font(.subheadline)
                     .foregroundColor(.grayScale2)
                     .fontWeight(.medium)
@@ -26,8 +29,8 @@ struct SingingListView: View {
                 Divider()
                     .background(Color.grayScale6)
                     .frame(width: 350)
-                ForEach(0..<15) { _ in
-                    SingingListCellView()                    
+                ForEach(singingList) {
+                    SingingListCellView(singingList: $0)
                     Divider()
                         .background(Color.grayScale6)
                         .frame(width: 350)

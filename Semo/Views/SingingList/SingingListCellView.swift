@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SingingListCellView: View {
+    var singingList: SingingList
     // MARK: - BODY
     var body: some View {
         // TODO: - 리스트 각 셀 데이터 반환 액션 추가
@@ -18,10 +19,10 @@ struct SingingListCellView: View {
                 HStack {
                     // MARK: - 노래 정보 표시
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("빠른 싱잉리스트")
+                        Text(singingList.title ?? "제목없음")
                             .font(.system(size: 20, weight: .semibold))
                             .foregroundColor(.grayScale1)
-                        Text("총 7곡")
+                        Text("총 \(singingList.count)곡")
                             .font(.system(size: 15, weight: .medium))
                             .foregroundColor(.grayScale2)
                     }
@@ -37,8 +38,8 @@ struct SingingListCellView: View {
     }
 }
 
-struct SingingListCellView_Preview: PreviewProvider {
-    static var previews: some View {
-        SingingListCellView()
-    }
-}
+//struct SingingListCellView_Preview: PreviewProvider {
+//    static var previews: some View {
+//        SingingListCellView()
+//    }
+//}
