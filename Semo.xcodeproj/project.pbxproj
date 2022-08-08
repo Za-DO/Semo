@@ -15,6 +15,8 @@
 		3916A13A2883AD0500C21828 /* Song+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916A1362883AD0500C21828 /* Song+CoreDataProperties.swift */; };
 		3916A13B2883AD0500C21828 /* SingingList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916A1372883AD0500C21828 /* SingingList+CoreDataClass.swift */; };
 		3916A13C2883AD0500C21828 /* SingingList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916A1382883AD0500C21828 /* SingingList+CoreDataProperties.swift */; };
+		3928C59A28A1800F006D3D19 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3928C59928A1800F006D3D19 /* CheckboxToggleStyle.swift */; };
+		395E629B289C67F900E374B7 /* SingingListToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395E629A289C67F900E374B7 /* SingingListToggleView.swift */; };
 		39FE869928828DB300D0F24F /* TestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE869828828DB300D0F24F /* TestManager.swift */; };
 		39FE869B28828DBD00D0F24F /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE869A28828DBD00D0F24F /* TestModel.swift */; };
 		39FE869D28828DD600D0F24F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE869C28828DD600D0F24F /* TestView.swift */; };
@@ -56,6 +58,8 @@
 		3916A1362883AD0500C21828 /* Song+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Song+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3916A1372883AD0500C21828 /* SingingList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingingList+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3916A1382883AD0500C21828 /* SingingList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingingList+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3928C59928A1800F006D3D19 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
+		395E629A289C67F900E374B7 /* SingingListToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListToggleView.swift; sourceTree = "<group>"; };
 		39FE869828828DB300D0F24F /* TestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestManager.swift; sourceTree = "<group>"; };
 		39FE869A28828DBD00D0F24F /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		39FE869C28828DD600D0F24F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -252,6 +256,8 @@
 			children = (
 				EEAD17802882E48D009388DD /* SingingListView.swift */,
 				EEAD17832882E4CD009388DD /* SingingListCellView.swift */,
+				395E629A289C67F900E374B7 /* SingingListToggleView.swift */,
+				3928C59928A1800F006D3D19 /* CheckboxToggleStyle.swift */,
 			);
 			path = SingingList;
 			sourceTree = "<group>";
@@ -402,6 +408,7 @@
 				B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */,
 				B242DEA92886C3D10052031C /* AddMoreInfoView.swift in Sources */,
 				EEC3B54A28839F250036BE34 /* TabBarItemView.swift in Sources */,
+				395E629B289C67F900E374B7 /* SingingListToggleView.swift in Sources */,
 				39FE869928828DB300D0F24F /* TestManager.swift in Sources */,
 				EEAD176628828B46009388DD /* SemoApp.swift in Sources */,
 				EEAD17812882E48D009388DD /* SingingListView.swift in Sources */,
@@ -422,6 +429,7 @@
 				3916A1392883AD0500C21828 /* Song+CoreDataClass.swift in Sources */,
 				39FE869B28828DBD00D0F24F /* TestModel.swift in Sources */,
 				3916A13B2883AD0500C21828 /* SingingList+CoreDataClass.swift in Sources */,
+				3928C59A28A1800F006D3D19 /* CheckboxToggleStyle.swift in Sources */,
 				EEC3B553288408390036BE34 /* SingingListDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,8 +560,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				DEVELOPMENT_TEAM = KMT22L7NMB;
 				DEVELOPMENT_TEAM = PQ5FS4VVLR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -584,8 +590,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				DEVELOPMENT_TEAM = KMT22L7NMB;
 				DEVELOPMENT_TEAM = PQ5FS4VVLR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
