@@ -8,21 +8,25 @@
 import SwiftUI
 
 struct SingingListToggleView: View {
-    @State private var toggleArray: [Bool] = Array(repeating: false, count: 20)
+    @Binding var toggleArray: [Bool]
+    @Binding var newSingingListTitle: String
 
     var body: some View {
         VStack(spacing: 0){
             ForEach(0..<20){ index in
                 Toggle("빠른 싱잉리스트", isOn: $toggleArray[index])
                     .toggleStyle(CheckboxToggleStyle())
+                    .onChange(of: toggleArray, perform: {newValue in
+                        newSingingListTitle = ""
+                    })
            }
        }
     }
 }
 
 
-struct SingingListToggleView_Previews: PreviewProvider {
-    static var previews: some View {
-        SingingListToggleView()
-    }
-}
+//struct SingingListToggleView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SingingListToggleView()
+//    }
+//}
