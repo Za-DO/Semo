@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SingingListTagView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
+    
     var body: some View {
         VStack {
             HStack {
@@ -18,25 +21,48 @@ struct SingingListTagView: View {
             }
             
             // TODO: - 싱잉리스트 데이터 받아오기
-            ForEach(0..<10) { _ in
-                HStack {
-                    Button {
-                        print("싱잉리스트 태그 삭제하기")
-                    } label: {
-                        Image(systemName: "minus.circle.fill")
-                            .foregroundColor(.grayScale4)
-                            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
-                    }
-                    HStack {
-                        Text("싱잉리스트")
-                            .font(.system(size: 20, weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-                    Spacer()
-                }
-                .padding(.top, 20)
+//            ForEach() {
+//                HStack {
+//                    Button {
+//                        print("싱잉리스트 태그 삭제하기")
+//                    } label: {
+//                        Image(systemName: "minus.circle.fill")
+//                            .foregroundColor(.grayScale4)
+//                            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
+//                    }
+//                    HStack {
+//                        Text("aa")
+//                            .font(.system(size: 20, weight: .semibold))
+//                            .foregroundColor(.white)
+//                    }
+//                    Spacer()
+//                }
+//                .padding(.top, 20)
+//            }
+            ForEach(singingList){
+                singingListTag(title: $0.title ?? "제목 없음")
             }
         }
+    }
+    
+    @ViewBuilder
+    func singingListTag(title: String) -> some View {
+        HStack {
+            Button {
+                print("싱잉리스트 태그 삭제하기")
+            } label: {
+                Image(systemName: "minus.circle.fill")
+                    .foregroundColor(.grayScale4)
+                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
+            }
+            HStack {
+                Text(title)
+                    .font(.system(size: 20, weight: .semibold))
+                    .foregroundColor(.white)
+            }
+            Spacer()
+        }
+        .padding(.top, 20)
     }
 }
 
