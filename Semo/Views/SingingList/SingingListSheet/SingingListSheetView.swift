@@ -8,6 +8,8 @@
 import SwiftUI
 // TODO: 커스텀 sheet로 바꿔줘야 함
 struct SingingListSheetView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
     @State var newSingingListTitle: String = ""
     @State private var singingListToggle: [Bool] = Array(repeating: false, count: 20)
     var body: some View {
@@ -21,7 +23,18 @@ struct SingingListSheetView: View {
                     SingingListToggleView(toggleArray: $singingListToggle, newSingingListTitle: $newSingingListTitle)
                 }
                 Button(action: {
-                    print("button")
+                    // 새로운 SingingList coreData에 추가
+                    let newSingingList: SingingList = SingingList(context: viewContext)
+                    newSingingList.timestamp = Date()
+                    newSingingList.id = UUID()
+                    newSingingList.title = newSingingListTitle
+                    newSingingList.count = 0
+                    do {
+                        try viewContext.save()
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                    newSingingListTitle = ""
                 }, label: {
                     FinalConfirmButtonView(buttonName: newSingingListTitle.isEmpty ? "확인" : "리스트 추가하기")
                 })
