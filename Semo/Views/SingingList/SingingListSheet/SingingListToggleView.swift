@@ -16,9 +16,9 @@ struct SingingListToggleView: View {
             ForEach(0..<20){ index in
                 Toggle("빠른 싱잉리스트", isOn: $toggleArray[index])
                     .toggleStyle(CheckboxToggleStyle())
-                    .onChange(of: toggleArray, perform: {newValue in
+                    .onChange(of: toggleArray){newValue in
                         newSingingListTitle = ""
-                    })
+                    }
            }
        }
     }
