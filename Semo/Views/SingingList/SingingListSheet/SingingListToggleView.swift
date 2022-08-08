@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SingingListToggleView: View {
-    @State private var toggleArray: [Bool] = [false, false, false, false, false]
+    @State private var toggleArray: [Bool] = Array(repeating: false, count: 20)
 
     var body: some View {
         VStack(spacing: 0){
-            ForEach(0..<5){ index in
+            ForEach(0..<20){ index in
                 Toggle("빠른 싱잉리스트", isOn: $toggleArray[index])
                     .toggleStyle(CheckboxToggleStyle())
            }
