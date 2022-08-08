@@ -10,12 +10,13 @@ import SwiftUI
 struct EditButtonView: View {
     var buttonName: String
     var buttonWidth: CGFloat
+    var buttonAction: () -> Void
     
     // MARK: - BODY
     var body: some View {
         // MARK: - 목록, 리스트 편집 버튼
         Button {
-            print("\(buttonName) 가능")
+            buttonAction()
         } label: {
             Text(buttonName)
                 .font(.system(size: 15, weight: .medium))

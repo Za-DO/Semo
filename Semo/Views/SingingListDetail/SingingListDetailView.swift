@@ -27,7 +27,7 @@ struct SingingListDetailView: View {
         .navigationBarTitle("빠른 싱잉리스트")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                EditButtonView(buttonName: "편집", buttonWidth: 50)
+                EditButtonView(buttonName: "편집", buttonWidth: 50){}
                     .padding(.trailing, 20)
             }
         }
