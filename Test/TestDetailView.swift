@@ -2,7 +2,7 @@
 //  TestDetailView.swift
 //  Semo
 //
-//  Created by 유정인 on 2022/07/17.
+//  Created by Terry Koo on 2022/08/09.
 //
 
 import SwiftUI
