@@ -39,7 +39,7 @@ struct CheckboxToggleStyle: ToggleStyle {
         }
         .padding(EdgeInsets(top: 14, leading: 20, bottom: 14, trailing: 40))
         .frame(height: 50)
-        .background(configuration.isOn ? Color.grayScale2 : Color.grayScale5)
+        .background(configuration.isOn ? Color.grayScale3 : Color.grayScale5)
         .contentShape(Rectangle())
         .onTapGesture {
             print("tab")
