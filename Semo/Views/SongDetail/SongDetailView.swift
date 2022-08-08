@@ -94,7 +94,8 @@ struct SongDetailView: View {
                 .padding(.bottom, 100)
             }
         }
-        .sheet(isPresented: $isPresented) { SingingListSheetView()
+        .sheet(isPresented: $isPresented) {
+            SingingListSheetView()
         }
     }
 }
