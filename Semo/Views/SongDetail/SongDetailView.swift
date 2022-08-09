@@ -10,6 +10,9 @@ import SwiftUI
 struct SongDetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
+    @State var refresh: Bool = false
+    var song: Song
+    
     // 싱잉리스트 추가 sheet
     @State private var isPresented = false
     @State var levelPickerIndex: Int = 1
@@ -58,7 +61,7 @@ struct SongDetailView: View {
                     }
                     
                     // TODO: - 해당 노래에 맞는 싱잉리스트로 받아오게 수정되어야 함
-                    ForEach(singingList) {
+                    ForEach(song.singingListArray) {
                         singingListTag(title: $0.title ?? "제목 없음")
                     }
                 }
@@ -79,8 +82,11 @@ struct SongDetailView: View {
             }
         }
         .sheet(isPresented: $isPresented) {
-            SingingListSheetView()
+            SingingListSheetView(refresh: $refresh, isPresent: $isPresented, song: song)
         }
+        .onChange(of: isPresented, perform: { _ in
+            refresh.toggle()
+        })
     }
     
     @ViewBuilder
@@ -104,8 +110,8 @@ struct SongDetailView: View {
     }
 }
 
-struct SongDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        SongDetailView().preferredColorScheme(.dark)
-    }
-}
+//struct SongDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SongDetailView().preferredColorScheme(.dark)
+//    }
+//}
