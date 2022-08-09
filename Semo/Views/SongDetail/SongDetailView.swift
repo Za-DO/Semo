@@ -11,6 +11,7 @@ struct SongDetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
 //    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Song.timestamp, ascending: true)], animation: .default) private var songList: FetchedResults<Song>
+    @State var refresh: Bool = false
     var song: Song
     
     // 싱잉리스트 추가 sheet
@@ -82,8 +83,11 @@ struct SongDetailView: View {
             }
         }
         .sheet(isPresented: $isPresented) {
-            SingingListSheetView()
+            SingingListSheetView(refresh: $refresh, isPresent: $isPresented, song: song)
         }
+        .onChange(of: isPresented, perform: { _ in
+            refresh.toggle()
+        })
     }
     
     @ViewBuilder

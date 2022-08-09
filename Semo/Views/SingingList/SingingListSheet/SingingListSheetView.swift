@@ -12,6 +12,9 @@ struct SingingListSheetView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
     @State var newSingingListTitle: String = ""
     @State var singingListToggle: [UUID: Bool] = [:]
+    @Binding var refresh: Bool
+    @Binding var isPresent: Bool
+    var song: Song
     var body: some View {
         ZStack {
             Color.grayScale5.ignoresSafeArea()
@@ -23,16 +26,36 @@ struct SingingListSheetView: View {
                     SingingListToggleView(toggleDictionary: $singingListToggle, newSingingListTitle: $newSingingListTitle)
                 }
                 Button(action: {
-                    // 새로운 SingingList coreData에 추가
-                    let newSingingList: SingingList = SingingList(context: viewContext)
-                    newSingingList.timestamp = Date()
-                    newSingingList.id = UUID()
-                    newSingingList.title = newSingingListTitle
-                    newSingingList.count = 0
-                    do {
-                        try viewContext.save()
-                    } catch {
-                        print(error.localizedDescription)
+                    if newSingingListTitle.isEmpty {
+                        var checkedSingingLIst: [UUID] = []
+                        for i in singingList {
+                            if singingListToggle[i.id!] == true {
+                                i.count += 1
+                                i.addToSingingListToSong(song)
+                            }
+                        }
+                        do {
+                            try viewContext.save()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                        // sheet 닫기
+                        isPresent.toggle()
+                    } else {
+                        // 새로운 SingingList coreData에 추가
+                        let newSingingList: SingingList = SingingList(context: viewContext)
+                        newSingingList.timestamp = Date()
+                        newSingingList.id = UUID()
+                        newSingingList.title = newSingingListTitle
+                        newSingingList.count = 0
+                        
+                        singingListToggle.updateValue(false, forKey: newSingingList.id!)
+                        do {
+                            try viewContext.save()
+                            refresh.toggle()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
                     }
                     newSingingListTitle = ""
                 }, label: {
@@ -49,8 +72,8 @@ struct SingingListSheetView: View {
     }
 }
 
-struct SingingListSheetView_Previews: PreviewProvider {
-    static var previews: some View {
-        SingingListSheetView()
-    }
-}
+//struct SingingListSheetView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SingingListSheetView()
+//    }
+//}
