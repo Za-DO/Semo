@@ -28,7 +28,8 @@ struct SingingListDetailCellView: View {
                     .background(Color.grayScale6)
                     .frame(width: 350)                
                 ForEach(0..<20) { _ in
-                    SongListCellView()
+                    // TODO: coreData에서 가져온 데이터 넣어주기
+//                    SongListCellView()
                     Divider()
                         .background(Color.grayScale6)
                         .frame(width: 350)
