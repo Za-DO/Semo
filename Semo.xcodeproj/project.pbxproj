@@ -31,6 +31,7 @@
 		B2108F1A28845AE9002CED9D /* SongInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1928845AE9002CED9D /* SongInfoView.swift */; };
 		B242DEA92886C3D10052031C /* AddMoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B242DEA82886C3D10052031C /* AddMoreInfoView.swift */; };
 		B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262DD0C2883F86F00E1B527 /* SongDetailView.swift */; };
+		B2983F7028A2AF950064C79A /* AddSingingListTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2983F6F28A2AF950064C79A /* AddSingingListTagView.swift */; };
 		B2A36E322885A6560031D282 /* ContentsTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A36E312885A6560031D282 /* ContentsTitleView.swift */; };
 		C5200BDEAC2C4BE3A51404E6 /* Pods_Semo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533DF943DAA76770EFE704E6 /* Pods_Semo.framework */; };
 		EEAD176628828B46009388DD /* SemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD176528828B46009388DD /* SemoApp.swift */; };
@@ -78,6 +79,7 @@
 		B2108F1928845AE9002CED9D /* SongInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongInfoView.swift; sourceTree = "<group>"; };
 		B242DEA82886C3D10052031C /* AddMoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreInfoView.swift; sourceTree = "<group>"; };
 		B262DD0C2883F86F00E1B527 /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
+		B2983F6F28A2AF950064C79A /* AddSingingListTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSingingListTagView.swift; sourceTree = "<group>"; };
 		B2A36E312885A6560031D282 /* ContentsTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsTitleView.swift; sourceTree = "<group>"; };
 		EEAD176228828B46009388DD /* Semo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Semo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEAD176528828B46009388DD /* SemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemoApp.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				209E12E02883F186006FB3A8 /* AddSongView.swift */,
 				B242DEA82886C3D10052031C /* AddMoreInfoView.swift */,
+				B2983F6F28A2AF950064C79A /* AddSingingListTagView.swift */,
 			);
 			path = AddSong;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 			files = (
 				B2108F1628845A67002CED9D /* TunePickerView.swift in Sources */,
 				EEC3B54E2883A79C0036BE34 /* MainView.swift in Sources */,
+				B2983F7028A2AF950064C79A /* AddSingingListTagView.swift in Sources */,
 				B2108F1A28845AE9002CED9D /* SongInfoView.swift in Sources */,
 				EEAD17742882AA2F009388DD /* SongListView.swift in Sources */,
 				B2108F1428845A5A002CED9D /* LevelPickerView.swift in Sources */,
