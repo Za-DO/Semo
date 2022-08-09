@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct SongListView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Song.timestamp, ascending: true)], animation: .default) private var songList: FetchedResults<Song>
+    
     // MARK: - BODY
     var body: some View {
         VStack {
             // MARK: - 전체 노래 리스트 상단 바
             HStack {
                 // TODO: - 데이터 크기로 값 받아오기
-                Text("총 5곡")
+                Text("총 \(songList.count)곡")
                     .font(.subheadline)
                     .foregroundColor(.grayScale2)
                     .fontWeight(.medium)
@@ -28,8 +31,8 @@ struct SongListView: View {
                 Divider()
                     .background(Color.grayScale6)
                     .frame(width: 350)                
-                ForEach(0..<10) { _ in
-                    SongListCellView()
+                ForEach(songList) {
+                    SongListCellView(song: $0)
                     Divider()
                         .background(Color.grayScale6)
                         .frame(width: 350)
