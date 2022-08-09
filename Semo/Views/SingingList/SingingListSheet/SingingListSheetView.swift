@@ -11,7 +11,7 @@ struct SingingListSheetView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
     @State var newSingingListTitle: String = ""
-    @State private var singingListToggle: [Bool] = Array(repeating: false, count: 20)
+    @State var singingListToggle: [UUID: Bool] = [:]
     var body: some View {
         ZStack {
             Color.grayScale5.ignoresSafeArea()
@@ -20,7 +20,7 @@ struct SingingListSheetView: View {
                 TextFieldView(text: $newSingingListTitle, placeholder: "새로운 리스트를 바로 추가해보세요.")
                     .padding(.horizontal, 20)
                 ScrollView{
-                    SingingListToggleView(toggleArray: $singingListToggle, newSingingListTitle: $newSingingListTitle)
+                    SingingListToggleView(toggleDictionary: $singingListToggle, newSingingListTitle: $newSingingListTitle)
                 }
                 Button(action: {
                     // 새로운 SingingList coreData에 추가
@@ -41,6 +41,11 @@ struct SingingListSheetView: View {
             }
             .padding(EdgeInsets(top: 40, leading: 0, bottom: 37, trailing: 0))
         }
+        .onAppear(perform: {
+            for i in singingList {
+                singingListToggle[i.id!] = false
+            }
+        })
     }
 }
 

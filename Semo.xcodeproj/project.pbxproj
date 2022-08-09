@@ -16,7 +16,7 @@
 		3916A13B2883AD0500C21828 /* SingingList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916A1372883AD0500C21828 /* SingingList+CoreDataClass.swift */; };
 		3916A13C2883AD0500C21828 /* SingingList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916A1382883AD0500C21828 /* SingingList+CoreDataProperties.swift */; };
 		3928C59A28A1800F006D3D19 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3928C59928A1800F006D3D19 /* CheckboxToggleStyle.swift */; };
-		3928C5A028A18962006D3D19 /*  FinalConfirmButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3928C59F28A18962006D3D19 /*  FinalConfirmButtonView.swift */; };
+		3928C5A028A18962006D3D19 /* FinalConfirmButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3928C59F28A18962006D3D19 /* FinalConfirmButtonView.swift */; };
 		395E629B289C67F900E374B7 /* SingingListToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395E629A289C67F900E374B7 /* SingingListToggleView.swift */; };
 		3992665428A1BC14001849E6 /* SingingListSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3992665328A1BC14001849E6 /* SingingListSheetView.swift */; };
 		3992665628A1BD4D001849E6 /* TestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3992665528A1BD4D001849E6 /* TestDetailView.swift */; };
@@ -61,7 +61,7 @@
 		3916A1372883AD0500C21828 /* SingingList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingingList+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3916A1382883AD0500C21828 /* SingingList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingingList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3928C59928A1800F006D3D19 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
-		3928C59F28A18962006D3D19 /*  FinalConfirmButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " FinalConfirmButtonView.swift"; sourceTree = "<group>"; };
+		3928C59F28A18962006D3D19 /* FinalConfirmButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalConfirmButtonView.swift; sourceTree = "<group>"; };
 		395E629A289C67F900E374B7 /* SingingListToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListToggleView.swift; sourceTree = "<group>"; };
 		3992665328A1BC14001849E6 /* SingingListSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListSheetView.swift; sourceTree = "<group>"; };
 		3992665528A1BD4D001849E6 /* TestDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailView.swift; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 			children = (
 				209E12E22883F1CA006FB3A8 /* TextFieldView.swift */,
 				209E12E62883F3F3006FB3A8 /* ConfirmButtonView.swift */,
-				3928C59F28A18962006D3D19 /*  FinalConfirmButtonView.swift */,
+				3928C59F28A18962006D3D19 /* FinalConfirmButtonView.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -450,7 +450,7 @@
 				209E12E12883F186006FB3A8 /* AddSongView.swift in Sources */,
 				209E12E52883F1F9006FB3A8 /* ViewExtension.swift in Sources */,
 				3916A1392883AD0500C21828 /* Song+CoreDataClass.swift in Sources */,
-				3928C5A028A18962006D3D19 /*  FinalConfirmButtonView.swift in Sources */,
+				3928C5A028A18962006D3D19 /* FinalConfirmButtonView.swift in Sources */,
 				39FE869B28828DBD00D0F24F /* TestModel.swift in Sources */,
 				3916A13B2883AD0500C21828 /* SingingList+CoreDataClass.swift in Sources */,
 				3928C59A28A1800F006D3D19 /* CheckboxToggleStyle.swift in Sources */,
