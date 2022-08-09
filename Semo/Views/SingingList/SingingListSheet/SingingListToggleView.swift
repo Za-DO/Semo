@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct SingingListToggleView: View {
-    @Binding var toggleArray: [Bool]
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
+    @Binding var toggleDictionary: [UUID: Bool]
     @Binding var newSingingListTitle: String
+    @State var isOn: Bool = false
 
     var body: some View {
         VStack(spacing: 0){
-            ForEach(0..<20){ index in
-                Toggle("빠른 싱잉리스트", isOn: $toggleArray[index])
+            ForEach(singingList){
+                Toggle($0.title ?? "제목 없음", isOn: Binding($toggleDictionary[$0.id!]) ?? $isOn)
                     .toggleStyle(CheckboxToggleStyle())
-                    .onChange(of: toggleArray){newValue in
+                    .onChange(of: toggleDictionary){newValue in
                         newSingingListTitle = ""
                     }
            }
