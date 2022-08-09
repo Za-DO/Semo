@@ -22,11 +22,12 @@ struct AddSingingListTagView: View {
             // MARK: - main으로 연결되는 확인 버튼
             VStack {
                 Spacer()
-                NavigationLink(destination: TestDetailView()) {
+                Button(action: {
+                    NavigationUtil.popToRootView()
+                }, label: {
                     ConfirmButtonView(buttonName: "확인")
                         .padding(.bottom, 60)
-                }
-                .navigationTitle("")
+                })
             }
             .ignoresSafeArea(.keyboard)
             // MARK: - 타이틀 및 싱잉리스트 뷰
