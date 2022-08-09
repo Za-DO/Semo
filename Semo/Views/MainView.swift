@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State var currentTab: Int = 0
+    @State var refresh: Bool = false
     
     // MARK: - BODY
     var body: some View {
@@ -24,6 +25,9 @@ struct MainView: View {
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .edgesIgnoringSafeArea(.all)
+                .onTapGesture {
+                    refresh.toggle()
+                }
                 
                 TabBarView(currentTab: self.$currentTab)
                     .padding(.top, 60)
