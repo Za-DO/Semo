@@ -12,7 +12,7 @@ struct AddSingingListTagView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
     @State var newSingingListTitle: String = ""
     @State var singingListToggle: [UUID: Bool] = [:]
-    @FocusState private var textFieldIsFocused: Bool
+    @FocusState private var isTextFieldFocused: Bool
     
     var body: some View {
         ZStack {
@@ -41,7 +41,7 @@ struct AddSingingListTagView: View {
                 TextFieldView(text: $newSingingListTitle, placeholder: "새로운 리스트를 바로 추가해보세요.")
                     .disableAutocorrection(true)
                     .padding(.horizontal, 20)
-                    .focused($textFieldIsFocused)
+                    .focused($isTextFieldFocused)
                 HStack {
                     ContentsTitleView(titleName: "싱잉리스트")
                     Spacer()
@@ -55,7 +55,7 @@ struct AddSingingListTagView: View {
             // MARK: - 키보드가 올라왔을 때 보이는 추가 버튼
             VStack {
                 Spacer()
-                if textFieldIsFocused == true {
+                if isTextFieldFocused == true {
                     // TODO: - textField가 focus되지 않았을 때 버튼 회색으로 변경
                     Button(action: {
                         // 새로운 SingingList coreData에 추가
@@ -70,7 +70,7 @@ struct AddSingingListTagView: View {
                             print(error.localizedDescription)
                         }
                         newSingingListTitle = ""
-                        textFieldIsFocused = false
+                        isTextFieldFocused = false
                     }, label: {
                         FinalConfirmButtonView(buttonName: "리스트 추가하기")
                     })
