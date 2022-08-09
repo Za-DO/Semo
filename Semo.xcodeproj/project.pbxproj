@@ -33,6 +33,7 @@
 		B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262DD0C2883F86F00E1B527 /* SongDetailView.swift */; };
 		B2A36E322885A6560031D282 /* ContentsTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A36E312885A6560031D282 /* ContentsTitleView.swift */; };
 		C5200BDEAC2C4BE3A51404E6 /* Pods_Semo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533DF943DAA76770EFE704E6 /* Pods_Semo.framework */; };
+		EE6E6DE228A2738B004F030C /* SingingListModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6E6DE128A2738B004F030C /* SingingListModalView.swift */; };
 		EEAD176628828B46009388DD /* SemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD176528828B46009388DD /* SemoApp.swift */; };
 		EEAD176A28828B47009388DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEAD176928828B47009388DD /* Assets.xcassets */; };
 		EEAD176D28828B47009388DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEAD176C28828B47009388DD /* Preview Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		B242DEA82886C3D10052031C /* AddMoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreInfoView.swift; sourceTree = "<group>"; };
 		B262DD0C2883F86F00E1B527 /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
 		B2A36E312885A6560031D282 /* ContentsTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsTitleView.swift; sourceTree = "<group>"; };
+		EE6E6DE128A2738B004F030C /* SingingListModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListModalView.swift; sourceTree = "<group>"; };
 		EEAD176228828B46009388DD /* Semo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Semo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEAD176528828B46009388DD /* SemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemoApp.swift; sourceTree = "<group>"; };
 		EEAD176928828B47009388DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 		EEC3B55828843B010036BE34 /* SingingListDetail */ = {
 			isa = PBXGroup;
 			children = (
+				EE6E6DE128A2738B004F030C /* SingingListModalView.swift */,
 				EEC3B552288408390036BE34 /* SingingListDetailView.swift */,
 				EEC3B559288441590036BE34 /* SingingListDetailCellView.swift */,
 				EEC3B55628843AE80036BE34 /* AddSongButtonView.swift */,
@@ -429,6 +432,7 @@
 				B2108F1828845A74002CED9D /* SingingListTagView.swift in Sources */,
 				39FE869D28828DD600D0F24F /* TestView.swift in Sources */,
 				B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */,
+				EE6E6DE228A2738B004F030C /* SingingListModalView.swift in Sources */,
 				B242DEA92886C3D10052031C /* AddMoreInfoView.swift in Sources */,
 				EEC3B54A28839F250036BE34 /* TabBarItemView.swift in Sources */,
 				395E629B289C67F900E374B7 /* SingingListToggleView.swift in Sources */,

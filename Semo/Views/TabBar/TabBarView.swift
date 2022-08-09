@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TabBarView: View {
+    @State private var showSingingListModal: Bool = false
     @Binding var currentTab: Int
     @Namespace var namespace
     
@@ -30,8 +31,19 @@ struct TabBarView: View {
             }
             Spacer()
             // MARK: - 탭바 우측 노래 리스트 추가 버튼
-            NavigationLink(destination: AddSongView()) {
-                Image(tabBarOptions[currentTab] == "전체 노래" ? "Songlistbuttonimage" : "Singinglistbuttonimage")
+            if tabBarOptions[currentTab] == "전체 노래" {
+                NavigationLink(destination: AddSongView()) {
+                    Image("Songlistbuttonimage")
+                }
+            } else {
+                Button {
+                    self.showSingingListModal = true
+                } label: {
+                    Image(tabBarOptions[currentTab] == "전체 노래" ? "Songlistbuttonimage" : "Singinglistbuttonimage")
+                }
+                .sheet(isPresented: $showSingingListModal) {
+                    SingingListModalView()
+                }
             }
         }
         .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 24))
