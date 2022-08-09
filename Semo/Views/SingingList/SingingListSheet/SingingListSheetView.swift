@@ -17,7 +17,7 @@ struct SingingListSheetView: View {
     var song: Song
     var body: some View {
         ZStack {
-            Color.grayScale5.ignoresSafeArea()
+            Color.grayScale7.ignoresSafeArea()
             VStack{
                 // TODO: newSingingListTitle지워지면 포커싱 풀리게
                 TextFieldView(text: $newSingingListTitle, placeholder: "새로운 리스트를 바로 추가해보세요.")
@@ -62,7 +62,7 @@ struct SingingListSheetView: View {
                     FinalConfirmButtonView(buttonName: newSingingListTitle.isEmpty ? "확인" : "리스트 추가하기")
                 })
             }
-            .padding(EdgeInsets(top: 40, leading: 0, bottom: 37, trailing: 0))
+            .padding(EdgeInsets(top: 40, leading: 0, bottom: 1, trailing: 0))
         }
         .onAppear(perform: {
             for i in singingList {
