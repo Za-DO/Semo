@@ -19,7 +19,7 @@ struct SongListView: View {
                     .foregroundColor(.grayScale2)
                     .fontWeight(.medium)
                 Spacer()
-                EditButtonView(buttonName: "목록 편집", buttonWidth: 80)
+                EditButtonView(buttonName: "목록 편집", buttonWidth: 80){}
             }
             // FIXME: - trailing을 추가하지 않으면 목록 편집 버튼이 오른쪽으로 치우침
             .padding(EdgeInsets(top: 15, leading: 20, bottom: 15, trailing: 30))            

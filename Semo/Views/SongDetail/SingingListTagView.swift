@@ -13,7 +13,7 @@ struct SingingListTagView: View {
             HStack {
                 ContentsTitleView(titleName: "싱잉리스트")
                 Spacer()
-                EditButtonView(buttonName: "추가하기", buttonWidth: 80)
+                EditButtonView(buttonName: "추가하기", buttonWidth: 80){}
                     .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 34))
             }
             

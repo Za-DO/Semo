@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SongDetailView: View {
+    // 싱잉리스트 추가 sheet
+    @State private var isPresented = false
     @State var levelPickerIndex: Int = 1
     var levelPickerItems: [String] = ["하", "중", "상"]
     
@@ -47,7 +49,9 @@ struct SongDetailView: View {
                     HStack {
                         ContentsTitleView(titleName: "싱잉리스트")
                         Spacer()
-                        EditButtonView(buttonName: "추가하기", buttonWidth: 80)
+                        EditButtonView(buttonName: "추가하기", buttonWidth: 80){
+                            isPresented.toggle()
+                        }
                             .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 34))
                     }
                     
@@ -82,13 +86,16 @@ struct SongDetailView: View {
                         Button{
                             print("기록 삭제하기")
                         } label: {
-                            EditButtonView(buttonName: "삭제", buttonWidth: 60)
+                            EditButtonView(buttonName: "삭제", buttonWidth: 60){}
                                 .padding(.trailing, 15)
                         }
                     }
                 }
                 .padding(.bottom, 100)
             }
+        }
+        .sheet(isPresented: $isPresented) {
+            SingingListSheetView()
         }
     }
 }
