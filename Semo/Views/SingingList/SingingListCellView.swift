@@ -15,7 +15,7 @@ struct SingingListCellView: View {
         Button {            
         } label: {
             // TODO: - destination 수정하기
-            NavigationLink(destination: SingingListDetailView()) {
+            NavigationLink(destination: SingingListDetailView(singingList: singingList)) {
                 HStack {
                     // MARK: - 노래 정보 표시
                     VStack(alignment: .leading, spacing: 10) {

@@ -49,7 +49,7 @@ struct SingingListSheetView: View {
                         newSingingList.title = newSingingListTitle
                         newSingingList.count = 0
                         
-                        singingListToggle.updateValue(false, forKey: newSingingList.id!)
+                        singingListToggle.updateValue(true, forKey: newSingingList.id!)
                         do {
                             try viewContext.save()
                             refresh.toggle()

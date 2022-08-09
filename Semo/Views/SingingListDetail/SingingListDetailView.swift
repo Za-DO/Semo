@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SingingListDetailView: View {
+    var singingList: SingingList
+
     // MARK: - BODY
     var body: some View {
         ZStack {
@@ -21,10 +23,10 @@ struct SingingListDetailView: View {
                     .opacity(0.4)
                 Spacer()
             }
-            SingingListDetailCellView()
+            SingingListDetailCellView(singingList: singingList)
         }
         // TODO: - navigationtitle 폰트 크기, 굵기 수정(커스텀으로만 가능)
-        .navigationBarTitle("빠른 싱잉리스트")
+        .navigationBarTitle(singingList.title ?? "제목 없음")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 EditButtonView(buttonName: "편집", buttonWidth: 50){}
@@ -34,8 +36,8 @@ struct SingingListDetailView: View {
     }
 }
 
-struct SingingListDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        SingingListDetailView()
-    }
-}
+//struct SingingListDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SingingListDetailView()
+//    }
+//}
