@@ -28,6 +28,7 @@ struct AddSingingListTagView: View {
                 }
                 .navigationTitle("")
             }
+            .ignoresSafeArea(.keyboard)
             // MARK: - 타이틀 및 싱잉리스트 뷰
             VStack(alignment: .center) {
                 Text("이 노래가 들어갈 싱잉리스트를 \n선택해주세요.")
