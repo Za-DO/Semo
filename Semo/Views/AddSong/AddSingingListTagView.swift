@@ -72,7 +72,6 @@ struct AddSingingListTagView: View {
                     }, label: {
                         FinalConfirmButtonView(buttonName: "리스트 추가하기")
                     })
-                    .padding(.bottom, 1)
                 }
             }
         }
