@@ -12,8 +12,10 @@ struct SemoApp: App {
     var body: some Scene {
         let coreDataInitManager: CoreDataInitManager = CoreDataInitManager.shared
         WindowGroup {
-            MainView()
-                .environment(\.colorScheme, .dark)
+//            MainView()
+//                .environment(\.colorScheme, .dark)
+//                .environment(\.managedObjectContext, coreDataInitManager.context)
+            TestView1()
                 .environment(\.managedObjectContext, coreDataInitManager.context)
         }
     }

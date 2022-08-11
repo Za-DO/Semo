@@ -22,10 +22,10 @@ struct MainView: View {
                 TabView(selection: self.$currentTab) {
                     SongListView().tag(0)
                     SingingListView().tag(1)
-                }
-                .onTapGesture {
-                    print("메인뷰 리프레쉬")
-                    refresh.toggle()
+                        .onTapGesture {
+                            print("메인뷰 리프레쉬")
+                            refresh.toggle()
+                        }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .edgesIgnoringSafeArea(.all)
