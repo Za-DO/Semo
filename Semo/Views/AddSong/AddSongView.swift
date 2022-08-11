@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AddSongView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Song.timestamp, ascending: true)], animation: .default) private var song: FetchedResults<Song>
+    
     @State var songTitle: String = ""
     @State var songSinger: String = ""
     
@@ -43,14 +46,28 @@ struct AddSongView: View {
                 TextFieldView(text: $songSinger, placeholder: "가수의 이름이 무엇인가요?")
                     .frame(width: 350, height: 20, alignment: .leading)
                 Spacer()
-                NavigationLink(destination: AddMoreInfoView()) {
+                Button(action: {
+                    let newSong: Song = Song(context: viewContext)
+                                       newSong.timestamp = Date()
+                   newSong.id = UUID()
+                   newSong.title = songTitle
+                   newSong.singer = songSinger
+                   do {
+                       try viewContext.save()
+                   } catch {
+                       print(error.localizedDescription)
+                   }
+                }, label: {
+                    NavigationLink(destination: AddMoreInfoView()) {
                     ConfirmButtonView(buttonName: "확인")
                         .padding(.bottom, 60)
-                }
-                .navigationTitle("")
+                    }
+                    .navigationTitle("")
+                })
+                
+                
                 
                 Spacer()
-                
             }
             .padding()
         }
