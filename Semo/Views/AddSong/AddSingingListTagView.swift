@@ -77,6 +77,11 @@ struct AddSingingListTagView: View {
                 }
             }
         }
+        .onAppear(perform: {
+            for i in singingList {
+                singingListToggle.updateValue(false, forKey: i.id!)
+            }
+        })
     }
 }
 
