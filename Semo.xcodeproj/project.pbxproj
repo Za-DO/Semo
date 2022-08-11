@@ -31,6 +31,8 @@
 		B2108F1A28845AE9002CED9D /* SongInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1928845AE9002CED9D /* SongInfoView.swift */; };
 		B242DEA92886C3D10052031C /* AddMoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B242DEA82886C3D10052031C /* AddMoreInfoView.swift */; };
 		B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262DD0C2883F86F00E1B527 /* SongDetailView.swift */; };
+		B2983F7028A2AF950064C79A /* AddSingingListTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2983F6F28A2AF950064C79A /* AddSingingListTagView.swift */; };
+		B2983F7228A2C6E50064C79A /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2983F7128A2C6E50064C79A /* NavigationUtil.swift */; };
 		B2A36E322885A6560031D282 /* ContentsTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A36E312885A6560031D282 /* ContentsTitleView.swift */; };
 		C5200BDEAC2C4BE3A51404E6 /* Pods_Semo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533DF943DAA76770EFE704E6 /* Pods_Semo.framework */; };
 		EE6E6DE228A2738B004F030C /* SingingListModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6E6DE128A2738B004F030C /* SingingListModalView.swift */; };
@@ -79,6 +81,8 @@
 		B2108F1928845AE9002CED9D /* SongInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongInfoView.swift; sourceTree = "<group>"; };
 		B242DEA82886C3D10052031C /* AddMoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreInfoView.swift; sourceTree = "<group>"; };
 		B262DD0C2883F86F00E1B527 /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
+		B2983F6F28A2AF950064C79A /* AddSingingListTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSingingListTagView.swift; sourceTree = "<group>"; };
+		B2983F7128A2C6E50064C79A /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 		B2A36E312885A6560031D282 /* ContentsTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsTitleView.swift; sourceTree = "<group>"; };
 		EE6E6DE128A2738B004F030C /* SingingListModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListModalView.swift; sourceTree = "<group>"; };
 		EEAD176228828B46009388DD /* Semo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Semo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +120,7 @@
 			children = (
 				209E12E02883F186006FB3A8 /* AddSongView.swift */,
 				B242DEA82886C3D10052031C /* AddMoreInfoView.swift */,
+				B2983F6F28A2AF950064C79A /* AddSingingListTagView.swift */,
 			);
 			path = AddSong;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 				209E12E22883F1CA006FB3A8 /* TextFieldView.swift */,
 				209E12E62883F3F3006FB3A8 /* ConfirmButtonView.swift */,
 				3928C59F28A18962006D3D19 /* FinalConfirmButtonView.swift */,
+				B2983F7128A2C6E50064C79A /* NavigationUtil.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -422,6 +428,7 @@
 			files = (
 				B2108F1628845A67002CED9D /* TunePickerView.swift in Sources */,
 				EEC3B54E2883A79C0036BE34 /* MainView.swift in Sources */,
+				B2983F7028A2AF950064C79A /* AddSingingListTagView.swift in Sources */,
 				B2108F1A28845AE9002CED9D /* SongInfoView.swift in Sources */,
 				EEAD17742882AA2F009388DD /* SongListView.swift in Sources */,
 				B2108F1428845A5A002CED9D /* LevelPickerView.swift in Sources */,
@@ -457,6 +464,7 @@
 				3928C5A028A18962006D3D19 /* FinalConfirmButtonView.swift in Sources */,
 				39FE869B28828DBD00D0F24F /* TestModel.swift in Sources */,
 				3916A13B2883AD0500C21828 /* SingingList+CoreDataClass.swift in Sources */,
+				B2983F7228A2C6E50064C79A /* NavigationUtil.swift in Sources */,
 				3928C59A28A1800F006D3D19 /* CheckboxToggleStyle.swift in Sources */,
 				EEC3B553288408390036BE34 /* SingingListDetailView.swift in Sources */,
 			);

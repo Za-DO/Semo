@@ -37,11 +37,11 @@ struct AddMoreInfoView: View {
                 Spacer()
                 
                 // TODO: - 데이터 저장하고 다음 단계로 넘어가기
-                NavigationLink(destination: TestDetailView()) {
+                NavigationLink(destination: AddSingingListTagView()) {
                     ConfirmButtonView(buttonName: "확인")
                 }
                 .navigationTitle("")
-                NavigationLink(destination: TestDetailView()) {
+                NavigationLink(destination: AddSingingListTagView()) {
                     Text("건너뛰기")
                         .foregroundColor(.grayScale1)
                         .font(.system(size: 16, weight: .semibold))

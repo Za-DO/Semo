@@ -10,6 +10,7 @@ import SwiftUI
 struct AddSongView: View {
     @State var songTitle: String = ""
     @State var songSinger: String = ""
+    
     var body: some View {
         ZStack {
             Color.backgroundBlack.ignoresSafeArea()
@@ -41,14 +42,12 @@ struct AddSongView: View {
                 
                 TextFieldView(text: $songSinger, placeholder: "가수의 이름이 무엇인가요?")
                     .frame(width: 350, height: 20, alignment: .leading)
-                
-                Button(action: {
-                    print(songTitle)
-                    print(songSinger)
-                }, label: {
+                Spacer()
+                NavigationLink(destination: AddMoreInfoView()) {
                     ConfirmButtonView(buttonName: "확인")
-                        .padding(.top, 88)
-                })
+                        .padding(.bottom, 60)
+                }
+                .navigationTitle("")
                 
                 Spacer()
                 
