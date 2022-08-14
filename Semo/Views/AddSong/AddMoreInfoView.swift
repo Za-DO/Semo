@@ -41,12 +41,14 @@ struct AddMoreInfoView: View {
                     ConfirmButtonView(buttonName: "확인")
                 }
                 .navigationTitle("")
-                NavigationLink(destination: AddSingingListTagView()) {
+                Button(action: {
+                    NavigationUtil.popToRootView()
+                }, label: {
                     Text("건너뛰기")
                         .foregroundColor(.grayScale1)
                         .font(.system(size: 16, weight: .semibold))
                         .padding(EdgeInsets(top: 28, leading: 0, bottom: 60, trailing: 0))
-                }
+                })
             }
         }
         .navigationBarTitle("", displayMode: .inline)
