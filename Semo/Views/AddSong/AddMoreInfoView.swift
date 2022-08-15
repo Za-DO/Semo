@@ -38,7 +38,7 @@ struct AddMoreInfoView: View {
                 
                 // TODO: - 데이터 저장하고 다음 단계로 넘어가기
                 NavigationLink(destination: AddSingingListTagView()) {
-                    ConfirmButtonView(buttonName: "확인")
+                    ConfirmButtonView(buttonName: "확인", buttonColor: Color.mainPurpleColor, textColor: .white)
                 }
                 .navigationTitle("")
                 NavigationLink(destination: AddSingingListTagView()) {
