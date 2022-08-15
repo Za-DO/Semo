@@ -24,7 +24,7 @@ struct ConfirmButtonView: View {
             .font(.system(size: 16, weight: .semibold))
             .foregroundColor(textColor)
             .padding()
-            .frame(width: 350, height: 48)
+            .frame(width: UIScreen.main.bounds.width - 40, height: 48)
             .background(buttonColor)
             .cornerRadius(16)
     }
