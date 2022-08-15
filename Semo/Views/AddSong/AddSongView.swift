@@ -46,38 +46,33 @@ struct AddSongView: View {
                 TextFieldView(text: $songSinger, placeholder: "가수의 이름이 무엇인가요?")
                     .frame(width: 350, height: 20, alignment: .leading)
                 Spacer()
-//                Button(action: {
-//
-//                }, label: {
-                    NavigationLink(destination: AddMoreInfoView(songTitle: songTitle, songSinger: songSinger)) {
+                Button(action: {
+                    let newSong: Song = Song(context: viewContext)
+                                       newSong.timestamp = Date()
+                   newSong.id = UUID()
+                   newSong.title = songTitle
+                   newSong.singer = songSinger
+                   do {
+                       try viewContext.save()
+                   } catch {
+                       print(error.localizedDescription)
+                   }
+                }, label: {
+                    NavigationLink(destination: AddMoreInfoView()) {
                     ConfirmButtonView(buttonName: "확인")
                         .padding(.bottom, 60)
                     }
                     .navigationTitle("")
-//                })
-                .onDisappear(perform: {
-                    
-                    let newSong: Song = Song(context: viewContext)
-//                    newSong.timestamp = Date()
-//                    newSong.id = UUID()
-//                    newSong.title = songTitle
-//                    newSong.singer = songSinger
-//                    do {
-//                        try viewContext.save()
-//                    } catch {
-//                        print(error.localizedDescription)
-//                    }
-                    
-                    print("AddSongView disappear")
-
                 })
+                
+                
+                
                 Spacer()
             }
             .padding()
         }
     }
 }
-
 
 struct AddSongView_Previews: PreviewProvider {
     static var previews: some View {

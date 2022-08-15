@@ -18,9 +18,6 @@
 		3928C59A28A1800F006D3D19 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3928C59928A1800F006D3D19 /* CheckboxToggleStyle.swift */; };
 		3928C5A028A18962006D3D19 /* FinalConfirmButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3928C59F28A18962006D3D19 /* FinalConfirmButtonView.swift */; };
 		395E629B289C67F900E374B7 /* SingingListToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395E629A289C67F900E374B7 /* SingingListToggleView.swift */; };
-		3960043728A543E2003AAE63 /* TestView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3960043628A543E2003AAE63 /* TestView1.swift */; };
-		3960043928A543EA003AAE63 /* TestView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3960043828A543EA003AAE63 /* TestView2.swift */; };
-		3960043B28A543F2003AAE63 /* TestView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3960043A28A543F2003AAE63 /* TestView3.swift */; };
 		3992665428A1BC14001849E6 /* SingingListSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3992665328A1BC14001849E6 /* SingingListSheetView.swift */; };
 		3992665628A1BD4D001849E6 /* TestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3992665528A1BD4D001849E6 /* TestDetailView.swift */; };
 		39FE869928828DB300D0F24F /* TestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE869828828DB300D0F24F /* TestManager.swift */; };
@@ -69,9 +66,6 @@
 		3928C59928A1800F006D3D19 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		3928C59F28A18962006D3D19 /* FinalConfirmButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalConfirmButtonView.swift; sourceTree = "<group>"; };
 		395E629A289C67F900E374B7 /* SingingListToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListToggleView.swift; sourceTree = "<group>"; };
-		3960043628A543E2003AAE63 /* TestView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView1.swift; sourceTree = "<group>"; };
-		3960043828A543EA003AAE63 /* TestView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView2.swift; sourceTree = "<group>"; };
-		3960043A28A543F2003AAE63 /* TestView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView3.swift; sourceTree = "<group>"; };
 		3992665328A1BC14001849E6 /* SingingListSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListSheetView.swift; sourceTree = "<group>"; };
 		3992665528A1BD4D001849E6 /* TestDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailView.swift; sourceTree = "<group>"; };
 		39FE869828828DB300D0F24F /* TestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestManager.swift; sourceTree = "<group>"; };
@@ -164,9 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				3992665528A1BD4D001849E6 /* TestDetailView.swift */,
-				3960043628A543E2003AAE63 /* TestView1.swift */,
-				3960043828A543EA003AAE63 /* TestView2.swift */,
-				3960043A28A543F2003AAE63 /* TestView3.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -452,14 +443,11 @@
 				B242DEA92886C3D10052031C /* AddMoreInfoView.swift in Sources */,
 				EEC3B54A28839F250036BE34 /* TabBarItemView.swift in Sources */,
 				395E629B289C67F900E374B7 /* SingingListToggleView.swift in Sources */,
-				3960043928A543EA003AAE63 /* TestView2.swift in Sources */,
 				39FE869928828DB300D0F24F /* TestManager.swift in Sources */,
-				3960043728A543E2003AAE63 /* TestView1.swift in Sources */,
 				EEAD176628828B46009388DD /* SemoApp.swift in Sources */,
 				EEAD17812882E48D009388DD /* SingingListView.swift in Sources */,
 				B2A36E322885A6560031D282 /* ContentsTitleView.swift in Sources */,
 				EEAD177F2882DB15009388DD /* SongListCellView.swift in Sources */,
-				3960043B28A543F2003AAE63 /* TestView3.swift in Sources */,
 				EEAD17862882FB6C009388DD /* EditButtonView.swift in Sources */,
 				39FE86A62882AD8000D0F24F /* CoreDataInitManager.swift in Sources */,
 				EEC3B55A288441590036BE34 /* SingingListDetailCellView.swift in Sources */,
