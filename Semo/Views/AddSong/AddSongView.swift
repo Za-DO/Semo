@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AddSongView: View {
-    @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Song.timestamp, ascending: true)], animation: .default) private var song: FetchedResults<Song>
     
     @State var songTitle: String = ""
@@ -47,16 +46,7 @@ struct AddSongView: View {
                     .frame(width: 350, height: 20, alignment: .leading)
                 Spacer()
                 Button(action: {
-                    let newSong: Song = Song(context: viewContext)
-                                       newSong.timestamp = Date()
-                   newSong.id = UUID()
-                   newSong.title = songTitle
-                   newSong.singer = songSinger
-                   do {
-                       try viewContext.save()
-                   } catch {
-                       print(error.localizedDescription)
-                   }
+                    CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger)
                 }, label: {
                     NavigationLink(destination: AddMoreInfoView(songTitle: songTitle, songSinger: songSinger)) {
                     ConfirmButtonView(buttonName: "확인")

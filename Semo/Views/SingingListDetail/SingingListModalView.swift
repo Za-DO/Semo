@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SingingListModalView: View {
     @SwiftUI.Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
-    @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
     @State var singingListTitle: String = ""
     @State var singingListToggle: [UUID: Bool] = [:]
@@ -30,16 +29,8 @@ struct SingingListModalView: View {
                 TextFieldView(text: $singingListTitle, placeholder: "새로운 리스트를 추가하세요.")
                     .padding(EdgeInsets(top: 0, leading: 15, bottom: 55, trailing: 15))
                 Button {
-                    let newSingingList: SingingList = SingingList(context: viewContext)
-                    newSingingList.timestamp = Date()
-                    newSingingList.id = UUID()
-                    newSingingList.title = singingListTitle
-                    newSingingList.count = 0
-                    do {
-                        try viewContext.save()
-                    } catch {
-                        print(error.localizedDescription)
-                    }
+                    // 새로운 SingingList coreData에 추가
+                    CoreDataManager.shared.saveNewSingingList( singingListTitle: singingListTitle)
                     singingListTitle = ""
                     self.presentationMode.wrappedValue.dismiss()
                 } label: {

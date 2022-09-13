@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AddMoreInfoView: View {
-    @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Song.timestamp, ascending: true)], animation: .default) private var song: FetchedResults<Song>
     
     @State var levelPickerIndex: Int = 1
@@ -51,16 +50,7 @@ struct AddMoreInfoView: View {
                     // 네비게이션 빠져 나오게
                     NavigationUtil.popToRootView()
                     // 노래 추가 로직
-                    let newSong: Song = Song(context: viewContext)
-                    newSong.timestamp = Date()
-                    newSong.id = UUID()
-                    newSong.title = songTitle
-                    newSong.singer = songSinger
-                    do {
-                        try viewContext.save()
-                    } catch {
-                        print(error.localizedDescription)
-                    }
+                    CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger)
                 }, label: {
                     Text("건너뛰기")
                         .foregroundColor(.grayScale1)

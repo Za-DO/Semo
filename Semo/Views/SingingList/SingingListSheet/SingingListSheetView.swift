@@ -27,7 +27,7 @@ struct SingingListSheetView: View {
                 }
                 Button(action: {
                     if newSingingListTitle.isEmpty {
-                        var checkedSingingLIst: [UUID] = []
+                        var checkedSingingList: [UUID] = []
                         for i in singingList {
                             if singingListToggle[i.id!] == true {
                                 i.count += 1
