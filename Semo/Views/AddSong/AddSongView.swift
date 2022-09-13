@@ -58,7 +58,7 @@ struct AddSongView: View {
                        print(error.localizedDescription)
                    }
                 }, label: {
-                    NavigationLink(destination: AddMoreInfoView()) {
+                    NavigationLink(destination: AddMoreInfoView(songTitle: songTitle, songSinger: songSinger)) {
                     ConfirmButtonView(buttonName: "확인")
                         .padding(.bottom, 60)
                     }

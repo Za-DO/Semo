@@ -9,10 +9,13 @@ import SwiftUI
 
 struct AddSingingListTagView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .linear) private var singingList: FetchedResults<SingingList>
     @State var newSingingListTitle: String = ""
     @State var singingListToggle: [UUID: Bool] = [:]
     @FocusState private var isTextFieldFocused: Bool
+    
+    var songTitle: String
+    var songSinger: String
     
     var body: some View {
         ZStack {
@@ -82,11 +85,24 @@ struct AddSingingListTagView: View {
                 singingListToggle.updateValue(false, forKey: i.id!)
             }
         })
+        .onDisappear(perform: {
+            // 노래 추가 로직
+            let newSong: Song = Song(context: viewContext)
+            newSong.timestamp = Date()
+            newSong.id = UUID()
+            newSong.title = songTitle
+            newSong.singer = songSinger
+            do {
+                try viewContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        })
     }
 }
 
-struct AddSingingListTagView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddSingingListTagView()
-    }
-}
+//struct AddSingingListTagView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddSingingListTagView()
+//    }
+//}
