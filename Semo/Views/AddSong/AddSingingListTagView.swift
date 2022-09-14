@@ -25,7 +25,7 @@ struct AddSingingListTagView: View {
                 Button(action: {
                     NavigationUtil.popToRootView()
                 }, label: {
-                    ConfirmButtonView(buttonName: "확인")
+                    ConfirmButtonView(buttonName: "확인", buttonColor: Color.mainPurpleColor, textColor: .white)
                         .padding(.bottom, 60)
                 })
             }
@@ -34,11 +34,12 @@ struct AddSingingListTagView: View {
             VStack(alignment: .center) {
                 Text("이 노래가 들어갈 싱잉리스트를 \n선택해주세요.")
                     .lineSpacing(10)
-                    .frame(width: UIScreen.main.bounds.width, alignment: .leading)
+                    .frame(width: UIScreen.main.bounds.width - 40, alignment: .leading)
                     .foregroundColor(.white)
                     .font(.system(size: 24, weight: .semibold))
-                    .padding(EdgeInsets(top: 14, leading: 20, bottom: 0, trailing: 0))
+                    .padding(EdgeInsets(top: 14, leading: 0, bottom: 0, trailing: 0))
                 TextFieldView(text: $newSingingListTitle, placeholder: "새로운 리스트를 바로 추가해보세요.")
+                    .frame(width: UIScreen.main.bounds.width - 20)
                     .disableAutocorrection(true)
                     .padding(.horizontal, 20)
                     .focused($isTextFieldFocused)
