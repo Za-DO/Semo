@@ -39,7 +39,6 @@ struct AddMoreInfoView: View {
                 LevelPickerView(levelIndexBase: $levelPickerIndex, levelItems: levelPickerItems)
                     .padding(.top, 60)
                 TunePickerView(genderIndexBase: $genderIndex, genderItems: genderItems, tuneIndexBase: $tunePickerIndex, tuneItems: tunePickerItems)
-//                Text("숙련도 : \(levelPickerItems), 키: \(genderItems), \(tunePickerItems)")
                 Spacer()
                 
                 // TODO: - 데이터 저장하고 다음 단계로 넘어가기
