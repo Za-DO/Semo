@@ -25,10 +25,3 @@ struct SingingListToggleView: View {
        }
     }
 }
-
-
-//struct SingingListToggleView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SingingListToggleView()
-//    }
-//}
