@@ -27,7 +27,7 @@ struct AddSingingListTagView: View {
                 Button(action: {
                     NavigationUtil.popToRootView()
                 }, label: {
-                    ConfirmButtonView(buttonName: "확인", buttonColor: Color.mainPurpleColor, textColor: .white)
+                    ConfirmButtonView(buttonName: "확인", buttonColor: isTextFieldFocused ? .black : Color.mainPurpleColor, textColor: isTextFieldFocused ? .black : .white)
                         .padding(.bottom, 60)
                 })
             }
