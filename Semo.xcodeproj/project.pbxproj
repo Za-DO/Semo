@@ -430,7 +430,6 @@
 				EEAD17842882E4CD009388DD /* SingingListCellView.swift in Sources */,
 				3992665628A1BD4D001849E6 /* TestDetailView.swift in Sources */,
 				EEAD177D2882BE63009388DD /* ColorExtension.swift in Sources */,
-				B2108F1828845A74002CED9D /* SingingListTagView.swift in Sources */,
 				B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */,
 				EE6E6DE228A2738B004F030C /* SingingListModalView.swift in Sources */,
 				B242DEA92886C3D10052031C /* AddMoreInfoView.swift in Sources */,
