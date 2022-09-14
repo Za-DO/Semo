@@ -11,6 +11,7 @@ struct SongDetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
     @State var refresh: Bool = false
+    @State private var refreshingID = UUID()
     var song: Song
     
     // 싱잉리스트 추가 sheet
@@ -62,8 +63,9 @@ struct SongDetailView: View {
                     
                     // TODO: - 해당 노래에 맞는 싱잉리스트로 받아오게 수정되어야 함
                     ForEach(song.singingListArray) {
-                        singingListTag(title: $0.title ?? "제목 없음")
+                        singingListTag(singingList: $0)
                     }
+                    .id(refreshingID)
                 }
                 
                 // MARK: - 상단 네비게이션 바 삭제 버튼
@@ -90,17 +92,26 @@ struct SongDetailView: View {
     }
     
     @ViewBuilder
-    func singingListTag(title: String) -> some View {
+    func singingListTag(singingList: SingingList) -> some View {
         HStack {
             Button {
-                print("싱잉리스트 태그 삭제하기")
+                song.removeFromSongToSingingList(singingList)
+                do {
+                    try viewContext.save()
+                    self.refreshingID = UUID()
+//                    refresh.toggle()
+
+                } catch {
+                    print(error.localizedDescription)
+                }
+                print("\(singingList.title ?? "제목 없음") 싱잉리스트 태그 삭제하기2")
             } label: {
                 Image(systemName: "minus.circle.fill")
                     .foregroundColor(.grayScale4)
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
             }
             HStack {
-                Text(title)
+                Text(singingList.title ?? "제목 없음")
                     .font(.system(size: 20, weight: .semibold))
                     .foregroundColor(.white)
             }
