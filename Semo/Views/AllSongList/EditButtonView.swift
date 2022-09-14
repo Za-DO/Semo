@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditButtonView: View {    
+struct EditButtonView: View {
     var buttonName: String
     var buttonWidth: CGFloat
     var buttonAction: () -> Void
@@ -16,7 +16,6 @@ struct EditButtonView: View {
     var body: some View {
         // MARK: - 목록, 리스트 편집 버튼
         Button {
-//            self.editButtonTapped.toggle()
             buttonAction()
         } label: {
             Text(buttonName)
