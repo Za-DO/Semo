@@ -23,11 +23,12 @@ struct MainView: View {
                     SongListView().tag(0)
                     SingingListView().tag(1)
                 }
-                .tabViewStyle(.page(indexDisplayMode: .never))
-                .edgesIgnoringSafeArea(.all)
                 .onTapGesture {
+                    print("메인뷰 리프레쉬")
                     refresh.toggle()
                 }
+                .tabViewStyle(.page(indexDisplayMode: .never))
+                .edgesIgnoringSafeArea(.all)
                 
                 TabBarView(currentTab: self.$currentTab)
                     .padding(.top, 60)

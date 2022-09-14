@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct AddSingingListTagView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .linear) private var singingList: FetchedResults<SingingList>
     @State var newSingingListTitle: String = ""
     @State var singingListToggle: [UUID: Bool] = [:]
     @FocusState private var isTextFieldFocused: Bool
+    
+    var songTitle: String
+    var songSinger: String
     
     var body: some View {
         ZStack {
@@ -60,16 +62,7 @@ struct AddSingingListTagView: View {
                     // TODO: - textField가 focus되지 않았을 때 버튼 회색으로 변경
                     Button(action: {
                         // 새로운 SingingList coreData에 추가
-                        let newSingingList: SingingList = SingingList(context: viewContext)
-                        newSingingList.timestamp = Date()
-                        newSingingList.id = UUID()
-                        newSingingList.title = newSingingListTitle
-                        newSingingList.count = 0
-                        do {
-                            try viewContext.save()
-                        } catch {
-                            print(error.localizedDescription)
-                        }
+                        CoreDataManager.shared.saveNewSingingList( singingListTitle: newSingingListTitle)
                         newSingingListTitle = ""
                         isTextFieldFocused = false
                     }, label: {
@@ -83,14 +76,18 @@ struct AddSingingListTagView: View {
         }
         .onAppear(perform: {
             for i in singingList {
-                singingListToggle[i.id!] = false
+                singingListToggle.updateValue(false, forKey: i.id!)
             }
+        })
+        .onDisappear(perform: {
+            // 노래 추가 로직
+            CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger)
         })
     }
 }
 
-struct AddSingingListTagView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddSingingListTagView()
-    }
-}
+//struct AddSingingListTagView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddSingingListTagView()
+//    }
+//}

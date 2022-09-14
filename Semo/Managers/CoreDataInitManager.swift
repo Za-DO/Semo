@@ -11,6 +11,9 @@ import CoreData
 class CoreDataInitManager {
     // 싱글턴
     static let shared = CoreDataInitManager()
+    
+    private init() {}
+    
     lazy var context = persistentContainer.viewContext
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Semo")

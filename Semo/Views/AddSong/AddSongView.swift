@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AddSongView: View {
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Song.timestamp, ascending: true)], animation: .default) private var song: FetchedResults<Song>
+    
     @State var songTitle: String = ""
     @State var songSinger: String = ""
     @State var emptyFlag: Bool = false
@@ -43,6 +45,7 @@ struct AddSongView: View {
                     .foregroundColor(Color.grayScale2)
                 
                 TextFieldView(text: $songSinger, placeholder: "가수의 이름이 무엇인가요?")
+
                     .frame(width: UIScreen.main.bounds.width - 20, height: 20)
                     .disableAutocorrection(true)
 
@@ -55,8 +58,8 @@ struct AddSongView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .disabled(self.songTitle.isEmpty || self.songSinger.isEmpty)
                 
-                Spacer()
                 
+                Spacer()
             }
             .padding()
         }
