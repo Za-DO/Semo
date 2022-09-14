@@ -51,6 +51,7 @@ struct AddMoreInfoView: View {
                     NavigationUtil.popToRootView()
                     // 노래 추가 로직
                     CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger)
+
                 }, label: {
                     Text("건너뛰기")
                         .foregroundColor(.grayScale1)

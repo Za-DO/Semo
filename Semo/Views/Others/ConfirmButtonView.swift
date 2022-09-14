@@ -11,22 +11,27 @@ import SwiftUI
 /// - 라벨 이름만 생성자로 넣어서 쓰시면 됩니다.
 struct ConfirmButtonView: View {
     var buttonName: String
-    init(buttonName: String) {
+    var buttonColor: Color
+    var textColor: Color
+    
+    init(buttonName: String, buttonColor: Color, textColor: Color) {
         self.buttonName = buttonName
+        self.buttonColor = buttonColor
+        self.textColor = textColor
     }
     var body: some View {
         Text(buttonName)
             .font(.system(size: 16, weight: .semibold))
-            .foregroundColor(.white)
+            .foregroundColor(textColor)
             .padding()
-            .frame(width: 350, height: 48)
-            .background(Color.mainPurpleColor)
+            .frame(width: UIScreen.main.bounds.width - 40, height: 48)
+            .background(buttonColor)
             .cornerRadius(16)
     }
 }
 
 struct ConfirmButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmButtonView(buttonName: "확인")
+        ConfirmButtonView(buttonName: "확인", buttonColor: Color.mainPurpleColor, textColor: .white)
     }
 }

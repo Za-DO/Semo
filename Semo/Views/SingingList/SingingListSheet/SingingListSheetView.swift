@@ -59,8 +59,11 @@ struct SingingListSheetView: View {
                     }
                     newSingingListTitle = ""
                 }, label: {
-                    FinalConfirmButtonView(buttonName: newSingingListTitle.isEmpty ? "확인" : "리스트 추가하기")
+                    FinalConfirmButtonView(buttonName: newSingingListTitle.isEmpty ? "확인" : "리스트 추가하기",
+                                           buttonColor: Color.mainPurpleColor,
+                                           textColor: newSingingListTitle.isEmpty ? .grayScale3 : .white)
                 })
+                .disabled(newSingingListTitle == "")
             }
             .padding(EdgeInsets(top: 40, leading: 0, bottom: 1, trailing: 0))
         }

@@ -26,7 +26,6 @@
 		39FE86AC2882CDE300D0F24F /* Semo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39FE86AA2882CDE300D0F24F /* Semo.xcdatamodeld */; };
 		B2108F1428845A5A002CED9D /* LevelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1328845A5A002CED9D /* LevelPickerView.swift */; };
 		B2108F1628845A67002CED9D /* TunePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1528845A67002CED9D /* TunePickerView.swift */; };
-		B2108F1828845A74002CED9D /* SingingListTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1728845A74002CED9D /* SingingListTagView.swift */; };
 		B2108F1A28845AE9002CED9D /* SongInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1928845AE9002CED9D /* SongInfoView.swift */; };
 		B242DEA92886C3D10052031C /* AddMoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B242DEA82886C3D10052031C /* AddMoreInfoView.swift */; };
 		B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262DD0C2883F86F00E1B527 /* SongDetailView.swift */; };
@@ -75,7 +74,6 @@
 		6ABBD324455D15FC10163A3D /* Pods-Semo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Semo.debug.xcconfig"; path = "Target Support Files/Pods-Semo/Pods-Semo.debug.xcconfig"; sourceTree = "<group>"; };
 		B2108F1328845A5A002CED9D /* LevelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPickerView.swift; sourceTree = "<group>"; };
 		B2108F1528845A67002CED9D /* TunePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunePickerView.swift; sourceTree = "<group>"; };
-		B2108F1728845A74002CED9D /* SingingListTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListTagView.swift; sourceTree = "<group>"; };
 		B2108F1928845AE9002CED9D /* SongInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongInfoView.swift; sourceTree = "<group>"; };
 		B242DEA82886C3D10052031C /* AddMoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreInfoView.swift; sourceTree = "<group>"; };
 		B262DD0C2883F86F00E1B527 /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 				B2108F1928845AE9002CED9D /* SongInfoView.swift */,
 				B2108F1328845A5A002CED9D /* LevelPickerView.swift */,
 				B2108F1528845A67002CED9D /* TunePickerView.swift */,
-				B2108F1728845A74002CED9D /* SingingListTagView.swift */,
 				B2A36E312885A6560031D282 /* ContentsTitleView.swift */,
 			);
 			path = SongDetail;

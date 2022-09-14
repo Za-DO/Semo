@@ -34,8 +34,11 @@ struct SingingListModalView: View {
                     singingListTitle = ""
                     self.presentationMode.wrappedValue.dismiss()
                 } label: {
-                    FinalConfirmButtonView(buttonName: "리스트 추가하기")
+                    FinalConfirmButtonView(buttonName: "리스트 추가하기",
+                                           buttonColor: singingListTitle.isEmpty ? .grayScale5 : Color.mainPurpleColor,
+                                           textColor: singingListTitle.isEmpty ? .grayScale3 : .white)
                 }
+                .disabled(singingListTitle == "")
                 Spacer()
             }
             .padding(.top, 36)
