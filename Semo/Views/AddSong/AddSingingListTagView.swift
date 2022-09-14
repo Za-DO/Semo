@@ -72,11 +72,19 @@ struct AddSingingListTagView: View {
                         newSingingListTitle = ""
                         isTextFieldFocused = false
                     }, label: {
-                        FinalConfirmButtonView(buttonName: "리스트 추가하기")
+                        FinalConfirmButtonView(buttonName: "리스트 추가하기",
+                                               buttonColor: newSingingListTitle.isEmpty ? .grayScale5 : Color.mainPurpleColor,
+                                               textColor: newSingingListTitle.isEmpty ? .grayScale3 : .white)
                     })
+                    .disabled(newSingingListTitle == "")
                 }
             }
         }
+        .onAppear(perform: {
+            for i in singingList {
+                singingListToggle[i.id!] = false
+            }
+        })
     }
 }
 
