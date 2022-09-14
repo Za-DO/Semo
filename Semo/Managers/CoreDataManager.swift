@@ -27,6 +27,10 @@ class CoreDataManager {
                 newSong.id = UUID()
                 newSong.title = songTitle
                 newSong.singer = songSinger
+                // 추가 정보
+                newSong.gender = "남성"
+                newSong.level = "중"
+                newSong.tune = "0"
                 try viewContext.save()
                 print("title : \(songTitle), singer : \(songSinger) 저장 완료")
                 return
