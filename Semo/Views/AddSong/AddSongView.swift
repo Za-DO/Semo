@@ -25,8 +25,8 @@ struct AddSongView: View {
                     .foregroundColor(.white)
                     .font(.system(size: 24, weight: .semibold))
                     .padding(EdgeInsets(top: 14, leading: 10, bottom: 0, trailing: 0))
-//                    .padding(.leading, 10)
-//                    .padding(.top, 14)
+                //                    .padding(.leading, 10)
+                //                    .padding(.top, 14)
                 
                 
                 Text("노래 제목")
@@ -45,20 +45,21 @@ struct AddSongView: View {
                     .foregroundColor(Color.grayScale2)
                 
                 TextFieldView(text: $songSinger, placeholder: "가수의 이름이 무엇인가요?")
-
                     .frame(width: UIScreen.main.bounds.width - 20, height: 20)
                     .disableAutocorrection(true)
-
-                NavigationLink(destination: AddMoreInfoView()) {
-                    ConfirmButtonView(buttonName: "확인",
-                                      buttonColor: songTitle.isEmpty || songSinger.isEmpty ? .grayScale5 : Color.mainPurpleColor,
-                                      textColor: songTitle.isEmpty || songSinger.isEmpty ? .grayScale3 : .white)
-                }
-                .padding(EdgeInsets(top: 50, leading: 10, bottom: 0, trailing: 0))
-                .navigationBarTitleDisplayMode(.inline)
-                .disabled(self.songTitle.isEmpty || self.songSinger.isEmpty)
                 
-                
+                Button(action: {
+                    CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger)
+                }, label: {
+                    NavigationLink(destination: AddMoreInfoView(songTitle: songTitle, songSinger: songSinger)) {
+                        ConfirmButtonView(buttonName: "확인",
+                                          buttonColor: songTitle.isEmpty || songSinger.isEmpty ? .grayScale5 : Color.mainPurpleColor,
+                                          textColor: songTitle.isEmpty || songSinger.isEmpty ? .grayScale3 : .white)
+                    }
+                    .padding(EdgeInsets(top: 50, leading: 10, bottom: 0, trailing: 0))
+                    .navigationBarTitleDisplayMode(.inline)
+                    .disabled(self.songTitle.isEmpty || self.songSinger.isEmpty)
+                })
                 Spacer()
             }
             .padding()

@@ -60,10 +60,10 @@ struct SingingListSheetView: View {
                     newSingingListTitle = ""
                 }, label: {
                     FinalConfirmButtonView(buttonName: newSingingListTitle.isEmpty ? "확인" : "리스트 추가하기",
-                                           buttonColor: Color.mainPurpleColor,
-                                           textColor: newSingingListTitle.isEmpty ? .grayScale3 : .white)
+                                           buttonColor: checkToggle(data: singingListToggle) && newSingingListTitle.isEmpty ? Color.grayScale5 : Color.mainPurpleColor,
+                                           textColor: checkToggle(data: singingListToggle) && newSingingListTitle.isEmpty ? Color.grayScale3 : .white)
                 })
-                .disabled(newSingingListTitle == "")
+                .disabled(checkToggle(data: singingListToggle) && newSingingListTitle.isEmpty)
             }
             .padding(EdgeInsets(top: 40, leading: 0, bottom: 1, trailing: 0))
         }
@@ -72,6 +72,15 @@ struct SingingListSheetView: View {
                 singingListToggle[i.id!] = false
             }
         })
+    }
+    
+    func checkToggle(data: [UUID: Bool]) -> Bool {
+        for i in data {
+            if i.value == true {
+                return false
+            }
+        }
+        return true
     }
 }
 
