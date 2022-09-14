@@ -71,10 +71,10 @@ struct SongDetailView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button{
-                            print("기록 삭제하기")
+                            print("기록 저장하기")
                         } label: {
-                            EditButtonView(buttonName: "삭제", buttonWidth: 60){}
-                                .padding(.trailing, 15)
+                            EditButtonView(buttonName: "저장", buttonWidth: 50){}
+                                .padding(.trailing, 20)
                         }
                     }
                 }
