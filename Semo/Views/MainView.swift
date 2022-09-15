@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State var currentTab: Int = 0
+    @State var editButtonTap: Bool = false
     
     // MARK: - BODY
     var body: some View {
@@ -23,8 +24,8 @@ struct MainView: View {
                 
                 // MARK: - 상단 탭바
                 TabView(selection: self.$currentTab) {
-                    SongListView().tag(0)
-                    SingingListView(refresh: $currentTab).tag(1)
+                    SongListView(editButtonTapped: $editButtonTap).tag(0)
+                    SingingListView(editButtonTap: $editButtonTap, refresh: $currentTab).tag(1)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .edgesIgnoringSafeArea(.all)
