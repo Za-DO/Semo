@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SingingListCellView: View {
+    @Binding var refresh: Int
     var singingList: SingingList
     // MARK: - BODY
     var body: some View {
