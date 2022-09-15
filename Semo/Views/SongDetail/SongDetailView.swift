@@ -13,6 +13,7 @@ struct SongDetailView: View {
     @State var refresh: Bool = false
     @State private var refreshingID = UUID()
     @State private var isChanged = false
+    @State private var showDeleteAlert: Bool = false
     var song: Song
     
     // 싱잉리스트 추가 sheet
@@ -44,7 +45,7 @@ struct SongDetailView: View {
             
             VStack {
                 SongInfoView(song: song)
-                    .padding(.bottom, 52)
+                    .padding(.bottom, 20)
                 
                 ScrollView {
                     LevelPickerView(levelIndexBase: $levelPickerIndex, levelItems: levelPickerItems)
@@ -71,30 +72,44 @@ struct SongDetailView: View {
                         EditButtonView(buttonName: "추가하기", buttonWidth: 80){
                             isPresented.toggle()
                         }
-                            .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 34))
-                            .onChange(of: song.singingListArray, perform: { _ in
-                                isChanged = true
-                                print("changed")
-                            })
+                        .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 34))
+                        .onChange(of: song.singingListArray, perform: { _ in
+                            isChanged = true
+                            print("changed")
+                        })
                     }
                     
                     ForEach(song.singingListArray) {
                         singingListTag(singingList: $0)
                     }
                     .id(refreshingID)
+                    
+                    Button(action: {
+                        print("노래 삭제하기")
+                        self.showDeleteAlert = true
+                    }, label: {
+                        ConfirmButtonView(buttonName: "노래 삭제하기", buttonColor: Color.grayScale7.opacity(0.2), textColor: .red)
+                            .padding(.top, 30)
+                    })
+                    .alert("이 노래를 삭제하시겠습니까?", isPresented: $showDeleteAlert) {
+                        Button("취소", role: .cancel) {}
+                        Button("삭제", role: .destructive) {
+                            // TODO: - 노래 데이터 삭제 코드
+                        }
+                    }
                 }
                 
-                // MARK: - 상단 네비게이션 바 삭제 버튼
+                // MARK: - 상단 네비게이션 바 저장 버튼
                 
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button{
+                        EditButtonView(buttonName: "저장", buttonWidth: 50) {
                             print("기록 저장하기")
-                        } label: {
-                            EditButtonView(buttonName: "저장", buttonWidth: 50){}
-                                .padding(.trailing, 20)
-                                .opacity(0.2)
+                            isChanged = false
                         }
+                        .padding(.trailing, 20)
+                        .opacity(isChanged == true ? 1 : 0.2)
+                        .disabled(!isChanged)
                     }
                 }
                 .padding(.bottom, 100)
@@ -102,6 +117,19 @@ struct SongDetailView: View {
         }
         .sheet(isPresented: $isPresented) {
             SingingListSheetView(refresh: $refresh, isPresent: $isPresented, song: song)
+        }
+        .onChange(of: isPresented, perform: { _ in
+            refresh.toggle()
+        })
+        .onDisappear(perform: {
+            print("alert")
+            if isChanged == true { showDeleteAlert = true }
+        })
+        .alert("이 노래를 삭제하시겠습니까?", isPresented: $showDeleteAlert) {
+            Button("취소", role: .cancel) {}
+            Button("삭제", role: .destructive) {
+                // TODO: - 노래 데이터 삭제 코드
+            }
         }
     }
     
