@@ -12,6 +12,9 @@ struct SongDetailView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
     @State var refresh: Bool = false
     @State private var refreshingID = UUID()
+    @State private var isChanged = false
+    @State private var showDeleteAlert: Bool = false
+    @State private var showSaveAlert: Bool = false
     var song: Song
     
     // 싱잉리스트 추가 sheet
@@ -22,9 +25,9 @@ struct SongDetailView: View {
     var genderItems = ["여성", "혼성", "남성"]
     @State var genderIndex = "혼성"
     
-    @State var tunePickerIndex:Int = 6
+    @State var tunePickerIndex: Int = 6
     var tunePickerItems: [String] = ["-6", "-5", "-4", "-3", "-2", "-1",
-                                            "0", "1", "2", "3", "4", "5", "6"]
+                                     "0", "+1", "+2", "+3", "+4", "+5", "+6"]
     
     // MARK: - BODY
     
@@ -42,15 +45,27 @@ struct SongDetailView: View {
             // MARK: - 디테일뷰 컨텐츠
             
             VStack {
-                SongInfoView()
-                    .padding(.bottom, 52)
+                SongInfoView(song: song)
+                    .padding(.bottom, 20)
                 
                 ScrollView {
                     LevelPickerView(levelIndexBase: $levelPickerIndex, levelItems: levelPickerItems)
+                        .onChange(of: levelPickerIndex, perform: { _ in
+                            isChanged = true
+                            print("changed")
+                        })
                     
                     TunePickerView(genderIndexBase: $genderIndex, genderItems: genderItems, tuneIndexBase: $tunePickerIndex, tuneItems: tunePickerItems)
                         // TODO: Padding 세부 간격 조절 필요
                         .padding(.bottom, 42)
+                        .onChange(of: genderIndex, perform: { _ in
+                            isChanged = true
+                            print("changed")
+                        })
+                        .onChange(of: tunePickerIndex, perform: { _ in
+                            isChanged = true
+                            print("changed")
+                        })
                 
                     HStack {
                         ContentsTitleView(titleName: "싱잉리스트")
@@ -58,26 +73,44 @@ struct SongDetailView: View {
                         EditButtonView(buttonName: "추가하기", buttonWidth: 80){
                             isPresented.toggle()
                         }
-                            .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 34))
+                        .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 34))
+                        .onChange(of: song.singingListArray, perform: { _ in
+                            isChanged = true
+                            print("changed")
+                        })
                     }
                     
-                    // TODO: - 해당 노래에 맞는 싱잉리스트로 받아오게 수정되어야 함
                     ForEach(song.singingListArray) {
                         singingListTag(singingList: $0)
                     }
                     .id(refreshingID)
+                    
+                    Button(action: {
+                        print("노래 삭제하기")
+                        self.showDeleteAlert = true
+                    }, label: {
+                        ConfirmButtonView(buttonName: "노래 삭제하기", buttonColor: Color.grayScale7.opacity(0.2), textColor: .red)
+                            .padding(.top, 30)
+                    })
+                    .alert("이 노래를 삭제하시겠습니까?", isPresented: $showDeleteAlert) {
+                        Button("취소", role: .cancel) {}
+                        Button("삭제", role: .destructive) {
+                            // TODO: - 노래 데이터 삭제 코드
+                        }
+                    }
                 }
                 
-                // MARK: - 상단 네비게이션 바 삭제 버튼
+                // MARK: - 상단 네비게이션 바 저장 버튼
                 
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button{
-                            print("기록 삭제하기")
-                        } label: {
-                            EditButtonView(buttonName: "삭제", buttonWidth: 60){}
-                                .padding(.trailing, 15)
+                        EditButtonView(buttonName: "저장", buttonWidth: 50) {
+                            print("기록 저장하기")
+                            isChanged = false
                         }
+                        .padding(.trailing, 20)
+                        .opacity(isChanged == true ? 1 : 0.2)
+                        .disabled(!isChanged)
                     }
                 }
                 .padding(.bottom, 100)
@@ -89,6 +122,18 @@ struct SongDetailView: View {
         .onChange(of: isPresented, perform: { _ in
             refresh.toggle()
         })
+        .onDisappear(perform: {
+            print("alert")
+            if isChanged == true {
+                showSaveAlert = true
+            }
+        })
+        .alert("변경사항을 저장하시겠습니까?", isPresented: $showSaveAlert) {
+            Button("저장", role: .cancel) {
+                // TODO: - 노래 데이터 변경사항 코어데이터에 저장하는 코드
+            }
+            Button("아니요", role: .destructive) {}
+        }
     }
     
     @ViewBuilder
