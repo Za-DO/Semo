@@ -11,6 +11,7 @@ struct SongDetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
     @State var refresh: Bool = false
+    @State private var isChanged = false
     var song: Song
     
     // 싱잉리스트 추가 sheet
@@ -21,9 +22,9 @@ struct SongDetailView: View {
     var genderItems = ["여성", "혼성", "남성"]
     @State var genderIndex = "혼성"
     
-    @State var tunePickerIndex:Int = 6
+    @State var tunePickerIndex: Int = 6
     var tunePickerItems: [String] = ["-6", "-5", "-4", "-3", "-2", "-1",
-                                            "0", "1", "2", "3", "4", "5", "6"]
+                                     "0", "+1", "+2", "+3", "+4", "+5", "+6"]
     
     // MARK: - BODY
     
@@ -41,15 +42,27 @@ struct SongDetailView: View {
             // MARK: - 디테일뷰 컨텐츠
             
             VStack {
-                SongInfoView()
+                SongInfoView(song: song)
                     .padding(.bottom, 52)
                 
                 ScrollView {
                     LevelPickerView(levelIndexBase: $levelPickerIndex, levelItems: levelPickerItems)
+                        .onChange(of: levelPickerIndex, perform: { _ in
+                            isChanged = true
+                            print("changed")
+                        })
                     
                     TunePickerView(genderIndexBase: $genderIndex, genderItems: genderItems, tuneIndexBase: $tunePickerIndex, tuneItems: tunePickerItems)
                         // TODO: Padding 세부 간격 조절 필요
                         .padding(.bottom, 42)
+                        .onChange(of: genderIndex, perform: { _ in
+                            isChanged = true
+                            print("changed")
+                        })
+                        .onChange(of: tunePickerIndex, perform: { _ in
+                            isChanged = true
+                            print("changed")
+                        })
                 
                     HStack {
                         ContentsTitleView(titleName: "싱잉리스트")
@@ -58,12 +71,26 @@ struct SongDetailView: View {
                             isPresented.toggle()
                         }
                             .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 34))
+                            .onChange(of: song.singingListArray, perform: { _ in
+                                isChanged = true
+                                print("changed")
+                            })
                     }
                     
-                    // TODO: - 해당 노래에 맞는 싱잉리스트로 받아오게 수정되어야 함
                     ForEach(song.singingListArray) {
                         singingListTag(title: $0.title ?? "제목 없음")
                     }
+                    
+                    Button(action: {
+                        print("노래 삭제하기")
+                    }, label: {
+                        ConfirmButtonView(buttonName: "노래 삭제하기", buttonColor: Color.grayScale7, textColor: .red)
+                    })
+                    .padding(.top, 30)
+                    .onChange(of: song.singingListArray, perform: { _ in
+                        isChanged = true
+                        print("changed")
+                    })
                 }
                 
                 // MARK: - 상단 네비게이션 바 삭제 버튼
@@ -75,6 +102,7 @@ struct SongDetailView: View {
                         } label: {
                             EditButtonView(buttonName: "저장", buttonWidth: 50){}
                                 .padding(.trailing, 20)
+                                .opacity(0.2)
                         }
                     }
                 }
@@ -84,9 +112,6 @@ struct SongDetailView: View {
         .sheet(isPresented: $isPresented) {
             SingingListSheetView(refresh: $refresh, isPresent: $isPresented, song: song)
         }
-        .onChange(of: isPresented, perform: { _ in
-            refresh.toggle()
-        })
     }
     
     @ViewBuilder
