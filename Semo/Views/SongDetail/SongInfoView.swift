@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct SongInfoView: View {
+    var song: Song
+    
     var body: some View {
         VStack {
             Spacer()
                 .frame(height: 70)
-            Text("노래 제목입니다")
+            Text(song.title ?? "제목 없음")
                 .font(.system(size: 24, weight: .semibold))
                 .foregroundColor(.white)
-            Text("노래 가수입니다")
+            Text(song.singer ?? "가수 없음")
                 .font(.system(size: 18, weight: .medium))
                 .foregroundColor(.grayScale2)
                 .padding(EdgeInsets(top: 2, leading: 0, bottom: 0, trailing: 0))
@@ -23,8 +25,8 @@ struct SongInfoView: View {
     }
 }
 
-struct SongInfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        SongInfoView().preferredColorScheme(.dark)
-    }
-}
+//struct SongInfoView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SongInfoView().preferredColorScheme(.dark)
+//    }
+//}
