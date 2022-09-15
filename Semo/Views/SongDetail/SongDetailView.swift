@@ -124,7 +124,9 @@ struct SongDetailView: View {
         })
         .onDisappear(perform: {
             print("alert")
-            if isChanged == true { showSaveAlert = true }
+            if isChanged == true {
+                showSaveAlert = true
+            }
         })
         .alert("변경사항을 저장하시겠습니까?", isPresented: $showSaveAlert) {
             Button("저장", role: .cancel) {
