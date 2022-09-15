@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct SingingListView: View {
+    @Binding var refresh: Int
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
+    @Binding var editButtonTap: Bool
     
     // MARK: - BODY
     var body: some View {
@@ -30,7 +32,7 @@ struct SingingListView: View {
                     .background(Color.grayScale6)
                     .frame(width: 350)
                 ForEach(singingList) {
-                    SingingListCellView(singingList: $0)
+                    SingingListCellView(refresh: $refresh, editButtonTap: $editButtonTap, singingList: $0)
                     Divider()
                         .background(Color.grayScale6)
                         .frame(width: 350)
@@ -43,8 +45,8 @@ struct SingingListView: View {
     }
 }
 
-struct SingingListView_Preview: PreviewProvider {
-    static var previews: some View {
-        SingingListView()
-    }
-}
+//struct SingingListView_Preview: PreviewProvider {
+//    static var previews: some View {
+//        SingingListView()
+//    }
+//}

@@ -15,6 +15,7 @@ struct SingingListSheetView: View {
     @Binding var refresh: Bool
     @Binding var isPresent: Bool
     var song: Song
+    
     var body: some View {
         ZStack {
             Color.grayScale7.ignoresSafeArea()
@@ -26,14 +27,18 @@ struct SingingListSheetView: View {
                     SingingListToggleView(toggleDictionary: $singingListToggle, newSingingListTitle: $newSingingListTitle)
                 }
                 Button(action: {
+                    // TextFieldView가 비어있을때
                     if newSingingListTitle.isEmpty {
                         var checkedSingingList: [UUID] = []
                         for i in singingList {
                             if singingListToggle[i.id!] == true {
+                                // 새로운 노래가 추가 되니 count 1 증가
                                 i.count += 1
+                                // 싱잉리스트에 해당 노래 추가
                                 i.addToSingingListToSong(song)
                             }
                         }
+                        // 싱잉리스트에 변경 사항 저장
                         do {
                             try viewContext.save()
                         } catch {
@@ -48,7 +53,7 @@ struct SingingListSheetView: View {
                         newSingingList.id = UUID()
                         newSingingList.title = newSingingListTitle
                         newSingingList.count = 0
-                        
+                        // 새로 추가한 싱잉리스트는 자동 선택하게 토글 활성화
                         singingListToggle.updateValue(true, forKey: newSingingList.id!)
                         do {
                             try viewContext.save()
@@ -57,6 +62,7 @@ struct SingingListSheetView: View {
                             print(error.localizedDescription)
                         }
                     }
+                    // 새로운 싱잉리스트 코어데이터에 추가 후 TextFieldView 초기화
                     newSingingListTitle = ""
                 }, label: {
                     FinalConfirmButtonView(buttonName: newSingingListTitle.isEmpty ? "확인" : "리스트 추가하기",
@@ -67,6 +73,7 @@ struct SingingListSheetView: View {
             }
             .padding(EdgeInsets(top: 40, leading: 0, bottom: 1, trailing: 0))
         }
+        // view가 보일때 singingListToggle 배열 false로 초기화
         .onAppear(perform: {
             for i in singingList {
                 singingListToggle[i.id!] = false

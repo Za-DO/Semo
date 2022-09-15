@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SingingListCellView: View {
+    @Binding var refresh: Int
+    @Binding var editButtonTap: Bool
     var singingList: SingingList
     // MARK: - BODY
     var body: some View {
@@ -15,7 +17,7 @@ struct SingingListCellView: View {
         Button {            
         } label: {
             // TODO: - destination 수정하기
-            NavigationLink(destination: SingingListDetailView(singingList: singingList)) {
+            NavigationLink(destination: SingingListDetailView(editButtonTap: $editButtonTap, singingList: singingList)) {
                 HStack {
                     // MARK: - 노래 정보 표시
                     VStack(alignment: .leading, spacing: 10) {

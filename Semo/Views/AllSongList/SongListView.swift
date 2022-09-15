@@ -10,6 +10,7 @@ import SwiftUI
 struct SongListView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Song.timestamp, ascending: true)], animation: .default) private var songList: FetchedResults<Song>
+    @Binding var editButtonTapped: Bool
     
     // MARK: - BODY
     var body: some View {
@@ -22,7 +23,9 @@ struct SongListView: View {
                     .foregroundColor(.grayScale2)
                     .fontWeight(.medium)
                 Spacer()
-                EditButtonView(buttonName: "목록 편집", buttonWidth: 80){}
+                EditButtonView(buttonName: "목록 편집", buttonWidth: 80) {
+                    self.editButtonTapped.toggle()
+                }
             }
             // FIXME: - trailing을 추가하지 않으면 목록 편집 버튼이 오른쪽으로 치우침
             .padding(EdgeInsets(top: 15, leading: 20, bottom: 15, trailing: 30))            
@@ -32,7 +35,7 @@ struct SongListView: View {
                     .background(Color.grayScale6)
                     .frame(width: 350)                
                 ForEach(songList) {
-                    SongListCellView(song: $0)
+                    SongListCellView(editButtonTapped: $editButtonTapped, song: $0)
                     Divider()
                         .background(Color.grayScale6)
                         .frame(width: 350)
