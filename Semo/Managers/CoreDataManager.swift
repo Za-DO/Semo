@@ -21,7 +21,7 @@ class CoreDataManager {
             fetchRequest.predicate = NSPredicate(format: "title == %@ && singer == %@", songTitle, songSinger)
             let fetchedResults = try viewContext.fetch(fetchRequest)
             // 중복 검사
-            guard (fetchedResults.first?.title) != nil  else {
+            guard (fetchedResults.first) != nil  else {
                 let newSong: Song = Song(context: self.viewContext)
                 newSong.timestamp = Date()
                 newSong.id = UUID()

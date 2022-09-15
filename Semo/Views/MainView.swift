@@ -9,24 +9,23 @@ import SwiftUI
 
 struct MainView: View {
     @State var currentTab: Int = 0
-    @State var refresh: Bool = false
     @State var editButtonTap: Bool = false
     
     // MARK: - BODY
     var body: some View {
         NavigationView {
             ZStack(alignment: .top) {
+                // For view refresh
+                if currentTab == -1 {
+                    Text("\(currentTab)")
+                }
                 Image("backgroundImage")
                     .ignoresSafeArea()
                 
                 // MARK: - 상단 탭바
                 TabView(selection: self.$currentTab) {
                     SongListView(editButtonTapped: $editButtonTap).tag(0)
-                    SingingListView(editButtonTap: $editButtonTap).tag(1)
-                }
-                .onTapGesture {
-                    print("메인뷰 리프레쉬")
-                    refresh.toggle()
+                    SingingListView(refresh: $currentTab, editButtonTap: $editButtonTap).tag(1)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .edgesIgnoringSafeArea(.all)
