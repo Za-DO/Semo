@@ -14,6 +14,7 @@ struct SongDetailView: View {
     @State private var refreshingID = UUID()
     @State private var isChanged = false
     @State private var showDeleteAlert: Bool = false
+    @State private var showSaveAlert: Bool = false
     var song: Song
     
     // 싱잉리스트 추가 sheet
@@ -123,13 +124,13 @@ struct SongDetailView: View {
         })
         .onDisappear(perform: {
             print("alert")
-            if isChanged == true { showDeleteAlert = true }
+            if isChanged == true { showSaveAlert = true }
         })
-        .alert("이 노래를 삭제하시겠습니까?", isPresented: $showDeleteAlert) {
-            Button("취소", role: .cancel) {}
-            Button("삭제", role: .destructive) {
-                // TODO: - 노래 데이터 삭제 코드
+        .alert("변경사항을 저장하시겠습니까?", isPresented: $showSaveAlert) {
+            Button("저장", role: .cancel) {
+                // TODO: - 노래 데이터 변경사항 코어데이터에 저장하는 코드
             }
+            Button("아니요", role: .destructive) {}
         }
     }
     
