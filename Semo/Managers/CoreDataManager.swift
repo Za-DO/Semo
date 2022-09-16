@@ -69,7 +69,7 @@ class CoreDataManager {
     }
     
     // MARK: - Song 추가 정보 변경
-    func saveNewSong(song: Song, gender: String, level: String, tune: String) {
+    func changeSongAdditionalInformation(song: Song, gender: String, level: String, tune: String) {
         do {
             // 추가 정보
             song.gender = gender
