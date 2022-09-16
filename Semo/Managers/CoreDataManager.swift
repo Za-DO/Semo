@@ -14,7 +14,7 @@ class CoreDataManager {
     
     private init() {}
     
-    // MARK: - 새로운 노래 저장
+    // MARK: - 새로운 노래 저장 (기본 정보만 저장)
     func saveNewSong(songTitle: String, songSinger: String) {
         do {
             let fetchRequest = NSFetchRequest<Song>(entityName: "Song")
@@ -31,6 +31,33 @@ class CoreDataManager {
                 newSong.gender = "남성"
                 newSong.level = "중"
                 newSong.tune = "0"
+                try viewContext.save()
+                print("title : \(songTitle), singer : \(songSinger) 저장 완료")
+                return
+            }
+            print("[중복 노래] title : \(songTitle), singer : \(songSinger) 저장 불가")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    // MARK: - 새로운 노래 저장 (기본 정보 + 추가 정보 저장)
+    func saveNewSong(songTitle: String, songSinger: String, gender: String, level: String, tune: String) {
+        do {
+            let fetchRequest = NSFetchRequest<Song>(entityName: "Song")
+            fetchRequest.predicate = NSPredicate(format: "title == %@ && singer == %@", songTitle, songSinger)
+            let fetchedResults = try viewContext.fetch(fetchRequest)
+            // 중복 검사
+            guard (fetchedResults.first) != nil  else {
+                let newSong: Song = Song(context: self.viewContext)
+                newSong.timestamp = Date()
+                newSong.id = UUID()
+                newSong.title = songTitle
+                newSong.singer = songSinger
+                // 추가 정보
+                newSong.gender = gender
+                newSong.level = level
+                newSong.tune = tune
                 try viewContext.save()
                 print("title : \(songTitle), singer : \(songSinger) 저장 완료")
                 return
@@ -64,6 +91,7 @@ class CoreDataManager {
         }
     }
     
+    // MARK: - 노래 목록 가져오기
     func fetchSongList() -> [Song]?{
         let fetchRequest = NSFetchRequest<Song>(entityName: "Song")
         do {
@@ -74,4 +102,7 @@ class CoreDataManager {
             return nil
         }
     }
+    
+    
+    
 }
