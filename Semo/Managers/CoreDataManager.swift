@@ -68,6 +68,22 @@ class CoreDataManager {
         }
     }
     
+    // MARK: - Song 추가 정보 변경
+    func saveNewSong(song: Song, gender: String, level: String, tune: String) {
+        do {
+            // 추가 정보
+            song.gender = gender
+            song.level = level
+            song.tune = tune
+            try viewContext.save()
+            print(song.gender)
+            print(song.level)
+            print(song.tune)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     // MARK: - 새로운 싱잉리스트 생성
     func saveNewSingingList(singingListTitle: String) {
         do {
