@@ -15,10 +15,6 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .top) {
-                // For view refresh
-                if currentTab == -1 {
-                    Text("\(currentTab)")
-                }
                 Image("backgroundImage")
                     .ignoresSafeArea()
                 
