@@ -103,6 +103,14 @@ class CoreDataManager {
         }
     }
     
-    
+    // MARK: - Song 삭제
+    func deleteSong(song: Song) {
+        do {
+            viewContext.delete(song)
+            try viewContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
     
 }
