@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct SongListView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Song.timestamp, ascending: true)], animation: .default) private var songList: FetchedResults<Song>
+    @Binding var refresh: Int
     @Binding var editButtonTapped: Bool
+    var songList: [Song] {
+        CoreDataManager.shared.fetchSongList() ?? []
+    }
     
     // MARK: - BODY
     var body: some View {

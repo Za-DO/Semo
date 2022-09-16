@@ -63,4 +63,15 @@ class CoreDataManager {
             print(error.localizedDescription)
         }
     }
+    
+    func fetchSongList() -> [Song]?{
+        let fetchRequest = NSFetchRequest<Song>(entityName: "Song")
+        do {
+            let fetchedResults = try viewContext.fetch(fetchRequest)
+            return fetchedResults
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
 }

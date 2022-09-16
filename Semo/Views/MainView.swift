@@ -24,7 +24,7 @@ struct MainView: View {
                 
                 // MARK: - 상단 탭바
                 TabView(selection: self.$currentTab) {
-                    SongListView(editButtonTapped: $editButtonTap).tag(0)
+                    SongListView(refresh: $currentTab, editButtonTapped: $editButtonTap).tag(0)
                     SingingListView(refresh: $currentTab, editButtonTap: $editButtonTap).tag(1)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
