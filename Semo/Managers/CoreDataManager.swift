@@ -113,4 +113,14 @@ class CoreDataManager {
         }
     }
     
+    // MARK: - SingingList 삭제
+    func deleteSingingList(singingList: SingingList) {
+        do {
+            viewContext.delete(singingList)
+            try viewContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
 }
