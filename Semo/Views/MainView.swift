@@ -15,16 +15,12 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .top) {
-                // For view refresh
-                if currentTab == -1 {
-                    Text("\(currentTab)")
-                }
                 Image("backgroundImage")
                     .ignoresSafeArea()
                 
                 // MARK: - 상단 탭바
                 TabView(selection: self.$currentTab) {
-                    SongListView(editButtonTapped: $editButtonTap).tag(0)
+                    SongListView(refresh: $currentTab, editButtonTapped: $editButtonTap).tag(0)
                     SingingListView(refresh: $currentTab, editButtonTap: $editButtonTap).tag(1)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
