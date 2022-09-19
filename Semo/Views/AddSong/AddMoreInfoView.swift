@@ -49,6 +49,7 @@ struct AddMoreInfoView: View {
                 Button(action: {
                     // 네비게이션 빠져 나오게
                     NavigationUtil.popToRootView()
+                    
                     // 노래 추가 로직
                     CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger)
 
