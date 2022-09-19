@@ -23,6 +23,7 @@ struct CustomBackButton: View {
             HStack {
                 Image(systemName: "chevron.backward")
                     .foregroundColor(.mainPurpleColor)
+                    .font(.system(size: 18, weight: .semibold))
                 Text("\(buttonName)")
                     .foregroundColor(.white)
             }
