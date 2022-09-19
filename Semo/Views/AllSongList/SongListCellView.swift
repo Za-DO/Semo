@@ -17,7 +17,7 @@ struct SongListCellView: View {
         } label: {
             HStack {
                 if editButtonTapped == true {
-                    DeleteSongButtonView()
+                    DeleteSongButtonView(editButtonTapped: $editButtonTapped, song: song)
                         .padding(.trailing, 8)
                         .transition(.move(edge: .leading))
                         .animation(.easeInOut)

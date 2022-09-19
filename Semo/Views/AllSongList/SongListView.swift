@@ -47,5 +47,8 @@ struct SongListView: View {
             }
         }
         .padding(.top, 80)
+        .onDisappear {
+            editButtonTapped = false
+        }
     }
 }
