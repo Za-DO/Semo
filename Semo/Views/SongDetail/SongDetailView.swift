@@ -9,12 +9,14 @@ import SwiftUI
 
 struct SongDetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
     @State var refresh: Bool = false
     @State private var refreshingID = UUID()
     @State private var isChanged = false
     @State private var showDeleteAlert: Bool = false
     @State private var showSaveAlert: Bool = false
+    
     var song: Song
     
     // 싱잉리스트 추가 sheet
@@ -46,7 +48,7 @@ struct SongDetailView: View {
             
             VStack {
                 SongInfoView(song: song)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 46)
                 
                 ScrollView {
                     LevelPickerView(levelIndexBase: $levelPickerIndex, levelItems: levelPickerItems)
@@ -105,6 +107,7 @@ struct SongDetailView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         EditButtonView(buttonName: "저장", buttonWidth: 50) {
+                            // TODO: - 노래 데이터 변경사항 코어데이터에 저장하는 코드
                             print("기록 저장하기")
                             isChanged = false
                         }
@@ -114,6 +117,28 @@ struct SongDetailView: View {
                     }
                 }
                 .padding(.bottom, 100)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        if !isChanged {
+                            CustomBackButton(buttonName: "") {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
+                        } else {
+                            CustomBackButton(buttonName: "") {
+                                self.showSaveAlert = true
+                            }
+                                .alert("변경사항을 저장하시겠습니까?", isPresented: $showSaveAlert) {
+                                    Button("아니요", role: .cancel) {
+                                        self.presentationMode.wrappedValue.dismiss()
+                                    }
+                                    Button("저장", role: .none) {
+                                        // TODO: - 노래 데이터 변경사항 코어데이터에 저장하는 코드
+                                        self.presentationMode.wrappedValue.dismiss()
+                                    }
+                                }
+                        }
+                    }
+                }
             }
         }
         .sheet(isPresented: $isPresented) {
@@ -128,12 +153,7 @@ struct SongDetailView: View {
                 showSaveAlert = true
             }
         })
-        .alert("변경사항을 저장하시겠습니까?", isPresented: $showSaveAlert) {
-            Button("저장", role: .cancel) {
-                // TODO: - 노래 데이터 변경사항 코어데이터에 저장하는 코드
-            }
-            Button("아니요", role: .destructive) {}
-        }
+        .navigationBarBackButtonHidden(true)
     }
     
     @ViewBuilder

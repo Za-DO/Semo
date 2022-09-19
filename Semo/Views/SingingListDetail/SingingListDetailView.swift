@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct SingingListDetailView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var editButtonTap: Bool
     var singingList: SingingList
-
+    
     // MARK: - BODY
     var body: some View {
         ZStack {
@@ -34,11 +35,18 @@ struct SingingListDetailView: View {
                     .padding(.trailing, 20)
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                CustomBackButton(buttonName: "") {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+                .navigationBarBackButtonHidden(true)
+            }
+        }
     }
 }
-
-//struct SingingListDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SingingListDetailView()
-//    }
-//}
+    //struct SingingListDetailView_Previews: PreviewProvider {
+    //    static var previews: some View {
+    //        SingingListDetailView()
+    //    }
+    //}
