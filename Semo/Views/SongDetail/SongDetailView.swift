@@ -88,6 +88,7 @@ struct SongDetailView: View {
                     }
                     .id(refreshingID)
                     
+                    // MARK: - 노래 삭제하기 버튼
                     Button(action: {
                         print("노래 삭제하기")
                         self.showDeleteAlert = true
@@ -165,6 +166,7 @@ struct SongDetailView: View {
         })
     }
     
+    // MARK: - singingListTagView
     @ViewBuilder
     func singingListTag(singingList: SingingList) -> some View {
         HStack {
