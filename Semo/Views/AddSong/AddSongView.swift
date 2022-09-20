@@ -63,6 +63,7 @@ struct AddSongView: View {
                 Spacer()
             }
             .padding()
+            .navigationBarTitle("", displayMode: .inline)
         }
     }
 }

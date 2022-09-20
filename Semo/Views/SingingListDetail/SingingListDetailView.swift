@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct SingingListDetailView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @GestureState private var dragOffset = CGSize.zero
     @Binding var editButtonTap: Bool
     var singingList: SingingList
-
+    
     // MARK: - BODY
     var body: some View {
         ZStack {
@@ -34,11 +36,23 @@ struct SingingListDetailView: View {
                     .padding(.trailing, 20)
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                CustomBackButton(buttonName: "") {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+                .navigationBarBackButtonHidden(true)
+            }
+        }
+        .gesture(DragGesture().updating($dragOffset) { (value, state, transaction) in
+            if (value.startLocation.x < 30 && value.translation.width > 100) {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        })
     }
 }
-
-//struct SingingListDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SingingListDetailView()
-//    }
-//}
+    //struct SingingListDetailView_Previews: PreviewProvider {
+    //    static var previews: some View {
+    //        SingingListDetailView()
+    //    }
+    //}
