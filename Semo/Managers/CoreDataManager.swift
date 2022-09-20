@@ -59,7 +59,7 @@ class CoreDataManager {
                 newSong.level = level
                 newSong.tune = tune
                 try viewContext.save()
-                print("title : \(songTitle), singer : \(songSinger) 저장 완료")
+                print("title : \(songTitle), singer : \(songSinger), gender : \(gender), level : \(level), tune : \(tune) 저장 완료")
                 return
             }
             print("[중복 노래] title : \(songTitle), singer : \(songSinger) 저장 불가")
