@@ -25,9 +25,6 @@ struct AddSongView: View {
                     .foregroundColor(.white)
                     .font(.system(size: 24, weight: .semibold))
                     .padding(EdgeInsets(top: 14, leading: 10, bottom: 0, trailing: 0))
-                //                    .padding(.leading, 10)
-                //                    .padding(.top, 14)
-                
                 
                 Text("노래 제목")
                     .font(.system(size: 15, weight: .medium))
@@ -38,7 +35,6 @@ struct AddSongView: View {
                     .frame(width: UIScreen.main.bounds.width - 20, height: 20)
                     .disableAutocorrection(true)
                 
-                
                 Text("가수 이름")
                     .font(.system(size: 15, weight: .medium))
                     .padding(EdgeInsets(top: 40, leading: 10, bottom: 0, trailing: 0))
@@ -48,18 +44,16 @@ struct AddSongView: View {
                     .frame(width: UIScreen.main.bounds.width - 20, height: 20)
                     .disableAutocorrection(true)
                 
-                Button(action: {
-                    CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger)
-                }, label: {
-                    NavigationLink(destination: AddMoreInfoView(songTitle: songTitle, songSinger: songSinger)) {
-                        ConfirmButtonView(buttonName: "확인",
-                                          buttonColor: songTitle.isEmpty || songSinger.isEmpty ? .grayScale5 : Color.mainPurpleColor,
-                                          textColor: songTitle.isEmpty || songSinger.isEmpty ? .grayScale3 : .white)
-                    }
-                    .padding(EdgeInsets(top: 50, leading: 10, bottom: 0, trailing: 0))
-                    .navigationBarTitleDisplayMode(.inline)
-                    .disabled(self.songTitle.isEmpty || self.songSinger.isEmpty)
-                })
+                // MARK: - 확인 버튼
+                NavigationLink(destination: AddMoreInfoView(songTitle: songTitle, songSinger: songSinger)) {
+                    ConfirmButtonView(buttonName: "확인",
+                                      buttonColor: songTitle.isEmpty || songSinger.isEmpty ? .grayScale5 : Color.mainPurpleColor,
+                                      textColor: songTitle.isEmpty || songSinger.isEmpty ? .grayScale3 : .white)
+                }
+                .padding(EdgeInsets(top: 50, leading: 10, bottom: 0, trailing: 0))
+                .navigationBarTitleDisplayMode(.inline)
+                .disabled(self.songTitle.isEmpty || self.songSinger.isEmpty)
+                
                 Spacer()
             }
             .padding()
