@@ -1,5 +1,5 @@
 //
-//  EditButtonView.swift
+//  SongEditButtonView.swift
 //  Semo
 //
 //  Created by 유정인 on 2022/07/16.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditButtonView: View {
+struct SongEditButtonView: View {
     var buttonName: String
     var buttonWidth: CGFloat
     var buttonAction: () -> Void

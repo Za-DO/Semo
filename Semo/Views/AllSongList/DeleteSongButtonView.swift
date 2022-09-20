@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DeleteSongButtonView: View {
     @State var showDeleteAlert: Bool = false
-    @Binding var editButtonTapped: Bool
+    @Binding var songEditButtonTap: Bool
     
     var song: Song
     
@@ -26,7 +26,7 @@ struct DeleteSongButtonView: View {
             Button("삭제", role: .destructive) {
                 // TODO: - 노래 데이터 삭제 코드
                 CoreDataManager.shared.deleteSong(song: song)
-                editButtonTapped = false
+                songEditButtonTap = false
             }
         }
     }

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SongListView: View {
     @Binding var refresh: Int
-    @Binding var editButtonTapped: Bool
+    @Binding var songEditButtonTap: Bool
+    
     var songList: [Song] {
         CoreDataManager.shared.fetchSongList() ?? []
     }
@@ -25,8 +26,8 @@ struct SongListView: View {
                     .foregroundColor(.grayScale2)
                     .fontWeight(.medium)
                 Spacer()
-                EditButtonView(buttonName: "목록 편집", buttonWidth: 80) {
-                    self.editButtonTapped.toggle()
+                SongEditButtonView(buttonName: "목록 편집", buttonWidth: 80) {
+                    self.songEditButtonTap.toggle()
                 }
             }
             // FIXME: - trailing을 추가하지 않으면 목록 편집 버튼이 오른쪽으로 치우침
@@ -37,7 +38,7 @@ struct SongListView: View {
                     .background(Color.grayScale6)
                     .frame(width: 350)                
                 ForEach(songList) {
-                    SongListCellView(editButtonTapped: $editButtonTapped, song: $0)
+                    SongListCellView(songEditButtonTap: $songEditButtonTap, song: $0)
                     Divider()
                         .background(Color.grayScale6)
                         .frame(width: 350)
@@ -48,7 +49,7 @@ struct SongListView: View {
         }
         .padding(.top, 80)
         .onDisappear {
-            editButtonTapped = false
+            songEditButtonTap = false
         }
     }
 }

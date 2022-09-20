@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct SingingListView: View {
-    @Binding var refresh: Int
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
-    @Binding var editButtonTap: Bool
+    @Binding var refresh: Int
+    @Binding var songEditButtonTap: Bool
+    @Binding var listEditButtonTap: Bool
     
     // MARK: - BODY
     var body: some View {
@@ -23,7 +24,9 @@ struct SingingListView: View {
                     .foregroundColor(.grayScale2)
                     .fontWeight(.medium)
                 Spacer()
-                EditButtonView(buttonName: "리스트 편집", buttonWidth: 93){}
+                SongEditButtonView(buttonName: "리스트 편집", buttonWidth: 93) {
+                    self.listEditButtonTap.toggle()
+                }
             }
             .padding(EdgeInsets(top: 15, leading: 20, bottom: 15, trailing: 30))            
             // MARK: - 싱잉리스트 생성 및 스크롤 추가
@@ -32,7 +35,7 @@ struct SingingListView: View {
                     .background(Color.grayScale6)
                     .frame(width: 350)
                 ForEach(singingList) {
-                    SingingListCellView(refresh: $refresh, editButtonTap: $editButtonTap, singingList: $0)
+                    SingingListCellView(refresh: $refresh, songEditButtonTap: $songEditButtonTap, listEditButtonTap: $listEditButtonTap, singingList: $0)
                     Divider()
                         .background(Color.grayScale6)
                         .frame(width: 350)

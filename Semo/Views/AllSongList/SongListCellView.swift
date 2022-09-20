@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct SongListCellView: View {
-    @Binding var editButtonTapped: Bool
+    @Binding var songEditButtonTap: Bool
+    
     var song: Song
+    
     // MARK: - BODY
     var body: some View {
         Button {
-            // TODO: - 리스트 각 셀 데이터 반환 액션 추가
         } label: {
             HStack {
-                if editButtonTapped == true {
-                    DeleteSongButtonView(editButtonTapped: $editButtonTapped, song: song)
+                if songEditButtonTap == true {
+                    DeleteSongButtonView(songEditButtonTap: $songEditButtonTap, song: song)
                         .padding(.trailing, 8)
                         .transition(.move(edge: .leading))
+                    // TODO: - animation(_:value:)로 변경
                         .animation(.easeInOut)
                 }
                 NavigationLink(destination: SongDetailView(song: song)) {
@@ -33,6 +35,7 @@ struct SongListCellView: View {
                             .foregroundColor(.grayScale2)
                     }
                     .transition(.slide)
+                    // TODO: - animation(_:value:)로 변경
                     .animation(.easeInOut)
                     Spacer()
                     // MARK: - Tune 정보 표시
@@ -45,7 +48,7 @@ struct SongListCellView: View {
                                 .foregroundColor(.grayScale1)
                         )
                 }
-                .disabled(editButtonTapped)
+                .disabled(songEditButtonTap)
             }
             .padding(.horizontal, 20)
         }

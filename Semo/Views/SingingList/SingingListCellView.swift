@@ -9,16 +9,24 @@ import SwiftUI
 
 struct SingingListCellView: View {
     @Binding var refresh: Int
-    @Binding var editButtonTap: Bool
+    @Binding var songEditButtonTap: Bool
+    @Binding var listEditButtonTap: Bool
+    
     var singingList: SingingList
+    
     // MARK: - BODY
     var body: some View {
-        // TODO: - 리스트 각 셀 데이터 반환 액션 추가
         Button {            
         } label: {
-            // TODO: - destination 수정하기
-            NavigationLink(destination: SingingListDetailView(editButtonTap: $editButtonTap, singingList: singingList)) {
-                HStack {
+            HStack {
+                if listEditButtonTap == true {
+                    DeleteSingingListButtonView(listEditButtonTap: $listEditButtonTap, singingList: singingList)
+                        .padding(.trailing, 8)
+                        .transition(.move(edge: .leading))
+                    // TODO: - animation(_:value:)로 변경
+                        .animation(.easeInOut)
+                }
+                NavigationLink(destination: SingingListDetailView(songEditButtonTap: $songEditButtonTap, singingList: singingList)) {
                     // MARK: - 노래 정보 표시
                     VStack(alignment: .leading, spacing: 10) {
                         Text(singingList.title ?? "제목없음")
@@ -28,6 +36,8 @@ struct SingingListCellView: View {
                             .font(.system(size: 15, weight: .medium))
                             .foregroundColor(.grayScale2)
                     }
+                    .transition(.slide)
+                    .animation(.easeInOut)
                     Spacer()
                     // MARK: - Tune 정보 표시
                     Image(systemName: "chevron.right")
