@@ -24,7 +24,8 @@ struct SingingListCellView: View {
                         .padding(.trailing, 8)
                         .transition(.move(edge: .leading))
                     // TODO: - animation(_:value:)로 변경
-                        .animation(.easeInOut)
+//                        .animation(.easeInOut)
+                        .animation(.easeInOut, value: listEditButtonTap)
                 }
                 NavigationLink(destination: SingingListDetailView(songEditButtonTap: $songEditButtonTap, singingList: singingList)) {
                     // MARK: - 노래 정보 표시
@@ -37,7 +38,7 @@ struct SingingListCellView: View {
                             .foregroundColor(.grayScale2)
                     }
                     .transition(.slide)
-                    .animation(.easeInOut)
+                    .animation(.easeInOut, value: listEditButtonTap)
                     Spacer()
                     // MARK: - Tune 정보 표시
                     Image(systemName: "chevron.right")

@@ -16,7 +16,9 @@ struct DeleteSongButtonView: View {
     
     var body: some View {
         Button {
-            self.showDeleteAlert = true
+            withAnimation {
+                self.showDeleteAlert = true
+            }
             print("노래 삭제")
         } label: {
             Image(systemName: "minus.circle.fill")

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SongListCellView: View {
     @Binding var songEditButtonTap: Bool
-    @State var animationAmount: Int = 1
+//    @State var animationAmount: Int = 1
     
     var song: Song
     
@@ -22,7 +22,8 @@ struct SongListCellView: View {
                     DeleteSongButtonView(songEditButtonTap: $songEditButtonTap, song: song)
                         .padding(.trailing, 8)
                         .transition(.move(edge: .leading))
-                        .animation(.easeInOut, value: animationAmount)
+                        .animation(.easeInOut, value: songEditButtonTap)
+//                        .animation(.easeInOut)
                 }
                 NavigationLink(destination: SongDetailView(song: song)) {
                     // MARK: - 노래 정보 표시
@@ -35,7 +36,7 @@ struct SongListCellView: View {
                             .foregroundColor(.grayScale2)
                     }
                     .transition(.slide)
-                    .animation(.easeInOut, value: animationAmount)
+                    .animation(.easeInOut, value: songEditButtonTap)
                     Spacer()
                     // MARK: - Tune 정보 표시
                     Capsule()
