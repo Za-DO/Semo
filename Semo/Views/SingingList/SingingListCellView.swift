@@ -16,7 +16,7 @@ struct SingingListCellView: View {
     
     // MARK: - BODY
     var body: some View {
-        Button {            
+        Button {
         } label: {
             HStack {
                 if listEditButtonTap == true {
@@ -44,8 +44,9 @@ struct SingingListCellView: View {
                         .scaledToFit()
                         .foregroundColor(.grayScale1)
                 }
-                .padding(.horizontal, 20)
+                .disabled(listEditButtonTap)
             }
+            .padding(.horizontal, 20)
         }
     }
 }
