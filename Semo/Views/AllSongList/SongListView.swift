@@ -48,5 +48,8 @@ struct SongListView: View {
             }
         }
         .padding(.top, 80)
+        .onAppear {
+            songList = CoreDataManager.shared.fetchSongList() ?? []
+        }
     }
 }

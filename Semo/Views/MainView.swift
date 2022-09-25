@@ -28,6 +28,7 @@ struct MainView: View {
                 // MARK: - 상단 탭바
                 TabView(selection: self.$currentTab) {
                     SongListView(songList: $songList, refresh: $currentTab, editButtonTapped: $editButtonTap).tag(0)
+                        
                     SingingListView(refresh: $currentTab, editButtonTap: $editButtonTap).tag(1)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
@@ -65,7 +66,7 @@ struct MainView: View {
                     }
                 }
                 .padding(.top, 60)
-                .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 24))
+                .padding(EdgeInsets(top: 60, leading: 10, bottom: 0, trailing: 24))
                 // FIXME: - background 생략시 탭바가 아래로 밀리는 현상 발생
                 .background(.clear)
                 .frame(height: 32)
