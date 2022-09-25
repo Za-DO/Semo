@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SingingListDetailCellView: View {
+    @Binding var isPopToRoot: Bool
     @Binding var editButtonTap: Bool
     var singingList: SingingList
     // MARK: - BODY
@@ -37,7 +38,7 @@ struct SingingListDetailCellView: View {
                         .frame(width: 350)
                 }
                 .padding(.top, 10)
-                AddSongButtonView()
+                AddSongButtonView(isPopToRoot: $isPopToRoot)
                 Spacer()
 
             }

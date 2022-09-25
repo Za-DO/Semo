@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct SongListView: View {
+    @Binding var songList: [Song]
     @Binding var refresh: Int
     @Binding var editButtonTapped: Bool
-    var songList: [Song] {
-        CoreDataManager.shared.fetchSongList() ?? []
-    }
+//    var songList: [Song] {
+//        CoreDataManager.shared.fetchSongList() ?? []
+//    }
     
     // MARK: - BODY
     var body: some View {

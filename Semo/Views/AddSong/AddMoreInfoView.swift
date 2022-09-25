@@ -20,6 +20,9 @@ struct AddMoreInfoView: View {
     @State var tunePickerItems: [String] = ["-6", "-5", "-4", "-3", "-2", "-1",
                                             "0", "1", "2", "3", "4", "5", "6"]
     
+    @State var songList: [Song] = CoreDataManager.shared.fetchSongList() ?? []
+    @Binding var isPopToRoot: Bool
+    
     var songTitle: String
     var songSinger: String
     
@@ -48,7 +51,9 @@ struct AddMoreInfoView: View {
                 .navigationTitle("")
                 Button(action: {
                     // 네비게이션 빠져 나오게
-                    NavigationUtil.popToRootView()
+                    // NavigationUtil.popToRootView()
+                    self.isPopToRoot = false
+                    songList = CoreDataManager.shared.fetchSongList() ?? []
                     // 노래 추가 로직
                     CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger)
 

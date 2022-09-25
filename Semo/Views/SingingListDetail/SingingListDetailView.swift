@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SingingListDetailView: View {
+    @State var isPopToRoot: Bool = false
     @Binding var editButtonTap: Bool
     var singingList: SingingList
 
@@ -24,7 +25,7 @@ struct SingingListDetailView: View {
                     .opacity(0.4)
                 Spacer()
             }
-            SingingListDetailCellView(editButtonTap: $editButtonTap, singingList: singingList)
+            SingingListDetailCellView(isPopToRoot: $isPopToRoot, editButtonTap: $editButtonTap, singingList: singingList)
         }
         // TODO: - navigationtitle 폰트 크기, 굵기 수정(커스텀으로만 가능)
         .navigationBarTitle(singingList.title ?? "제목 없음")
