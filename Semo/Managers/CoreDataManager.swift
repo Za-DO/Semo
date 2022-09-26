@@ -59,7 +59,7 @@ class CoreDataManager {
                 newSong.level = level
                 newSong.tune = tune
                 try viewContext.save()
-                print("title : \(songTitle), singer : \(songSinger) gender: \(gender) level: \(level) tune: \(tune) 저장 완료")
+                print("title : \(songTitle), singer : \(songSinger), gender : \(gender), level : \(level), tune : \(tune) 저장 완료")
                 return
             }
             print("[중복 노래] title : \(songTitle), singer : \(songSinger) 저장 불가")
@@ -105,7 +105,7 @@ class CoreDataManager {
     }
     
     // MARK: - 노래 목록 가져오기
-    func fetchSongList() -> [Song]?{
+    func fetchSongList() -> [Song]? {
         let fetchRequest = NSFetchRequest<Song>(entityName: "Song")
         do {
             let fetchedResults = try viewContext.fetch(fetchRequest)
@@ -135,5 +135,4 @@ class CoreDataManager {
             print(error.localizedDescription)
         }
     }
-    
 }

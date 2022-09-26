@@ -28,11 +28,13 @@
 		B2108F1628845A67002CED9D /* TunePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1528845A67002CED9D /* TunePickerView.swift */; };
 		B2108F1A28845AE9002CED9D /* SongInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1928845AE9002CED9D /* SongInfoView.swift */; };
 		B242DEA92886C3D10052031C /* AddMoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B242DEA82886C3D10052031C /* AddMoreInfoView.swift */; };
+		B247E58E28D8838F0098D1DE /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247E58D28D8838F0098D1DE /* CustomBackButton.swift */; };
 		B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262DD0C2883F86F00E1B527 /* SongDetailView.swift */; };
 		B2983F7028A2AF950064C79A /* AddSingingListTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2983F6F28A2AF950064C79A /* AddSingingListTagView.swift */; };
 		B2983F7228A2C6E50064C79A /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2983F7128A2C6E50064C79A /* NavigationUtil.swift */; };
 		B2A36E322885A6560031D282 /* ContentsTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A36E312885A6560031D282 /* ContentsTitleView.swift */; };
 		C5200BDEAC2C4BE3A51404E6 /* Pods_Semo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533DF943DAA76770EFE704E6 /* Pods_Semo.framework */; };
+		EE01AACF28D9DAD700B13C0F /* DeleteSingingListButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE01AACE28D9DAD700B13C0F /* DeleteSingingListButtonView.swift */; };
 		EE24C72228D1BF2D00F4EBFD /* DeleteSongButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE24C72128D1BF2D00F4EBFD /* DeleteSongButtonView.swift */; };
 		EE6E6DE228A2738B004F030C /* SingingListModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6E6DE128A2738B004F030C /* SingingListModalView.swift */; };
 		EEAD176628828B46009388DD /* SemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD176528828B46009388DD /* SemoApp.swift */; };
@@ -43,7 +45,7 @@
 		EEAD177F2882DB15009388DD /* SongListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD177E2882DB15009388DD /* SongListCellView.swift */; };
 		EEAD17812882E48D009388DD /* SingingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD17802882E48D009388DD /* SingingListView.swift */; };
 		EEAD17842882E4CD009388DD /* SingingListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD17832882E4CD009388DD /* SingingListCellView.swift */; };
-		EEAD17862882FB6C009388DD /* EditButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD17852882FB6C009388DD /* EditButtonView.swift */; };
+		EEAD17862882FB6C009388DD /* SongEditButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD17852882FB6C009388DD /* SongEditButtonView.swift */; };
 		EEC3B54A28839F250036BE34 /* TabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B54928839F250036BE34 /* TabBarItemView.swift */; };
 		EEC3B54C28839FB30036BE34 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B54B28839FB30036BE34 /* TabBarView.swift */; };
 		EEC3B54E2883A79C0036BE34 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B54D2883A79C0036BE34 /* MainView.swift */; };
@@ -77,10 +79,12 @@
 		B2108F1528845A67002CED9D /* TunePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunePickerView.swift; sourceTree = "<group>"; };
 		B2108F1928845AE9002CED9D /* SongInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongInfoView.swift; sourceTree = "<group>"; };
 		B242DEA82886C3D10052031C /* AddMoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreInfoView.swift; sourceTree = "<group>"; };
+		B247E58D28D8838F0098D1DE /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		B262DD0C2883F86F00E1B527 /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
 		B2983F6F28A2AF950064C79A /* AddSingingListTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSingingListTagView.swift; sourceTree = "<group>"; };
 		B2983F7128A2C6E50064C79A /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 		B2A36E312885A6560031D282 /* ContentsTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsTitleView.swift; sourceTree = "<group>"; };
+		EE01AACE28D9DAD700B13C0F /* DeleteSingingListButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSingingListButtonView.swift; sourceTree = "<group>"; };
 		EE24C72128D1BF2D00F4EBFD /* DeleteSongButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSongButtonView.swift; sourceTree = "<group>"; };
 		EE6E6DE128A2738B004F030C /* SingingListModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListModalView.swift; sourceTree = "<group>"; };
 		EEAD176228828B46009388DD /* Semo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Semo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,7 +96,7 @@
 		EEAD177E2882DB15009388DD /* SongListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListCellView.swift; sourceTree = "<group>"; };
 		EEAD17802882E48D009388DD /* SingingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListView.swift; sourceTree = "<group>"; };
 		EEAD17832882E4CD009388DD /* SingingListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListCellView.swift; sourceTree = "<group>"; };
-		EEAD17852882FB6C009388DD /* EditButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButtonView.swift; sourceTree = "<group>"; };
+		EEAD17852882FB6C009388DD /* SongEditButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongEditButtonView.swift; sourceTree = "<group>"; };
 		EEC3B54928839F250036BE34 /* TabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemView.swift; sourceTree = "<group>"; };
 		EEC3B54B28839FB30036BE34 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		EEC3B54D2883A79C0036BE34 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				209E12E62883F3F3006FB3A8 /* ConfirmButtonView.swift */,
 				3928C59F28A18962006D3D19 /* FinalConfirmButtonView.swift */,
 				B2983F7128A2C6E50064C79A /* NavigationUtil.swift */,
+				B247E58D28D8838F0098D1DE /* CustomBackButton.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -264,7 +269,7 @@
 			children = (
 				EEAD17732882AA2F009388DD /* SongListView.swift */,
 				EEAD177E2882DB15009388DD /* SongListCellView.swift */,
-				EEAD17852882FB6C009388DD /* EditButtonView.swift */,
+				EEAD17852882FB6C009388DD /* SongEditButtonView.swift */,
 				EE24C72128D1BF2D00F4EBFD /* DeleteSongButtonView.swift */,
 			);
 			path = AllSongList;
@@ -285,6 +290,7 @@
 				3928C59B28A186C1006D3D19 /* SingingListSheet */,
 				EEAD17802882E48D009388DD /* SingingListView.swift */,
 				EEAD17832882E4CD009388DD /* SingingListCellView.swift */,
+				EE01AACE28D9DAD700B13C0F /* DeleteSingingListButtonView.swift */,
 			);
 			path = SingingList;
 			sourceTree = "<group>";
@@ -442,7 +448,7 @@
 				EEAD17812882E48D009388DD /* SingingListView.swift in Sources */,
 				B2A36E322885A6560031D282 /* ContentsTitleView.swift in Sources */,
 				EEAD177F2882DB15009388DD /* SongListCellView.swift in Sources */,
-				EEAD17862882FB6C009388DD /* EditButtonView.swift in Sources */,
+				EEAD17862882FB6C009388DD /* SongEditButtonView.swift in Sources */,
 				39FE86A62882AD8000D0F24F /* CoreDataInitManager.swift in Sources */,
 				EEC3B55A288441590036BE34 /* SingingListDetailCellView.swift in Sources */,
 				EE24C72228D1BF2D00F4EBFD /* DeleteSongButtonView.swift in Sources */,
@@ -451,6 +457,7 @@
 				209E12E72883F3F3006FB3A8 /* ConfirmButtonView.swift in Sources */,
 				3992665428A1BC14001849E6 /* SingingListSheetView.swift in Sources */,
 				39FE86AC2882CDE300D0F24F /* Semo.xcdatamodeld in Sources */,
+				EE01AACF28D9DAD700B13C0F /* DeleteSingingListButtonView.swift in Sources */,
 				3916A13C2883AD0500C21828 /* SingingList+CoreDataProperties.swift in Sources */,
 				3916A13A2883AD0500C21828 /* Song+CoreDataProperties.swift in Sources */,
 				209E12E12883F186006FB3A8 /* AddSongView.swift in Sources */,
@@ -461,6 +468,7 @@
 				3916A13B2883AD0500C21828 /* SingingList+CoreDataClass.swift in Sources */,
 				B2983F7228A2C6E50064C79A /* NavigationUtil.swift in Sources */,
 				3928C59A28A1800F006D3D19 /* CheckboxToggleStyle.swift in Sources */,
+				B247E58E28D8838F0098D1DE /* CustomBackButton.swift in Sources */,
 				39DD903128D11CFB0088FEA5 /* CoreDataManager.swift in Sources */,
 				EEC3B553288408390036BE34 /* SingingListDetailView.swift in Sources */,
 			);
@@ -592,7 +600,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KMT22L7NMB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -622,7 +630,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KMT22L7NMB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
