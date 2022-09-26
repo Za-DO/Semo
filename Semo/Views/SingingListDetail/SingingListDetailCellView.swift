@@ -44,9 +44,3 @@ struct SingingListDetailCellView: View {
         .padding(.top, 110)
     }
 }
-
-//struct SingingListDetailCellView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SingingListDetailCellView()
-//    }
-//}

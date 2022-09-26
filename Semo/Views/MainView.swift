@@ -11,6 +11,7 @@ struct MainView: View {
     @State var currentTab: Int = 0
     @State var songEditButtonTap: Bool = false
     @State var listEditButtonTap: Bool = false
+    @State var songList: [Song] = CoreDataManager.shared.fetchSongList() ?? []
     
     // MARK: - BODY
     var body: some View {
@@ -34,6 +35,9 @@ struct MainView: View {
             .navigationBarHidden(true)
         }
         .accentColor(.mainPurpleColor)
+        .onAppear {
+            songList = CoreDataManager.shared.fetchSongList() ?? []
+        }
     }
 }
 

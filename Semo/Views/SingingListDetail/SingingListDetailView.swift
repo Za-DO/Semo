@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SingingListDetailView: View {
+    @Binding var listEditButtonTap: Bool
     @Binding var songEditButtonTap: Bool
     var singingList: SingingList
 
@@ -20,8 +21,8 @@ struct SingingListDetailView: View {
                 Rectangle()
                     .edgesIgnoringSafeArea(.all)
                     .frame(height: UIScreen.main.bounds.height * 0.12)
-                    .foregroundColor(.grayScale6)
-                    .opacity(0.4)
+                    .foregroundColor(listEditButtonTap == true ? .grayScale7 : .grayScale6)
+                    .opacity(listEditButtonTap == true ? 1 : 0.4)
                 Spacer()
             }
             SingingListDetailCellView(songEditButtonTap: $songEditButtonTap, singingList: singingList)
@@ -30,15 +31,11 @@ struct SingingListDetailView: View {
         .navigationBarTitle(singingList.title ?? "제목 없음")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                SongEditButtonView(buttonName: "편집", buttonWidth: 50){}
-                    .padding(.trailing, 20)
+                SongEditButtonView(buttonName: listEditButtonTap == true ? "완료" : "편집", buttonWidth: 50) {
+                    self.listEditButtonTap.toggle()
+                }
+                .padding(.trailing, 20)
             }
         }
     }
 }
-
-//struct SingingListDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SingingListDetailView()
-//    }
-//}

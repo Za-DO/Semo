@@ -45,6 +45,9 @@ struct SingingListView: View {
             Spacer()
         }
         .padding(.top, 80)
+        .onDisappear {
+            self.listEditButtonTap = false
+        }
     }
 }
 

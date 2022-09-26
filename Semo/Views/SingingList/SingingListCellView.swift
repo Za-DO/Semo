@@ -24,10 +24,9 @@ struct SingingListCellView: View {
                         .padding(.trailing, 8)
                         .transition(.move(edge: .leading))
                     // TODO: - animation(_:value:)로 변경
-//                        .animation(.easeInOut)
-                        .animation(.easeInOut, value: listEditButtonTap)
+                        .animation(.easeInOut)
                 }
-                NavigationLink(destination: SingingListDetailView(songEditButtonTap: $songEditButtonTap, singingList: singingList)) {
+                NavigationLink(destination: SingingListDetailView(listEditButtonTap: $listEditButtonTap, songEditButtonTap: $songEditButtonTap, singingList: singingList)) {
                     // MARK: - 노래 정보 표시
                     VStack(alignment: .leading, spacing: 10) {
                         Text(singingList.title ?? "제목없음")
@@ -38,7 +37,7 @@ struct SingingListCellView: View {
                             .foregroundColor(.grayScale2)
                     }
                     .transition(.slide)
-                    .animation(.easeInOut, value: listEditButtonTap)
+                    .animation(.easeInOut)
                     Spacer()
                     // MARK: - Tune 정보 표시
                     Image(systemName: "chevron.right")
@@ -51,9 +50,3 @@ struct SingingListCellView: View {
         }
     }
 }
-
-//struct SingingListCellView_Preview: PreviewProvider {
-//    static var previews: some View {
-//        SingingListCellView()
-//    }
-//}
