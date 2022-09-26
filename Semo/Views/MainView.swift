@@ -17,6 +17,10 @@ struct MainView: View {
     @Namespace var namespace
     
     var tabBarOptions: [String] = ["전체 노래", "싱잉리스트"]
+
+    @State var songEditButtonTap: Bool = false
+    @State var listEditButtonTap: Bool = false
+
     
     // MARK: - BODY
     var body: some View {
@@ -27,12 +31,14 @@ struct MainView: View {
                 
                 // MARK: - 상단 탭바
                 TabView(selection: self.$currentTab) {
-                    SongListView(songList: $songList, refresh: $currentTab, editButtonTapped: $editButtonTap).tag(0)
-                        
-                    SingingListView(refresh: $currentTab, editButtonTap: $editButtonTap).tag(1)
+
+                    SongListView(songList: $songList, refresh: $currentTab, songEditButtonTap: $songEditButtonTap).tag(0)
+                    SingingListView(refresh: $currentTab, songEditButtonTap: $songEditButtonTap, listEditButtonTap: $listEditButtonTap).tag(1)
+
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .edgesIgnoringSafeArea(.all)
+                .navigationBarTitle("", displayMode: .inline)
                 
                 // MARK: - 탭바 생성
                 
@@ -76,11 +82,10 @@ struct MainView: View {
 //                TabBarView(currentTab: self.$currentTab)
 //                    .padding(.top, 60)
             }
-            .navigationTitle("메인뷰")
             .navigationBarHidden(true)
         }
         .accentColor(.mainPurpleColor)
-        .onAppear{
+        .onAppear {
             songList = CoreDataManager.shared.fetchSongList() ?? []
         }
     }

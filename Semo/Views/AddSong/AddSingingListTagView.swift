@@ -68,8 +68,8 @@ struct AddSingingListTagView: View {
             }
             .ignoresSafeArea(.keyboard)
             
-            // MARK: - 키보드가 올라왔을 때 보이는 추가 버튼
-            
+            // MARK: - 키보드가 올라왔을 때 보이는 singingList 추가 버튼
+
             VStack {
                 Spacer()
                 if isTextFieldFocused == true {

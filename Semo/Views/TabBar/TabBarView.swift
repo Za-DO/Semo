@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TabBarView: View {
-    @State private var showSingingListModal: Bool = false
+    @State var showSingingListModal: Bool = false
     @Binding var currentTab: Int
     @Namespace var namespace
     @Binding var isPopToRoot: Bool

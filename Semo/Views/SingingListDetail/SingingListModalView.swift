@@ -55,8 +55,6 @@ struct SingingListModalView: View {
                     .disabled(singingListTitle == "")
                 }
             }
-            
-            
         }
     }
 }

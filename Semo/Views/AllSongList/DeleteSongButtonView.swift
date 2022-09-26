@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct DeleteSongButtonView: View {
-    @State private var showDeleteAlert: Bool = false
+    @State var showDeleteAlert: Bool = false
+    @State var songList: [Song] = CoreDataManager.shared.fetchSongList() ?? []
+    @Binding var songEditButtonTap: Bool
+    
+    var song: Song
     
     var body: some View {
         Button {
@@ -21,14 +25,9 @@ struct DeleteSongButtonView: View {
         .alert("이 노래를 삭제하시겠습니까?", isPresented: $showDeleteAlert) {
             Button("취소", role: .cancel) {}
             Button("삭제", role: .destructive) {
-                // TODO: - 노래 데이터 삭제 코드
+                CoreDataManager.shared.deleteSong(song: song)
+                songEditButtonTap = false
             }
         }
-    }
-}
-
-struct DeleteSongButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        DeleteSongButtonView()
     }
 }

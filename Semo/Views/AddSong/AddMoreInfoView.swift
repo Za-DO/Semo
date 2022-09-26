@@ -16,7 +16,7 @@ struct AddMoreInfoView: View {
     var genderItems = ["여성", "혼성", "남성"]
     @State var genderIndex = "혼성"
     
-    @State var tunePickerIndex:Int = 6
+    @State var tunePickerIndex: Int = 6
     @State var tunePickerItems: [String] = ["-6", "-5", "-4", "-3", "-2", "-1",
                                             "0", "1", "2", "3", "4", "5", "6"]
     
@@ -41,13 +41,16 @@ struct AddMoreInfoView: View {
                     .foregroundColor(.white)
                     .font(.system(size: 24, weight: .semibold))
                     .padding(EdgeInsets(top: 14, leading: 20, bottom: 0, trailing: 0))
+                
                 LevelPickerView(levelIndexBase: $levelPickerIndex, levelItems: levelPickerItems)
                     .padding(.top, 60)
+                
                 TunePickerView(genderIndexBase: $genderIndex, genderItems: genderItems, tuneIndexBase: $tunePickerIndex, tuneItems: tunePickerItems)
                 
                 Spacer()
                 
                 // MARK: - 확인버튼
+
                 NavigationLink(destination: AddSingingListTagView(isPopToRoot: $isPopToRoot, songTitle: songTitle, songSinger: songSinger, gender: genderIndex, level: levelPickerItems[levelPickerIndex], tune: tunePickerItems[tunePickerIndex])) {
                     ConfirmButtonView(buttonName: "확인", buttonColor: Color.mainPurpleColor, textColor: .white)
                 }
@@ -56,11 +59,13 @@ struct AddMoreInfoView: View {
                 // MARK: - 건너뛰기 버튼
                 Button(action: {
                     // 네비게이션 빠져 나오게
+
                     // NavigationUtil.popToRootView()
                     self.isPopToRoot = false
                     songList = CoreDataManager.shared.fetchSongList() ?? []
                     
                     // 노래명, 가수만 추가
+
                     CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger)
                 }, label: {
                     Text("건너뛰기")
