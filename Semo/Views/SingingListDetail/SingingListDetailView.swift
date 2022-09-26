@@ -11,6 +11,9 @@ struct SingingListDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @GestureState private var dragOffset = CGSize.zero
     @Binding var editButtonTap: Bool
+    @Binding var listEditButtonTap: Bool
+    @Binding var songEditButtonTap: Bool
+
     var singingList: SingingList
     
     // MARK: - BODY
@@ -22,18 +25,20 @@ struct SingingListDetailView: View {
                 Rectangle()
                     .edgesIgnoringSafeArea(.all)
                     .frame(height: UIScreen.main.bounds.height * 0.12)
-                    .foregroundColor(.grayScale6)
-                    .opacity(0.4)
+                    .foregroundColor(listEditButtonTap == true ? .grayScale7 : .grayScale6)
+                    .opacity(listEditButtonTap == true ? 1 : 0.4)
                 Spacer()
             }
-            SingingListDetailCellView(editButtonTap: $editButtonTap, singingList: singingList)
+            SingingListDetailCellView(songEditButtonTap: $songEditButtonTap, singingList: singingList)
         }
         // TODO: - navigationtitle 폰트 크기, 굵기 수정(커스텀으로만 가능)
         .navigationBarTitle(singingList.title ?? "제목 없음")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                EditButtonView(buttonName: "편집", buttonWidth: 50){}
-                    .padding(.trailing, 20)
+                SongEditButtonView(buttonName: listEditButtonTap == true ? "완료" : "편집", buttonWidth: 50) {
+                    self.listEditButtonTap.toggle()
+                }
+                .padding(.trailing, 20)
             }
         }
         .toolbar {
@@ -51,8 +56,3 @@ struct SingingListDetailView: View {
         })
     }
 }
-    //struct SingingListDetailView_Previews: PreviewProvider {
-    //    static var previews: some View {
-    //        SingingListDetailView()
-    //    }
-    //}

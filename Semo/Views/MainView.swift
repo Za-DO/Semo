@@ -9,7 +9,9 @@ import SwiftUI
 
 struct MainView: View {
     @State var currentTab: Int = 0
-    @State var editButtonTap: Bool = false
+    @State var songEditButtonTap: Bool = false
+    @State var listEditButtonTap: Bool = false
+    @State var songList: [Song] = CoreDataManager.shared.fetchSongList() ?? []
     
     // MARK: - BODY
     var body: some View {
@@ -20,8 +22,8 @@ struct MainView: View {
                 
                 // MARK: - 상단 탭바
                 TabView(selection: self.$currentTab) {
-                    SongListView(refresh: $currentTab, editButtonTapped: $editButtonTap).tag(0)
-                    SingingListView(refresh: $currentTab, editButtonTap: $editButtonTap).tag(1)
+                    SongListView(refresh: $currentTab, songEditButtonTap: $songEditButtonTap).tag(0)
+                    SingingListView(refresh: $currentTab, songEditButtonTap: $songEditButtonTap, listEditButtonTap: $listEditButtonTap).tag(1)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .edgesIgnoringSafeArea(.all)
@@ -33,6 +35,9 @@ struct MainView: View {
             .navigationBarHidden(true)
         }
         .accentColor(.mainPurpleColor)
+        .onAppear {
+            songList = CoreDataManager.shared.fetchSongList() ?? []
+        }
     }
 }
 

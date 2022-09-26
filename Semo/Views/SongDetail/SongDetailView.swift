@@ -73,7 +73,7 @@ struct SongDetailView: View {
                     HStack {
                         ContentsTitleView(titleName: "싱잉리스트")
                         Spacer()
-                        EditButtonView(buttonName: "추가하기", buttonWidth: 80){
+                        SongEditButtonView(buttonName: "추가하기", buttonWidth: 80){
                             isPresented.toggle()
                         }
                         .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 34))
@@ -108,8 +108,7 @@ struct SongDetailView: View {
                 
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        EditButtonView(buttonName: "저장", buttonWidth: 50) {
-                            // TODO: - 노래 데이터 변경사항 코어데이터에 저장하는 코드
+                        SongEditButtonView(buttonName: "저장", buttonWidth: 50) {
                             print("기록 저장하기")
                             isChanged = false
                         }
@@ -196,9 +195,3 @@ struct SongDetailView: View {
         .padding(.top, 20)
     }
 }
-
-//struct SongDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SongDetailView().preferredColorScheme(.dark)
-//    }
-//}
