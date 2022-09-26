@@ -32,6 +32,7 @@ struct SingingListDetailView: View {
         }
         // TODO: - navigationtitle 폰트 크기, 굵기 수정(커스텀으로만 가능)
         .navigationBarTitle(singingList.title ?? "제목 없음")
+        .navigationBarTitleDisplayMode(.large)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 SongEditButtonView(buttonName: listEditButtonTap == true ? "완료" : "편집", buttonWidth: 50) {
