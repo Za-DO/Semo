@@ -31,7 +31,9 @@ struct AddMoreInfoView: View {
             Color.backgroundBlack.ignoresSafeArea()
             LinearGradient(gradient: Gradient(colors: [Color.grayScale6, Color.backgroundBlack]), startPoint: .top, endPoint: UnitPoint(x: 0.5, y: 0.3))
             .edgesIgnoringSafeArea(.all)
+            
             // MARK: - 추가 정보 입력란
+            
             VStack(alignment: .center) {
                 Text("노래방에서 필요한 정보를 \n입력하세요.")
                     .lineSpacing(10)
@@ -42,21 +44,24 @@ struct AddMoreInfoView: View {
                 LevelPickerView(levelIndexBase: $levelPickerIndex, levelItems: levelPickerItems)
                     .padding(.top, 60)
                 TunePickerView(genderIndexBase: $genderIndex, genderItems: genderItems, tuneIndexBase: $tunePickerIndex, tuneItems: tunePickerItems)
+                
                 Spacer()
                 
-                // TODO: - 데이터 저장하고 다음 단계로 넘어가기
-                NavigationLink(destination: AddSingingListTagView(songTitle: songTitle, songSinger: songSinger)) {
+                // MARK: - 확인버튼
+                NavigationLink(destination: AddSingingListTagView(isPopToRoot: $isPopToRoot, songTitle: songTitle, songSinger: songSinger, gender: genderIndex, level: levelPickerItems[levelPickerIndex], tune: tunePickerItems[tunePickerIndex])) {
                     ConfirmButtonView(buttonName: "확인", buttonColor: Color.mainPurpleColor, textColor: .white)
                 }
                 .navigationTitle("")
+                
+                // MARK: - 건너뛰기 버튼
                 Button(action: {
                     // 네비게이션 빠져 나오게
                     // NavigationUtil.popToRootView()
                     self.isPopToRoot = false
                     songList = CoreDataManager.shared.fetchSongList() ?? []
-                    // 노래 추가 로직
+                    
+                    // 노래명, 가수만 추가
                     CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger)
-
                 }, label: {
                     Text("건너뛰기")
                         .foregroundColor(.grayScale1)
@@ -68,9 +73,3 @@ struct AddMoreInfoView: View {
         .navigationBarTitle("", displayMode: .inline)
     }
 }
-
-//struct AddMoreInfoView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddMoreInfoView().preferredColorScheme(.dark)
-//    }
-//}

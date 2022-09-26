@@ -34,8 +34,9 @@ struct MainView: View {
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .edgesIgnoringSafeArea(.all)
                 
+                // MARK: - 탭바 생성
+                
                 HStack {
-                    // MARK: - 탭바 생성
                     HStack {
                         ForEach(Array(zip(self.tabBarOptions.indices,
                                           self.tabBarOptions)),
@@ -48,7 +49,9 @@ struct MainView: View {
                         })
                     }
                     Spacer()
+                    
                     // MARK: - 탭바 우측 노래 리스트 추가 버튼
+                    
                     if tabBarOptions[currentTab] == "전체 노래" {
                         NavigationLink(destination: AddSongView(isPopToRoot: $isPopToRoot), isActive: self.$isPopToRoot) {
                             Image("Songlistbuttonimage")
@@ -65,11 +68,11 @@ struct MainView: View {
                         }
                     }
                 }
-                .padding(.top, 60)
-                .padding(EdgeInsets(top: 60, leading: 10, bottom: 0, trailing: 24))
+                .padding(EdgeInsets(top: 120, leading: 10, bottom: 0, trailing: 24))
                 // FIXME: - background 생략시 탭바가 아래로 밀리는 현상 발생
                 .background(.clear)
                 .frame(height: 32)
+                
 //                TabBarView(currentTab: self.$currentTab)
 //                    .padding(.top, 60)
             }

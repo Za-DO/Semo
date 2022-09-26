@@ -33,9 +33,9 @@ struct TabBarView: View {
             Spacer()
             // MARK: - 탭바 우측 노래 리스트 추가 버튼
             if tabBarOptions[currentTab] == "전체 노래" {
-//                NavigationLink(destination: AddSongView()) {
-//                    Image("Songlistbuttonimage")
-//                }
+                NavigationLink(destination: AddSongView(isPopToRoot: $isPopToRoot)) {
+                    Image("Songlistbuttonimage")
+                }
             } else {
                 Button {
                     self.showSingingListModal = true

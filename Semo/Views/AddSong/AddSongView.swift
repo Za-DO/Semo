@@ -26,10 +26,8 @@ struct AddSongView: View {
                     .foregroundColor(.white)
                     .font(.system(size: 24, weight: .semibold))
                     .padding(EdgeInsets(top: 14, leading: 10, bottom: 0, trailing: 0))
-                //                    .padding(.leading, 10)
-                //                    .padding(.top, 14)
                 
-                
+
                 Text("노래 제목")
                     .font(.system(size: 15, weight: .medium))
                     .padding(EdgeInsets(top: 47, leading: 10, bottom: 0, trailing: 0))
@@ -50,7 +48,7 @@ struct AddSongView: View {
                     .disableAutocorrection(true)
                 
                 Button(action: {
-                    CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger)
+                    // CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger)
                 }, label: {
                     NavigationLink(destination: AddMoreInfoView(isPopToRoot: $isPopToRoot, songTitle: songTitle, songSinger: songSinger)) {
                         ConfirmButtonView(buttonName: "확인",
@@ -62,6 +60,7 @@ struct AddSongView: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .disabled(self.songTitle.isEmpty || self.songSinger.isEmpty)
                 })
+                
                 Spacer()
             }
             .padding()
