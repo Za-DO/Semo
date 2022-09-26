@@ -10,7 +10,6 @@ import SwiftUI
 struct SingingListDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @GestureState private var dragOffset = CGSize.zero
-    @Binding var editButtonTap: Bool
     @Binding var listEditButtonTap: Bool
     @Binding var songEditButtonTap: Bool
 
