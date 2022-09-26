@@ -15,16 +15,21 @@ struct AddSingingListTagView: View {
     
     var songTitle: String
     var songSinger: String
+    var gender: String
+    var level: String
+    var tune: String
     
     var body: some View {
         ZStack {
             Color.backgroundBlack.ignoresSafeArea()
             LinearGradient(gradient: Gradient(colors: [Color.grayScale6, Color.backgroundBlack]), startPoint: .top, endPoint: UnitPoint(x: 0.5, y: 0.3))
             .edgesIgnoringSafeArea(.all)
+            
             // MARK: - main으로 연결되는 확인 버튼
             VStack {
                 Spacer()
                 Button(action: {
+                    // TODO: - SingingList를 Song에 추가하는 함수 넣기
                     NavigationUtil.popToRootView()
                 }, label: {
                     ConfirmButtonView(buttonName: "확인", buttonColor: isTextFieldFocused ? .black : Color.mainPurpleColor, textColor: isTextFieldFocused ? .black : .white)
@@ -32,6 +37,7 @@ struct AddSingingListTagView: View {
                 })
             }
             .ignoresSafeArea(.keyboard)
+            
             // MARK: - 타이틀 및 싱잉리스트 뷰
             VStack(alignment: .center) {
                 Text("이 노래가 들어갈 싱잉리스트를 \n선택해주세요.")
@@ -55,11 +61,11 @@ struct AddSingingListTagView: View {
                 .padding(.bottom, 120)
             }
             .ignoresSafeArea(.keyboard)
-            // MARK: - 키보드가 올라왔을 때 보이는 추가 버튼
+            
+            // MARK: - 키보드가 올라왔을 때 보이는 singingList 추가 버튼
             VStack {
                 Spacer()
                 if isTextFieldFocused == true {
-                    // TODO: - textField가 focus되지 않았을 때 버튼 회색으로 변경
                     Button(action: {
                         // 새로운 SingingList coreData에 추가
                         CoreDataManager.shared.saveNewSingingList( singingListTitle: newSingingListTitle)
@@ -81,13 +87,7 @@ struct AddSingingListTagView: View {
         })
         .onDisappear(perform: {
             // 노래 추가 로직
-            CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger)
+            CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger, gender: gender, level: level, tune: tune)
         })
     }
 }
-
-//struct AddSingingListTagView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddSingingListTagView()
-//    }
-//}

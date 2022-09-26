@@ -24,6 +24,7 @@ struct TextFieldView: View {
         HStack {
             TextField("", text: $text, onEditingChanged: { changed in
                 self.isEditing = changed
+                text = text.trimmingCharacters(in: .whitespacesAndNewlines)
             })
             .placeholder(when: text.isEmpty) {
                 Text("\(placeholder)")

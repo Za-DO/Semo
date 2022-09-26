@@ -9,12 +9,15 @@ import SwiftUI
 
 struct SongDetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
+    @GestureState private var dragOffset = CGSize.zero
     @State var refresh: Bool = false
     @State private var refreshingID = UUID()
     @State private var isChanged = false
     @State private var showDeleteAlert: Bool = false
     @State private var showSaveAlert: Bool = false
+    
     var song: Song
     
     // 싱잉리스트 추가 sheet
@@ -46,7 +49,7 @@ struct SongDetailView: View {
             
             VStack {
                 SongInfoView(song: song)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 46)
                 
                 ScrollView {
                     LevelPickerView(levelIndexBase: $levelPickerIndex, levelItems: levelPickerItems)
@@ -56,7 +59,7 @@ struct SongDetailView: View {
                         })
                     
                     TunePickerView(genderIndexBase: $genderIndex, genderItems: genderItems, tuneIndexBase: $tunePickerIndex, tuneItems: tunePickerItems)
-                        // TODO: Padding 세부 간격 조절 필요
+                    // TODO: Padding 세부 간격 조절 필요
                         .padding(.bottom, 42)
                         .onChange(of: genderIndex, perform: { _ in
                             isChanged = true
@@ -66,7 +69,7 @@ struct SongDetailView: View {
                             isChanged = true
                             print("changed")
                         })
-                
+                    
                     HStack {
                         ContentsTitleView(titleName: "싱잉리스트")
                         Spacer()
@@ -85,6 +88,7 @@ struct SongDetailView: View {
                     }
                     .id(refreshingID)
                     
+                    // MARK: - 노래 삭제하기 버튼
                     Button(action: {
                         print("노래 삭제하기")
                         self.showDeleteAlert = true
@@ -114,6 +118,28 @@ struct SongDetailView: View {
                     }
                 }
                 .padding(.bottom, 100)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        if !isChanged {
+                            CustomBackButton(buttonName: "") {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
+                        } else {
+                            CustomBackButton(buttonName: "") {
+                                self.showSaveAlert = true
+                            }
+                            .alert("변경사항을 저장하시겠습니까?", isPresented: $showSaveAlert) {
+                                Button("아니요", role: .cancel) {
+                                    self.presentationMode.wrappedValue.dismiss()
+                                }
+                                Button("저장", role: .none) {
+                                    // TODO: - 노래 데이터 변경사항 코어데이터에 저장하는 코드
+                                    self.presentationMode.wrappedValue.dismiss()
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         .sheet(isPresented: $isPresented) {
@@ -128,14 +154,18 @@ struct SongDetailView: View {
                 showSaveAlert = true
             }
         })
-        .alert("변경사항을 저장하시겠습니까?", isPresented: $showSaveAlert) {
-            Button("저장", role: .cancel) {
-                // TODO: - 노래 데이터 변경사항 코어데이터에 저장하는 코드
+        .navigationBarBackButtonHidden(true)
+        .gesture(DragGesture().updating($dragOffset) { (value, state, transaction) in
+            if (value.startLocation.x < 30 && value.translation.width > 100 && isChanged == false) {
+                if isChanged {
+                    self.showSaveAlert = true
+                }
+                self.presentationMode.wrappedValue.dismiss()
             }
-            Button("아니요", role: .destructive) {}
-        }
+        })
     }
     
+    // MARK: - singingListTagView
     @ViewBuilder
     func singingListTag(singingList: SingingList) -> some View {
         HStack {
@@ -144,8 +174,8 @@ struct SongDetailView: View {
                 do {
                     try viewContext.save()
                     self.refreshingID = UUID()
-//                    refresh.toggle()
-
+                    //                    refresh.toggle()
+                    
                 } catch {
                     print(error.localizedDescription)
                 }
@@ -165,9 +195,3 @@ struct SongDetailView: View {
         .padding(.top, 20)
     }
 }
-
-//struct SongDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SongDetailView().preferredColorScheme(.dark)
-//    }
-//}

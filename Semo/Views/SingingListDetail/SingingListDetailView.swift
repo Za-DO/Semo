@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct SingingListDetailView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @GestureState private var dragOffset = CGSize.zero
+    @Binding var editButtonTap: Bool
     @Binding var listEditButtonTap: Bool
     @Binding var songEditButtonTap: Bool
-    var singingList: SingingList
 
+    var singingList: SingingList
+    
     // MARK: - BODY
     var body: some View {
         ZStack {
@@ -37,5 +41,18 @@ struct SingingListDetailView: View {
                 .padding(.trailing, 20)
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                CustomBackButton(buttonName: "") {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+                .navigationBarBackButtonHidden(true)
+            }
+        }
+        .gesture(DragGesture().updating($dragOffset) { (value, state, transaction) in
+            if (value.startLocation.x < 30 && value.translation.width > 100) {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        })
     }
 }

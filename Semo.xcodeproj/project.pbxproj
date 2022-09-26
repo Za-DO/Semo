@@ -28,6 +28,7 @@
 		B2108F1628845A67002CED9D /* TunePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1528845A67002CED9D /* TunePickerView.swift */; };
 		B2108F1A28845AE9002CED9D /* SongInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1928845AE9002CED9D /* SongInfoView.swift */; };
 		B242DEA92886C3D10052031C /* AddMoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B242DEA82886C3D10052031C /* AddMoreInfoView.swift */; };
+		B247E58E28D8838F0098D1DE /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247E58D28D8838F0098D1DE /* CustomBackButton.swift */; };
 		B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262DD0C2883F86F00E1B527 /* SongDetailView.swift */; };
 		B2983F7028A2AF950064C79A /* AddSingingListTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2983F6F28A2AF950064C79A /* AddSingingListTagView.swift */; };
 		B2983F7228A2C6E50064C79A /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2983F7128A2C6E50064C79A /* NavigationUtil.swift */; };
@@ -78,6 +79,7 @@
 		B2108F1528845A67002CED9D /* TunePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunePickerView.swift; sourceTree = "<group>"; };
 		B2108F1928845AE9002CED9D /* SongInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongInfoView.swift; sourceTree = "<group>"; };
 		B242DEA82886C3D10052031C /* AddMoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreInfoView.swift; sourceTree = "<group>"; };
+		B247E58D28D8838F0098D1DE /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		B262DD0C2883F86F00E1B527 /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
 		B2983F6F28A2AF950064C79A /* AddSingingListTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSingingListTagView.swift; sourceTree = "<group>"; };
 		B2983F7128A2C6E50064C79A /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				209E12E62883F3F3006FB3A8 /* ConfirmButtonView.swift */,
 				3928C59F28A18962006D3D19 /* FinalConfirmButtonView.swift */,
 				B2983F7128A2C6E50064C79A /* NavigationUtil.swift */,
+				B247E58D28D8838F0098D1DE /* CustomBackButton.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				3916A13B2883AD0500C21828 /* SingingList+CoreDataClass.swift in Sources */,
 				B2983F7228A2C6E50064C79A /* NavigationUtil.swift in Sources */,
 				3928C59A28A1800F006D3D19 /* CheckboxToggleStyle.swift in Sources */,
+				B247E58E28D8838F0098D1DE /* CustomBackButton.swift in Sources */,
 				39DD903128D11CFB0088FEA5 /* CoreDataManager.swift in Sources */,
 				EEC3B553288408390036BE34 /* SingingListDetailView.swift in Sources */,
 			);

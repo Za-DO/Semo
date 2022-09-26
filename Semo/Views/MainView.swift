@@ -27,11 +27,11 @@ struct MainView: View {
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .edgesIgnoringSafeArea(.all)
+                .navigationBarTitle("", displayMode: .inline)
                 
                 TabBarView(currentTab: self.$currentTab)
                     .padding(.top, 60)
             }
-            .navigationTitle("메인뷰")
             .navigationBarHidden(true)
         }
         .accentColor(.mainPurpleColor)
