@@ -16,7 +16,7 @@ extension View {
     /// - Parameter isEditing: 텍스트 필드 편집 여부 확인
     /// - Parameter isFull: 텍스트 필드 공백 여부 확인
     /// - Returns: 텍스트 필드 뷰
-    func underlineTextField(isEditing : Bool, isFull: Bool) -> some View {
+    func underlineTextField(isEditing : Bool, isFull: Bool, inset: CGFloat) -> some View {
         var lineColor: Color = Color.grayScale4
         if isEditing == true {
             lineColor = Color.mainPurpleColor
@@ -25,8 +25,8 @@ extension View {
             lineColor = Color.grayScale2
         }
         return self
-            .padding(.vertical, 10)
-            .overlay(Rectangle().frame(height: 2).padding(.top, 35))
+//            .padding(.vertical, 10)
+            .overlay(Rectangle().frame(height: 2).padding(.top, inset))
             .padding(10)
             .foregroundColor(lineColor)
     }

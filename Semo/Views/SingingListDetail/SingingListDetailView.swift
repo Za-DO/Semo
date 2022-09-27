@@ -10,7 +10,8 @@ import SwiftUI
 struct SingingListDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @GestureState private var dragOffset = CGSize.zero
-    @Binding var editButtonTap: Bool
+    @State var singingListTitle: String = ""
+    @State var isSingingListTitleEditing: Bool = false
     @Binding var listEditButtonTap: Bool
     @Binding var songEditButtonTap: Bool
 
@@ -24,15 +25,33 @@ struct SingingListDetailView: View {
             VStack {
                 Rectangle()
                     .edgesIgnoringSafeArea(.all)
-                    .frame(height: UIScreen.main.bounds.height * 0.12)
+                    .frame(height: UIScreen.main.bounds.height * 0.16)
                     .foregroundColor(listEditButtonTap == true ? .grayScale7 : .grayScale6)
                     .opacity(listEditButtonTap == true ? 1 : 0.4)
                 Spacer()
             }
+            
+            VStack {
+                HStack {
+                    TextField("", text: $singingListTitle, onEditingChanged: { changed in
+                        self.isSingingListTitleEditing = changed
+                    })
+                    .placeholder(when: singingListTitle.isEmpty) {
+                        Text("\(singingList.title ?? "제목없음")")
+                            .font(.system(size: 35, weight: .bold))
+                            .foregroundColor(.white)
+                    }
+                }
+                .underlineTextField(isEditing: isSingingListTitleEditing, isFull: !singingListTitle.isEmpty, inset: 60)
+                .padding(.horizontal, 10)
+                Spacer()
+            }
+            .padding(.top, 60)
             SingingListDetailCellView(songEditButtonTap: $songEditButtonTap, singingList: singingList)
+                .padding(.top, 40)
         }
-        // TODO: - navigationtitle 폰트 크기, 굵기 수정(커스텀으로만 가능)
-        .navigationBarTitle(singingList.title ?? "제목 없음")
+//        .navigationBarTitle(singingList.title ?? "제목 없음")
+//        .navigationBarTitleDisplayMode(.large)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 SongEditButtonView(buttonName: listEditButtonTap == true ? "완료" : "편집", buttonWidth: 50) {

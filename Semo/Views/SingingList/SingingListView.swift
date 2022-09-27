@@ -50,9 +50,3 @@ struct SingingListView: View {
         }
     }
 }
-
-//struct SingingListView_Preview: PreviewProvider {
-//    static var previews: some View {
-//        SingingListView()
-//    }
-//}
