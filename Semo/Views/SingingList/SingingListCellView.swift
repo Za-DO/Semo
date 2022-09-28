@@ -26,7 +26,7 @@ struct SingingListCellView: View {
                     // TODO: - animation(_:value:)로 변경
                         .animation(.easeInOut)
                 }
-                NavigationLink(destination: SingingListDetailView(listEditButtonTap: $listEditButtonTap, songEditButtonTap: $songEditButtonTap, singingList: singingList)) {
+                NavigationLink(destination: SingingListDetailView(listEditButtonTap: $listEditButtonTap, songEditButtonTap: $songEditButtonTap, singingList: singingList, singingListTitle: singingList.title ?? "제목없음")) {
                     // MARK: - 노래 정보 표시
                     VStack(alignment: .leading, spacing: 10) {
                         Text(singingList.title ?? "제목없음")

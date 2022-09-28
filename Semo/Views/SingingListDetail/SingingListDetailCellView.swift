@@ -9,7 +9,9 @@ import SwiftUI
 
 struct SingingListDetailCellView: View {
     @Binding var songEditButtonTap: Bool
+    
     var singingList: SingingList
+    
     // MARK: - BODY
     var body: some View {
         VStack {
@@ -29,7 +31,6 @@ struct SingingListDetailCellView: View {
                     .background(Color.grayScale6)
                     .frame(width: 350)                
                 ForEach(singingList.songArray) {
-                    // TODO: coreData에서 가져온 데이터 넣어주기
                     SongListCellView(songEditButtonTap: $songEditButtonTap, song: $0)
                     Divider()
                         .background(Color.grayScale6)
