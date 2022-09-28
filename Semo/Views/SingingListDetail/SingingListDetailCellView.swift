@@ -37,7 +37,8 @@ struct SingingListDetailCellView: View {
                         .frame(width: 350)
                 }
                 .padding(.top, 10)
-                AddSongButtonView()
+                // TODO: - 이후 업데이트에서 새 노래 추가가 아닌 기존 노래 추가로 기능 변경
+//                AddSongButtonView()
                 Spacer()
 
             }

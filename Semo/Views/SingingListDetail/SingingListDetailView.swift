@@ -11,6 +11,7 @@ struct SingingListDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @GestureState private var dragOffset = CGSize.zero
     @State var isSingingListTitleEditing: Bool = false
+    @State private var showSaveAlert: Bool = false
     @Binding var listEditButtonTap: Bool
     @Binding var songEditButtonTap: Bool
     
@@ -74,6 +75,7 @@ struct SingingListDetailView: View {
                     .navigationBarBackButtonHidden(true)
                 } else {
                     Button {
+                        self.showSaveAlert = true
                         print("리스트 편집 그만하기")
                     } label: {
                         Image(systemName: "xmark")
@@ -81,6 +83,15 @@ struct SingingListDetailView: View {
                             .foregroundColor(.white)
                     }
                     .navigationBarBackButtonHidden(true)
+                    .alert("변경사항을 저장하시겠습니까?", isPresented: $showSaveAlert) {
+                        Button("아니요", role: .cancel) {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                        Button("저장", role: .none) {
+                            // TODO: - 리스트 데이터 변경사항 코어데이터에 저장하는 코드
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                    }
                 }
             }
         }
