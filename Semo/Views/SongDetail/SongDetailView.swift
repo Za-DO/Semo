@@ -17,20 +17,19 @@ struct SongDetailView: View {
     @State private var isChanged = false
     @State private var showDeleteAlert: Bool = false
     @State private var showSaveAlert: Bool = false
+    @State private var isPresented = false // 싱잉리스트 추가 sheet
     
     var song: Song
-    
-    // 싱잉리스트 추가 sheet
-    @State private var isPresented = false
-    @State var levelPickerIndex: Int = 1
     var levelPickerItems: [String] = ["하", "중", "상"]
-    
     var genderItems = ["여성", "혼성", "남성"]
-    @State var genderIndex = "혼성"
-    
-    @State var tunePickerIndex: Int = 6
     var tunePickerItems: [String] = ["-6", "-5", "-4", "-3", "-2", "-1",
                                      "0", "+1", "+2", "+3", "+4", "+5", "+6"]
+    
+    @State var genderIndex: String
+    
+    @State var levelPickerIndex: Int
+    
+    @State var tunePickerIndex: Int
     
     // MARK: - BODY
     
@@ -54,7 +53,9 @@ struct SongDetailView: View {
                 ScrollView {
                     LevelPickerView(levelIndexBase: $levelPickerIndex, levelItems: levelPickerItems)
                         .onChange(of: levelPickerIndex, perform: { _ in
-                            isChanged = true
+                            if levelPickerItems[levelPickerIndex] != song.level {
+                                isChanged = true
+                            }
                             print("changed")
                         })
                     
@@ -62,11 +63,15 @@ struct SongDetailView: View {
                     // TODO: Padding 세부 간격 조절 필요
                         .padding(.bottom, 42)
                         .onChange(of: genderIndex, perform: { _ in
-                            isChanged = true
+                            if genderIndex != song.gender {
+                                isChanged = true
+                            }
                             print("changed")
                         })
                         .onChange(of: tunePickerIndex, perform: { _ in
-                            isChanged = true
+                            if tunePickerItems[tunePickerIndex] != song.tune {
+                                isChanged = true
+                            }
                             print("changed")
                         })
                     
@@ -99,7 +104,7 @@ struct SongDetailView: View {
                     .alert("이 노래를 삭제하시겠습니까?", isPresented: $showDeleteAlert) {
                         Button("취소", role: .cancel) {}
                         Button("삭제", role: .destructive) {
-                            // TODO: - 노래 데이터 삭제 코드
+                            CoreDataManager.shared.deleteSong(song: song)
                         }
                     }
                 }
@@ -109,7 +114,8 @@ struct SongDetailView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         EditButtonView(buttonName: "저장", buttonWidth: 50) {
-                            // TODO: - 노래 데이터 변경사항 코어데이터에 저장하는 코드
+                            // 노래 데이터 변경사항 코어데이터에 저장하는 코드
+                            CoreDataManager.shared.updateSongAdditionalInformation(song: song, gender: genderIndex, level: levelPickerItems[levelPickerIndex], tune: tunePickerItems[tunePickerIndex])
                             print("기록 저장하기")
                             isChanged = false
                         }
@@ -134,7 +140,8 @@ struct SongDetailView: View {
                                     self.presentationMode.wrappedValue.dismiss()
                                 }
                                 Button("저장", role: .none) {
-                                    // TODO: - 노래 데이터 변경사항 코어데이터에 저장하는 코드
+                                    // 노래 데이터 변경사항 코어데이터에 저장하는 코드
+                                    CoreDataManager.shared.updateSongAdditionalInformation(song: song, gender: genderIndex, level: levelPickerItems[levelPickerIndex], tune: tunePickerItems[tunePickerIndex])
                                     self.presentationMode.wrappedValue.dismiss()
                                 }
                             }
@@ -175,8 +182,6 @@ struct SongDetailView: View {
                 do {
                     try viewContext.save()
                     self.refreshingID = UUID()
-                    //                    refresh.toggle()
-                    
                 } catch {
                     print(error.localizedDescription)
                 }
