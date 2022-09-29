@@ -103,6 +103,7 @@ struct SongDetailView: View {
                         Button("취소", role: .cancel) {}
                         Button("삭제", role: .destructive) {
                             CoreDataManager.shared.deleteSong(song: song)
+                            self.presentationMode.wrappedValue.dismiss()
                         }
                     }
                 }
