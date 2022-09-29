@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct AddSongButtonView: View {
+    @Binding var isPopToRoot: Bool
     // MARK: - BODY
     var body: some View {
         HStack {
             Button {
             } label: {
                 // TODO: - destination 수정 필요
-                NavigationLink(destination: AddSongView()) {
+                NavigationLink(destination: AddSongView(isPopToRoot: $isPopToRoot)) {
                     Label {
                         Text("노래 추가하기")
                             .font(.system(size: 18, weight: .medium))
@@ -32,8 +33,8 @@ struct AddSongButtonView: View {
     }
 }
 
-struct AddSongButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddSongButtonView()
-    }
-}
+//struct AddSongButtonView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddSongButtonView()
+//    }
+//}

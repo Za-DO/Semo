@@ -13,6 +13,7 @@ struct AddSongView: View {
     @State var songTitle: String = ""
     @State var songSinger: String = ""
     @State var emptyFlag: Bool = false
+    @Binding var isPopToRoot: Bool
     
     var body: some View {
         ZStack {
@@ -45,11 +46,13 @@ struct AddSongView: View {
                     .disableAutocorrection(true)
                 
                 // MARK: - 확인 버튼
-                NavigationLink(destination: AddMoreInfoView(songTitle: songTitle, songSinger: songSinger)) {
+                
+                NavigationLink(destination: AddMoreInfoView(isPopToRoot: $isPopToRoot, songTitle: songTitle, songSinger: songSinger)) {
                     ConfirmButtonView(buttonName: "확인",
                                       buttonColor: songTitle.isEmpty || songSinger.isEmpty ? .grayScale5 : Color.mainPurpleColor,
                                       textColor: songTitle.isEmpty || songSinger.isEmpty ? .grayScale3 : .white)
                 }
+                .isDetailLink(false)
                 .padding(EdgeInsets(top: 50, leading: 10, bottom: 0, trailing: 0))
                 .navigationBarTitleDisplayMode(.inline)
                 .disabled(self.songTitle.isEmpty || self.songSinger.isEmpty)
@@ -59,11 +62,5 @@ struct AddSongView: View {
             .padding()
             .navigationBarTitle("", displayMode: .inline)
         }
-    }
-}
-
-struct AddSongView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddSongView()
     }
 }

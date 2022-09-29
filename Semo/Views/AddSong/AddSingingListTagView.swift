@@ -11,7 +11,9 @@ struct AddSingingListTagView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .linear) private var singingList: FetchedResults<SingingList>
     @State var newSingingListTitle: String = ""
     @State var singingListToggle: [UUID: Bool] = [:]
+    @State var songList: [Song] = CoreDataManager.shared.fetchSongList() ?? []
     @FocusState private var isTextFieldFocused: Bool
+    @Binding var isPopToRoot: Bool
     
     var songTitle: String
     var songSinger: String
@@ -26,11 +28,12 @@ struct AddSingingListTagView: View {
             .edgesIgnoringSafeArea(.all)
             
             // MARK: - main으로 연결되는 확인 버튼
+            
             VStack {
                 Spacer()
                 Button(action: {
-                    // TODO: - SingingList를 Song에 추가하는 함수 넣기
-                    NavigationUtil.popToRootView()
+                    self.isPopToRoot = false
+                    CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger, gender: gender, level: level, tune: tune)
                 }, label: {
                     ConfirmButtonView(buttonName: "확인", buttonColor: isTextFieldFocused ? .black : Color.mainPurpleColor, textColor: isTextFieldFocused ? .black : .white)
                         .padding(.bottom, 60)
@@ -39,6 +42,7 @@ struct AddSingingListTagView: View {
             .ignoresSafeArea(.keyboard)
             
             // MARK: - 타이틀 및 싱잉리스트 뷰
+            
             VStack(alignment: .center) {
                 Text("이 노래가 들어갈 싱잉리스트를 \n선택해주세요.")
                     .lineSpacing(10)
@@ -63,12 +67,13 @@ struct AddSingingListTagView: View {
             .ignoresSafeArea(.keyboard)
             
             // MARK: - 키보드가 올라왔을 때 보이는 singingList 추가 버튼
+            
             VStack {
                 Spacer()
                 if isTextFieldFocused == true {
                     Button(action: {
                         // 새로운 SingingList coreData에 추가
-                        CoreDataManager.shared.saveNewSingingList( singingListTitle: newSingingListTitle)
+                        CoreDataManager.shared.saveNewSingingList(singingListTitle: newSingingListTitle)
                         newSingingListTitle = ""
                         isTextFieldFocused = false
                     }, label: {
@@ -84,10 +89,6 @@ struct AddSingingListTagView: View {
             for i in singingList {
                 singingListToggle.updateValue(false, forKey: i.id!)
             }
-        })
-        .onDisappear(perform: {
-            // 노래 추가 로직
-            CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger, gender: gender, level: level, tune: tune)
         })
     }
 }
