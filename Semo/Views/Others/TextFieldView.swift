@@ -34,7 +34,7 @@ struct TextFieldView: View {
             }
             .foregroundColor(.white)
         }
-        .underlineTextField(isEditing: isEditing, isFull: !text.isEmpty)
+        .underlineTextField(isEditing: isEditing, isFull: !text.isEmpty, inset: 35)
     }
 }
 
@@ -52,7 +52,7 @@ struct SingListTitleTextFieldView: View {
             }
             .foregroundColor(.white)
         }
-        .underlineTextField(isEditing: isSingingListTitleEditing, isFull: !singingListTitle.isEmpty)
+        .underlineTextField(isEditing: isSingingListTitleEditing, isFull: !singingListTitle.isEmpty, inset: 35)
     }
 }
 
