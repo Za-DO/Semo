@@ -15,6 +15,8 @@ extension View {
     /// 텍스트 필드 밑줄 커스텀 및 입력 여부에 따라 색이 변화합니다.
     /// - Parameter isEditing: 텍스트 필드 편집 여부 확인
     /// - Parameter isFull: 텍스트 필드 공백 여부 확인
+    /// - Parameter inset: 텍스트와 밑줄 간의 간격
+    /// - Parameter active: 밑줄 활성화 여부
     /// - Returns: 텍스트 필드 뷰
     func underlineTextField(isEditing : Bool, isFull: Bool, inset: CGFloat, active: Bool = true) -> some View {
         var lineColor: Color = Color.grayScale4

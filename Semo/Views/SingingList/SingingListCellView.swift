@@ -9,8 +9,8 @@ import SwiftUI
 
 struct SingingListCellView: View {
     @Binding var refresh: Int
-    @Binding var songEditButtonTap: Bool
-    @Binding var listEditButtonTap: Bool
+    @Binding var songEditButtonTapped: Bool
+    @Binding var listEditButtonTapped: Bool
     
     var singingList: SingingList
     
@@ -19,14 +19,14 @@ struct SingingListCellView: View {
         Button {
         } label: {
             HStack {
-                if listEditButtonTap == true {
-                    DeleteSingingListButtonView(listEditButtonTap: $listEditButtonTap, singingList: singingList)
+                if listEditButtonTapped == true {
+                    DeleteSingingListButtonView(listEditButtonTapped: $listEditButtonTapped, singingList: singingList)
                         .padding(.trailing, 8)
                         .transition(.move(edge: .leading))
                     // TODO: - animation(_:value:)로 변경
                         .animation(.easeInOut)
                 }
-                NavigationLink(destination: SingingListDetailView(listEditButtonTap: $listEditButtonTap, songEditButtonTap: $songEditButtonTap, singingList: singingList, singingListTitle: singingList.title ?? "제목없음")) {
+                NavigationLink(destination: SingingListDetailView(listEditButtonTapped: $listEditButtonTapped, songEditButtonTapped: $songEditButtonTapped, singingList: singingList, singingListTitle: singingList.title ?? "제목없음")) {
                     // MARK: - 노래 정보 표시
                     VStack(alignment: .leading, spacing: 10) {
                         Text(singingList.title ?? "제목없음")
@@ -44,7 +44,7 @@ struct SingingListCellView: View {
                         .scaledToFit()
                         .foregroundColor(.grayScale1)
                 }
-                .disabled(listEditButtonTap)
+                .disabled(listEditButtonTapped)
             }
             .padding(.horizontal, 20)
         }

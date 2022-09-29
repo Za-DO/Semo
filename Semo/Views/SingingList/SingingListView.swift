@@ -11,8 +11,8 @@ struct SingingListView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
     @Binding var refresh: Int
-    @Binding var songEditButtonTap: Bool
-    @Binding var listEditButtonTap: Bool
+    @Binding var songEditButtonTapped: Bool
+    @Binding var listEditButtonTapped: Bool
     
     // MARK: - BODY
     var body: some View {
@@ -25,7 +25,7 @@ struct SingingListView: View {
                     .fontWeight(.medium)
                 Spacer()
                 SongEditButtonView(buttonName: "리스트 편집", buttonWidth: 93) {
-                    self.listEditButtonTap.toggle()
+                    self.listEditButtonTapped.toggle()
                 }
             }
             .padding(EdgeInsets(top: 15, leading: 20, bottom: 15, trailing: 30))            
@@ -35,7 +35,7 @@ struct SingingListView: View {
                     .background(Color.grayScale6)
                     .frame(width: 350)
                 ForEach(singingList) {
-                    SingingListCellView(refresh: $refresh, songEditButtonTap: $songEditButtonTap, listEditButtonTap: $listEditButtonTap, singingList: $0)
+                    SingingListCellView(refresh: $refresh, songEditButtonTapped: $songEditButtonTapped, listEditButtonTapped: $listEditButtonTapped, singingList: $0)
                     Divider()
                         .background(Color.grayScale6)
                         .frame(width: 350)
@@ -46,7 +46,7 @@ struct SingingListView: View {
         }
         .padding(.top, 80)
         .onDisappear {
-            self.listEditButtonTap = false
+            self.listEditButtonTapped = false
         }
     }
 }

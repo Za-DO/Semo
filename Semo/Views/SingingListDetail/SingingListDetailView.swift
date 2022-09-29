@@ -12,8 +12,8 @@ struct SingingListDetailView: View {
     @GestureState private var dragOffset = CGSize.zero
     @State var isSingingListTitleEditing: Bool = false
     @State private var showSaveAlert: Bool = false
-    @Binding var listEditButtonTap: Bool
-    @Binding var songEditButtonTap: Bool
+    @Binding var listEditButtonTapped: Bool
+    @Binding var songEditButtonTapped: Bool
     
     var singingList: SingingList
     
@@ -28,47 +28,40 @@ struct SingingListDetailView: View {
         ZStack {
             Image("backgroundImage")
                 .edgesIgnoringSafeArea(.vertical)
-            VStack {
-                Rectangle()
-                    .edgesIgnoringSafeArea(.all)
-                    .frame(height: UIScreen.main.bounds.height * 0.16)
-                    .foregroundColor(songEditButtonTap == true ? .grayScale7 : .grayScale6)
-                    .opacity(songEditButtonTap == true ? 1 : 0.4)
-                Spacer()
+            Rectangle()
+                .edgesIgnoringSafeArea(.all)
+                .frame(height: UIScreen.main.bounds.height * 0.16)
+                .foregroundColor(songEditButtonTapped == true ? .grayScale7 : .grayScale6)
+                .opacity(songEditButtonTapped == true ? 1 : 0.4)
+                .padding(.bottom, 700)
+            TextField("", text: $singingListTitle, onEditingChanged: { changed in
+                self.isSingingListTitleEditing = changed
+            })
+            .font(.system(size: 28, weight: .semibold))
+            .foregroundColor(.white)
+            .placeholder(when: singingListTitle.isEmpty) {
+                Text(singingList.title ?? "제목없음")
+                    .font(.system(size: 28, weight: .semibold))
+                    .foregroundColor(.grayScale2)
             }
-            VStack {
-                HStack {
-                    TextField("", text: $singingListTitle, onEditingChanged: { changed in
-                        self.isSingingListTitleEditing = changed
-                    })
-                    .font(.system(size: 24, weight: .semibold))
-                    .foregroundColor(.white)
-                    .placeholder(when: singingListTitle.isEmpty) {
-                        Text("빠른 싱잉리스트")
-                            .font(.system(size: 24, weight: .semibold))
-                            .foregroundColor(.grayScale2)
-                    }
-                    .disabled(!songEditButtonTap)
-                }
-                .underlineTextField(isEditing: isSingingListTitleEditing, isFull: !singingListTitle.isEmpty, inset: 55, active: songEditButtonTap)
-                .padding(.horizontal, 10)
-                Spacer()
-            }
-            .padding(.top, 65)
-            SingingListDetailCellView(songEditButtonTap: $songEditButtonTap, singingList: singingList)
+            .disabled(!songEditButtonTapped)
+            .underlineTextField(isEditing: isSingingListTitleEditing, isFull: !singingListTitle.isEmpty, inset: 55, active: songEditButtonTapped)
+            .padding(.horizontal, 10)
+            .padding(.bottom, 650)
+            SingingListDetailCellView(songEditButtonTap: $songEditButtonTapped, singingList: singingList)
                 .padding(.top, 35)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                SongEditButtonView(buttonName: songEditButtonTap == true ? "완료" : "편집", buttonWidth: 50) {
-                    self.songEditButtonTap.toggle()
+                SongEditButtonView(buttonName: songEditButtonTapped == true ? "완료" : "편집", buttonWidth: 50) {
+                    self.songEditButtonTapped.toggle()
                 }
                 .padding(.trailing, 20)
             }
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                if songEditButtonTap == false {
+                if songEditButtonTapped == false {
                     CustomBackButton(buttonName: "") {
                         self.presentationMode.wrappedValue.dismiss()
                     }
@@ -97,11 +90,12 @@ struct SingingListDetailView: View {
         }
         .gesture(DragGesture().updating($dragOffset) { (value, state, transaction) in
             if (value.startLocation.x < 30 && value.translation.width > 100) {
+                // TODO: - 변경된 값이 있는 경우 swipeback alert 띄우기
                 self.presentationMode.wrappedValue.dismiss()
             }
         })
         .onDisappear {
-            self.songEditButtonTap = false
+            self.songEditButtonTapped = false
         }
     }
 }

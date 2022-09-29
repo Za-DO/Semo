@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     @State var currentTab: Int = 0
-    @State var songEditButtonTap: Bool = false
-    @State var listEditButtonTap: Bool = false
+    @State var songEditButtonTapped: Bool = false
+    @State var listEditButtonTapped: Bool = false
     @State var songList: [Song] = CoreDataManager.shared.fetchSongList() ?? []
     
     // MARK: - BODY
@@ -22,8 +22,8 @@ struct MainView: View {
                 
                 // MARK: - 상단 탭바
                 TabView(selection: self.$currentTab) {
-                    SongListView(refresh: $currentTab, songEditButtonTap: $songEditButtonTap).tag(0)
-                    SingingListView(refresh: $currentTab, songEditButtonTap: $songEditButtonTap, listEditButtonTap: $listEditButtonTap).tag(1)
+                    SongListView(refresh: $currentTab, songEditButtonTap: $songEditButtonTapped).tag(0)
+                    SingingListView(refresh: $currentTab, songEditButtonTapped: $songEditButtonTapped, listEditButtonTapped: $listEditButtonTapped).tag(1)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .edgesIgnoringSafeArea(.all)
