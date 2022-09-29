@@ -26,9 +26,7 @@ struct SongDetailView: View {
                                      "0", "+1", "+2", "+3", "+4", "+5", "+6"]
     
     @State var genderIndex: String
-    
     @State var levelPickerIndex: Int
-    
     @State var tunePickerIndex: Int
     
     // MARK: - BODY
@@ -113,7 +111,7 @@ struct SongDetailView: View {
                 
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        EditButtonView(buttonName: "저장", buttonWidth: 50) {
+                        SongEditButtonView(buttonName: "저장", buttonWidth: 50) {
                             // 노래 데이터 변경사항 코어데이터에 저장하는 코드
                             CoreDataManager.shared.updateSongAdditionalInformation(song: song, gender: genderIndex, level: levelPickerItems[levelPickerIndex], tune: tunePickerItems[tunePickerIndex])
                             print("기록 저장하기")
