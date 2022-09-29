@@ -78,7 +78,7 @@ struct SongDetailView: View {
                     HStack {
                         ContentsTitleView(titleName: "싱잉리스트")
                         Spacer()
-                        EditButtonView(buttonName: "추가하기", buttonWidth: 80){
+                        SongEditButtonView(buttonName: "추가하기", buttonWidth: 80){
                             isPresented.toggle()
                         }
                         .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 34))
@@ -201,9 +201,3 @@ struct SongDetailView: View {
         .padding(.top, 20)
     }
 }
-
-//struct SongDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SongDetailView().preferredColorScheme(.dark)
-//    }
-//}

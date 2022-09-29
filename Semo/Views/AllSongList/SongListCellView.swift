@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct SongListCellView: View {
-    @Binding var editButtonTapped: Bool
+    @Binding var songEditButtonTap: Bool
+    
     var song: Song
     
     // MARK: - BODY
     var body: some View {
         Button {
-            // TODO: - 리스트 각 셀 데이터 반환 액션 추가
         } label: {
             HStack {
-                if editButtonTapped == true {
-                    DeleteSongButtonView()
+                if songEditButtonTap == true {
+                    DeleteSongButtonView(songEditButtonTap: $songEditButtonTap, song: song)
                         .padding(.trailing, 8)
                         .transition(.move(edge: .leading))
                         .animation(.easeInOut)
@@ -46,7 +46,7 @@ struct SongListCellView: View {
                                 .foregroundColor(.grayScale1)
                         )
                 }
-                .disabled(editButtonTapped)
+                .disabled(songEditButtonTap)
             }
             .padding(.horizontal, 20)
         }

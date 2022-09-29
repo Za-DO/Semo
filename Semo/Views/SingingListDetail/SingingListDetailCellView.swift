@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct SingingListDetailCellView: View {
-    @Binding var editButtonTap: Bool
+    @Binding var songEditButtonTap: Bool
+    
     var singingList: SingingList
+    
     // MARK: - BODY
     var body: some View {
         VStack {
@@ -19,8 +21,7 @@ struct SingingListDetailCellView: View {
                 Text("노래 목록 (\(singingList.count))")
                     .font(.subheadline)
                     .foregroundColor(.grayScale2)
-                    .fontWeight(.medium)
-                
+                    .fontWeight(.medium)                
                 Spacer()
             }
             .padding(EdgeInsets(top: 15, leading: 20, bottom: 15, trailing: 0))
@@ -30,14 +31,14 @@ struct SingingListDetailCellView: View {
                     .background(Color.grayScale6)
                     .frame(width: 350)                
                 ForEach(singingList.songArray) {
-                    // TODO: coreData에서 가져온 데이터 넣어주기
-                    SongListCellView(editButtonTapped: $editButtonTap, song: $0)
+                    SongListCellView(songEditButtonTap: $songEditButtonTap, song: $0)
                     Divider()
                         .background(Color.grayScale6)
                         .frame(width: 350)
                 }
                 .padding(.top, 10)
-                AddSongButtonView()
+                // TODO: - 이후 업데이트에서 새 노래 추가가 아닌 기존 노래 추가로 기능 변경
+//                AddSongButtonView()
                 Spacer()
 
             }
@@ -45,9 +46,3 @@ struct SingingListDetailCellView: View {
         .padding(.top, 110)
     }
 }
-
-//struct SingingListDetailCellView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SingingListDetailCellView()
-//    }
-//}
