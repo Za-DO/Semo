@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SongListView: View {
-    @State var songList: [Song] = CoreDataManager.shared.fetchSongList() ?? []
+    @Binding var songList: [Song]
     @Binding var refresh: Int
     @Binding var songEditButtonTap: Bool
     
@@ -49,6 +49,9 @@ struct SongListView: View {
             songList = CoreDataManager.shared.fetchSongList() ?? []
             print("노래 편집")
         })
+        .onAppear{
+            songList = CoreDataManager.shared.fetchSongList() ?? []
+        }
         .onDisappear {
             self.songEditButtonTap = false
         }
