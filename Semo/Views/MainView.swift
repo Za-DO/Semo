@@ -68,7 +68,7 @@ struct MainView: View {
                             Image(tabBarOptions[currentTab] == "전체 노래" ? "Songlistbuttonimage" : "Singinglistbuttonimage")
                         }
                         .sheet(isPresented: $showSingingListModal) {
-                            SingingListModalView()
+                            SingingListModalView(listEditButtonTapped: $listEditButtonTapped)                            
                         }
                     }
                 }

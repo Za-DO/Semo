@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBarView: View {
     @State var showSingingListModal: Bool = false
     @Binding var currentTab: Int
+    @Binding var listEditButtonTapped: Bool
     @Namespace var namespace
     
     var tabBarOptions: [String] = ["전체 노래", "싱잉리스트"]
@@ -42,7 +43,7 @@ struct TabBarView: View {
                     Image(tabBarOptions[currentTab] == "전체 노래" ? "Songlistbuttonimage" : "Singinglistbuttonimage")
                 }
                 .sheet(isPresented: $showSingingListModal) {
-                    SingingListModalView()
+                    SingingListModalView(listEditButtonTapped: $listEditButtonTapped)
                 }
             }
         }

@@ -25,31 +25,33 @@ struct SingingListDetailView: View {
 
     // MARK: - BODY
     var body: some View {
-        ZStack {
-            Image("backgroundImage")
-                .edgesIgnoringSafeArea(.vertical)
-            Rectangle()
-                .edgesIgnoringSafeArea(.all)
-                .frame(height: UIScreen.main.bounds.height * 0.16)
-                .foregroundColor(songEditButtonTapped == true ? .grayScale7 : .grayScale6)
-                .opacity(songEditButtonTapped == true ? 1 : 0.4)
-                .padding(.bottom, 700)
-            TextField("", text: $singingListTitle, onEditingChanged: { changed in
-                self.isSingingListTitleEditing = changed
-            })
-            .font(.system(size: 28, weight: .semibold))
-            .foregroundColor(.white)
-            .placeholder(when: singingListTitle.isEmpty) {
-                Text(singingList.title ?? "제목없음")
-                    .font(.system(size: 28, weight: .semibold))
-                    .foregroundColor(.grayScale2)
+        GeometryReader { _ in
+            ZStack {
+                Image("backgroundImage")
+                    .ignoresSafeArea(.all)
+                Rectangle()
+                    .edgesIgnoringSafeArea(.all)
+                    .frame(height: UIScreen.main.bounds.height * 0.16)
+                    .foregroundColor(songEditButtonTapped == true ? .grayScale7 : .grayScale6)
+                    .opacity(songEditButtonTapped == true ? 1 : 0.4)
+                    .padding(.bottom, 650)
+                TextField("", text: $singingListTitle, onEditingChanged: { changed in
+                    self.isSingingListTitleEditing = changed
+                })
+                .font(.system(size: 28, weight: .semibold))
+                .foregroundColor(.white)
+                .placeholder(when: singingListTitle.isEmpty) {
+                    Text(singingList.title ?? "제목없음")
+                        .font(.system(size: 28, weight: .semibold))
+                        .foregroundColor(.grayScale2)
+                }
+                .disabled(!songEditButtonTapped)
+                .underlineTextField(isEditing: isSingingListTitleEditing, isFull: !singingListTitle.isEmpty, inset: 55, active: songEditButtonTapped)
+                .padding(EdgeInsets(top: 0, leading: 10, bottom: 600, trailing: 10))
+                SingingListDetailCellView(songEditButtonTap: $songEditButtonTapped, singingList: singingList)
+                    .padding(.top, 60)
             }
-            .disabled(!songEditButtonTapped)
-            .underlineTextField(isEditing: isSingingListTitleEditing, isFull: !singingListTitle.isEmpty, inset: 55, active: songEditButtonTapped)
-            .padding(.horizontal, 10)
-            .padding(.bottom, 650)
-            SingingListDetailCellView(songEditButtonTap: $songEditButtonTapped, singingList: singingList)
-                .padding(.top, 35)
+            .ignoresSafeArea(.all)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
