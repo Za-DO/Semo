@@ -55,8 +55,8 @@ struct SongListCellView: View {
                         })
                         .disabled(songEditButtonTap)
                 }
-                .padding(.horizontal, 20)
             }
+            .padding(.horizontal, 20)
         }
     }
 }
