@@ -58,19 +58,7 @@ struct AddSingingListTagView: View {
                 Spacer()
                 if isTextFieldFocused == true {
                     Button(action: {
-                        // 새로운 SingingList coreData에 추가
-                        let newSingingList: SingingList = SingingList(context: viewContext)
-                        newSingingList.timestamp = Date()
-                        newSingingList.id = UUID()
-                        newSingingList.title = newSingingListTitle
-                        newSingingList.count = 0
-                        // 새로 추가한 싱잉리스트는 자동 선택하게 토글 활성화
-                        singingListToggle.updateValue(true, forKey: newSingingList.id!)
-                        do {
-                            try viewContext.save()
-                        } catch {
-                            print(error.localizedDescription)
-                        }
+                        addNewSingingList()
                         newSingingListTitle = ""
                         isTextFieldFocused = false
                     }, label: {
@@ -87,35 +75,7 @@ struct AddSingingListTagView: View {
                 Spacer()
                 Button(action: {
                     self.isPopToRoot = false
-                    // 새로운 노래 저장
-                    let newSong: Song = Song(context: viewContext)
-                    newSong.timestamp = Date()
-                    newSong.id = UUID()
-                    newSong.title = songTitle
-                    newSong.gender = gender
-                    newSong.level = level
-                    newSong.singer = songSinger
-                    newSong.tune = tune
-                    do {
-                        try viewContext.save()
-                    } catch {
-                        print(error.localizedDescription)
-                    }
-                    
-                    // 새로운 싱잉리스트 저장
-                    for i in singingList {
-                        if singingListToggle[i.id!] == true {
-                            // 새로운 노래가 추가 되니 count 1 증가
-                            i.count += 1
-                            // 싱잉리스트에 해당 노래 추가
-                            i.addToSingingListToSong(newSong)
-                        }
-                    }
-                    do {
-                        try viewContext.save()
-                    } catch {
-                        print(error.localizedDescription)
-                    }
+                    addNewSong()
                 }, label: {
                     ConfirmButtonView(buttonName: "확인", buttonColor: isTextFieldFocused ? .black : Color.mainPurpleColor, textColor: isTextFieldFocused ? .black : .white)
                         .padding(.bottom, 60)
@@ -130,4 +90,57 @@ struct AddSingingListTagView: View {
             }
         })
     }
+    
+    func addNewSingingList() {
+        // 새로운 SingingList coreData에 추가
+        let newSingingList: SingingList = SingingList(context: viewContext)
+        newSingingList.timestamp = Date()
+        newSingingList.id = UUID()
+        newSingingList.title = newSingingListTitle
+        newSingingList.count = 0
+        // 새로 추가한 싱잉리스트는 자동 선택하게 토글 활성화
+        singingListToggle.updateValue(true, forKey: newSingingList.id!)
+        do {
+            try viewContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func addNewSong() {
+        // 새로운 노래 저장
+        let newSong: Song = Song(context: viewContext)
+        newSong.timestamp = Date()
+        newSong.id = UUID()
+        newSong.title = songTitle
+        newSong.gender = gender
+        newSong.level = level
+        newSong.singer = songSinger
+        newSong.tune = tune
+        do {
+            try viewContext.save()
+            addNewSongToSingingList()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        func addNewSongToSingingList() {
+            // 새로운 싱잉리스트 저장
+            for i in singingList {
+                if singingListToggle[i.id!] == true {
+                    // 새로운 노래가 추가 되니 count 1 증가
+                    i.count += 1
+                    // 싱잉리스트에 해당 노래 추가
+                    i.addToSingingListToSong(newSong)
+                }
+            }
+            do {
+                try viewContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+    
 }
