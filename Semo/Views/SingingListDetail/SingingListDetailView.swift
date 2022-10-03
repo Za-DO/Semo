@@ -28,7 +28,7 @@ struct SingingListDetailView: View {
         GeometryReader { _ in
             ZStack {
                 Image("backgroundImage")
-                    .edgesIgnoringSafeArea(.vertical)
+                    .ignoresSafeArea(.all)
                 Rectangle()
                     .edgesIgnoringSafeArea(.all)
                     .frame(height: UIScreen.main.bounds.height * 0.16)
@@ -47,8 +47,7 @@ struct SingingListDetailView: View {
                 }
                 .disabled(!songEditButtonTapped)
                 .underlineTextField(isEditing: isSingingListTitleEditing, isFull: !singingListTitle.isEmpty, inset: 55, active: songEditButtonTapped)
-                .padding(.horizontal, 10)
-                .padding(.bottom, 600)
+                .padding(EdgeInsets(top: 0, leading: 10, bottom: 600, trailing: 10))
                 SingingListDetailCellView(songEditButtonTap: $songEditButtonTapped, singingList: singingList)
                     .padding(.top, 60)
             }
