@@ -12,6 +12,7 @@ struct MainView: View {
     @State var currentTab: Int = 0
     @State var songEditButtonTapped: Bool = false
     @State var listEditButtonTapped: Bool = false
+    @State var mainFetch: Bool = false
     @State var isPopToRoot: Bool = false
     @State var songList: [Song] = CoreDataManager.shared.fetchSongList() ?? []
     
@@ -30,8 +31,8 @@ struct MainView: View {
                 // -------------------------------------------
                 
                 TabView(selection: self.$currentTab) {
-                    SongListView(songList: $songList, refresh: $currentTab, songEditButtonTap: $songEditButtonTapped).tag(0)
-                    SingingListView(refresh: $currentTab, songEditButtonTapped: $songEditButtonTapped, listEditButtonTapped: $listEditButtonTapped).tag(1)
+                    SongListView(songList: $songList, refreshView: $mainFetch, songEditButtonTap: $songEditButtonTapped).tag(0)
+                    SingingListView(songList: $songList, songEditButtonTapped: $songEditButtonTapped, listEditButtonTapped: $listEditButtonTapped).tag(1)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .edgesIgnoringSafeArea(.all)

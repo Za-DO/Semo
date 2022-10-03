@@ -12,6 +12,8 @@ struct SingingListDetailView: View {
     @GestureState private var dragOffset = CGSize.zero
     @State var isSingingListTitleEditing: Bool = false
     @State private var showSaveAlert: Bool = false
+    @State var singingListViewFetch: Bool = false
+    @Binding var songList: [Song]
     @Binding var listEditButtonTapped: Bool
     @Binding var songEditButtonTapped: Bool
     
@@ -48,8 +50,8 @@ struct SingingListDetailView: View {
                 .disabled(!songEditButtonTapped)
                 .underlineTextField(isEditing: isSingingListTitleEditing, isFull: !singingListTitle.isEmpty, inset: 55, active: songEditButtonTapped)
                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 600, trailing: 10))
-                SingingListDetailCellView(songEditButtonTap: $songEditButtonTapped, singingList: singingList)
-                    .padding(.top, 60)
+                SingingListDetailCellView(singingListViewFetch: $singingListViewFetch, songEditButtonTap: $songEditButtonTapped, singingList: singingList)
+                    .padding(.top, 35)
             }
             .ignoresSafeArea(.all)
         }
@@ -98,6 +100,13 @@ struct SingingListDetailView: View {
         })
         .onDisappear {
             self.songEditButtonTapped = false
+        }
+        .onChange(of: singingListViewFetch, perform: { _ in
+            songList = CoreDataManager.shared.fetchSongList() ?? []
+            print("싱잉리스트 리프레쉬")
+        })
+        .onAppear{
+            self.singingListViewFetch.toggle()
         }
     }
 }

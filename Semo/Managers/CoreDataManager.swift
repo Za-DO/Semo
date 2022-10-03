@@ -28,7 +28,7 @@ class CoreDataManager {
                 newSong.title = songTitle
                 newSong.singer = songSinger
                 // 추가 정보
-                newSong.gender = "남성"
+                newSong.gender = "남키"
                 newSong.level = "중"
                 newSong.tune = "0"
                 try viewContext.save()
@@ -76,6 +76,7 @@ class CoreDataManager {
             song.level = level
             song.tune = tune
             try viewContext.save()
+            print("gender : \(gender), level : \(level), tune : \(tune) 저장 완료")
         } catch {
             print(error.localizedDescription)
         }
