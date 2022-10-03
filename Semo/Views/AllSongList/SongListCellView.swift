@@ -43,13 +43,13 @@ struct SongListCellView: View {
                         .overlay(content: {
                             switch song.gender {
                             case "여키" :
-                                Text("\(Text("여키").foregroundColor(.womanColor))\(song.tune ?? "+0")")
+                                Text("\(Text("여키").foregroundColor(.womanColor)) \(song.tune ?? "+0")")
                                     .foregroundColor(.grayScale1)
                             case "혼성" :
-                                Text("\(Text("혼성").foregroundColor(.duetColor))\(song.tune ?? "+0")")
+                                Text("\(Text("혼성").foregroundColor(.duetColor)) \(song.tune ?? "+0")")
                                     .foregroundColor(.grayScale1)
                             default :
-                                Text("\(Text("남키").foregroundColor(.manColor))\(song.tune ?? "+0")")
+                                Text("\(Text("남키").foregroundColor(.manColor)) \(song.tune ?? "+0")")
                                     .foregroundColor(.grayScale1)
                             }
                         })
