@@ -23,7 +23,7 @@ struct SongDetailView: View {
     var levelPickerItems: [String] = ["하", "중", "상"]
     var genderItems = ["여키", "남키", "혼성"]
     var tunePickerItems: [String] = ["-6", "-5", "-4", "-3", "-2", "-1",
-                                     "0", "+1", "+2", "+3", "+4", "+5", "+6"]
+                                     "+0", "+1", "+2", "+3", "+4", "+5", "+6"]
     
     @State var genderIndex: String
     @State var levelPickerIndex: Int
