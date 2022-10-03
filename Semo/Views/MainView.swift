@@ -32,7 +32,7 @@ struct MainView: View {
                 
                 TabView(selection: self.$currentTab) {
                     SongListView(songList: $songList, refreshView: $mainFetch, songEditButtonTap: $songEditButtonTapped).tag(0)
-                    SingingListView(refreshView: $mainFetch, songEditButtonTapped: $songEditButtonTapped, listEditButtonTapped: $listEditButtonTapped).tag(1)
+                    SingingListView(songList: $songList, songEditButtonTapped: $songEditButtonTapped, listEditButtonTapped: $listEditButtonTapped).tag(1)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .edgesIgnoringSafeArea(.all)
