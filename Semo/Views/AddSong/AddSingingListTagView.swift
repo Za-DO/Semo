@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddSingingListTagView: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .linear) private var singingList: FetchedResults<SingingList>
     @State var newSingingListTitle: String = ""
     @State var singingListToggle: [UUID: Bool] = [:]
@@ -27,22 +28,8 @@ struct AddSingingListTagView: View {
             LinearGradient(gradient: Gradient(colors: [Color.grayScale6, Color.backgroundBlack]), startPoint: .top, endPoint: UnitPoint(x: 0.5, y: 0.3))
             .edgesIgnoringSafeArea(.all)
             
-            // MARK: - main으로 연결되는 확인 버튼
-            
-            VStack {
-                Spacer()
-                Button(action: {
-                    self.isPopToRoot = false
-                    CoreDataManager.shared.saveNewSong(songTitle: songTitle, songSinger: songSinger, gender: gender, level: level, tune: tune)
-                }, label: {
-                    ConfirmButtonView(buttonName: "확인", buttonColor: isTextFieldFocused ? .black : Color.mainPurpleColor, textColor: isTextFieldFocused ? .black : .white)
-                        .padding(.bottom, 60)
-                })
-            }
-            .ignoresSafeArea(.keyboard)
-            
+
             // MARK: - 타이틀 및 싱잉리스트 뷰
-            
             VStack(alignment: .center) {
                 Text("이 노래가 들어갈 싱잉리스트를 \n선택해주세요.")
                     .lineSpacing(10)
@@ -67,13 +54,23 @@ struct AddSingingListTagView: View {
             .ignoresSafeArea(.keyboard)
             
             // MARK: - 키보드가 올라왔을 때 보이는 singingList 추가 버튼
-            
             VStack {
                 Spacer()
                 if isTextFieldFocused == true {
                     Button(action: {
                         // 새로운 SingingList coreData에 추가
-                        CoreDataManager.shared.saveNewSingingList(singingListTitle: newSingingListTitle)
+                        let newSingingList: SingingList = SingingList(context: viewContext)
+                        newSingingList.timestamp = Date()
+                        newSingingList.id = UUID()
+                        newSingingList.title = newSingingListTitle
+                        newSingingList.count = 0
+                        // 새로 추가한 싱잉리스트는 자동 선택하게 토글 활성화
+                        singingListToggle.updateValue(true, forKey: newSingingList.id!)
+                        do {
+                            try viewContext.save()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
                         newSingingListTitle = ""
                         isTextFieldFocused = false
                     }, label: {
@@ -84,6 +81,48 @@ struct AddSingingListTagView: View {
                     .disabled(newSingingListTitle == "")
                 }
             }
+            
+            // MARK: - main으로 연결되는 확인 버튼
+            VStack {
+                Spacer()
+                Button(action: {
+                    self.isPopToRoot = false
+                    // 새로운 노래 저장
+                    let newSong: Song = Song(context: viewContext)
+                    newSong.timestamp = Date()
+                    newSong.id = UUID()
+                    newSong.title = songTitle
+                    newSong.gender = gender
+                    newSong.level = level
+                    newSong.singer = songSinger
+                    newSong.tune = tune
+                    do {
+                        try viewContext.save()
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                    
+                    // 새로운 싱잉리스트 저장
+                    for i in singingList {
+                        if singingListToggle[i.id!] == true {
+                            // 새로운 노래가 추가 되니 count 1 증가
+                            i.count += 1
+                            // 싱잉리스트에 해당 노래 추가
+                            i.addToSingingListToSong(newSong)
+                        }
+                    }
+                    do {
+                        try viewContext.save()
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }, label: {
+                    ConfirmButtonView(buttonName: "확인", buttonColor: isTextFieldFocused ? .black : Color.mainPurpleColor, textColor: isTextFieldFocused ? .black : .white)
+                        .padding(.bottom, 60)
+                })
+            }
+            .ignoresSafeArea(.keyboard)
+            
         }
         .onAppear(perform: {
             for i in singingList {
