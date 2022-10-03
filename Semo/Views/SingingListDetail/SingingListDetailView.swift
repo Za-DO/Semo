@@ -12,6 +12,7 @@ struct SingingListDetailView: View {
     @GestureState private var dragOffset = CGSize.zero
     @State var isSingingListTitleEditing: Bool = false
     @State private var showSaveAlert: Bool = false
+    @Binding var refreshView: Bool
     @Binding var listEditButtonTapped: Bool
     @Binding var songEditButtonTapped: Bool
     
@@ -48,7 +49,7 @@ struct SingingListDetailView: View {
             .underlineTextField(isEditing: isSingingListTitleEditing, isFull: !singingListTitle.isEmpty, inset: 55, active: songEditButtonTapped)
             .padding(.horizontal, 10)
             .padding(.bottom, 650)
-            SingingListDetailCellView(songEditButtonTap: $songEditButtonTapped, singingList: singingList)
+            SingingListDetailCellView(refreshView: $refreshView, songEditButtonTap: $songEditButtonTapped, singingList: singingList)
                 .padding(.top, 35)
         }
         .toolbar {

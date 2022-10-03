@@ -76,6 +76,7 @@ class CoreDataManager {
             song.level = level
             song.tune = tune
             try viewContext.save()
+            print("gender : \(gender), level : \(level), tune : \(tune) 저장 완료")
         } catch {
             print(error.localizedDescription)
         }

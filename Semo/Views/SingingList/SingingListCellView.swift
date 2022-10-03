@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SingingListCellView: View {
-    @Binding var refresh: Int
+    @Binding var refreshView: Bool
     @Binding var songEditButtonTapped: Bool
     @Binding var listEditButtonTapped: Bool
     
@@ -26,7 +26,7 @@ struct SingingListCellView: View {
                     // TODO: - animation(_:value:)로 변경
                         .animation(.easeInOut)
                 }
-                NavigationLink(destination: SingingListDetailView(listEditButtonTapped: $listEditButtonTapped, songEditButtonTapped: $songEditButtonTapped, singingList: singingList, singingListTitle: singingList.title ?? "제목없음")) {
+                NavigationLink(destination: SingingListDetailView(refreshView: $refreshView, listEditButtonTapped: $listEditButtonTapped, songEditButtonTapped: $songEditButtonTapped, singingList: singingList, singingListTitle: singingList.title ?? "제목없음")) {
                     // MARK: - 노래 정보 표시
                     VStack(alignment: .leading, spacing: 10) {
                         Text(singingList.title ?? "제목없음")

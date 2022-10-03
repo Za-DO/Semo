@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SongListView: View {
     @Binding var songList: [Song]
-    @Binding var refresh: Int
+    @Binding var refreshView: Bool
     @Binding var songEditButtonTap: Bool
     
     // MARK: - BODY
@@ -35,7 +35,7 @@ struct SongListView: View {
                     .background(Color.grayScale6)
                     .frame(width: 350)                
                 ForEach(songList) {
-                    SongListCellView(songEditButtonTap: $songEditButtonTap, song: $0)
+                    SongListCellView(songEditButtonTap: $songEditButtonTap, refreshView: $refreshView, song: $0)
                     Divider()
                         .background(Color.grayScale6)
                         .frame(width: 350)
@@ -49,8 +49,13 @@ struct SongListView: View {
             songList = CoreDataManager.shared.fetchSongList() ?? []
             print("노래 편집")
         })
-        .onAppear{
+        .onChange(of: refreshView, perform: { _ in
             songList = CoreDataManager.shared.fetchSongList() ?? []
+            print("노래 리프레쉬")
+        })
+        .onAppear{
+            self.refreshView.toggle()
+            self.songList = CoreDataManager.shared.fetchSongList() ?? []
         }
         .onDisappear {
             self.songEditButtonTap = false
