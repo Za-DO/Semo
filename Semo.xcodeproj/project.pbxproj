@@ -600,7 +600,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = KMT22L7NMB;
+				DEVELOPMENT_TEAM = PQ5FS4VVLR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = SETLIST;
@@ -614,7 +614,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jungin.Semo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zado.setlist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -631,7 +631,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = KMT22L7NMB;
+				DEVELOPMENT_TEAM = PQ5FS4VVLR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = SETLIST;
@@ -645,7 +645,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jungin.Semo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zado.setlist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
