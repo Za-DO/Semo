@@ -135,4 +135,14 @@ class CoreDataManager {
             print(error.localizedDescription)
         }
     }
+    
+    // MARK: - SingingList title 변경
+    func updateSingingListTitle(title: String, singingList: SingingList) {
+        singingList.title = title
+        do {
+            try viewContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
