@@ -28,6 +28,7 @@
 		B2108F1428845A5A002CED9D /* LevelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1328845A5A002CED9D /* LevelPickerView.swift */; };
 		B2108F1628845A67002CED9D /* TunePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1528845A67002CED9D /* TunePickerView.swift */; };
 		B2108F1A28845AE9002CED9D /* SongInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2108F1928845AE9002CED9D /* SongInfoView.swift */; };
+		B22FFAA628EC600400A49255 /* UIScreenViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22FFAA528EC600400A49255 /* UIScreenViewExtension.swift */; };
 		B242DEA92886C3D10052031C /* AddMoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B242DEA82886C3D10052031C /* AddMoreInfoView.swift */; };
 		B247E58E28D8838F0098D1DE /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247E58D28D8838F0098D1DE /* CustomBackButton.swift */; };
 		B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262DD0C2883F86F00E1B527 /* SongDetailView.swift */; };
@@ -81,6 +82,7 @@
 		B2108F1328845A5A002CED9D /* LevelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPickerView.swift; sourceTree = "<group>"; };
 		B2108F1528845A67002CED9D /* TunePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunePickerView.swift; sourceTree = "<group>"; };
 		B2108F1928845AE9002CED9D /* SongInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongInfoView.swift; sourceTree = "<group>"; };
+		B22FFAA528EC600400A49255 /* UIScreenViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenViewExtension.swift; sourceTree = "<group>"; };
 		B242DEA82886C3D10052031C /* AddMoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoreInfoView.swift; sourceTree = "<group>"; };
 		B247E58D28D8838F0098D1DE /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		B262DD0C2883F86F00E1B527 /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			children = (
 				EEAD177C2882BE63009388DD /* ColorExtension.swift */,
 				209E12E42883F1F9006FB3A8 /* ViewExtension.swift */,
+				B22FFAA528EC600400A49255 /* UIScreenViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				B2108F1428845A5A002CED9D /* LevelPickerView.swift in Sources */,
 				EEC3B54C28839FB30036BE34 /* TabBarView.swift in Sources */,
 				EEAD17842882E4CD009388DD /* SingingListCellView.swift in Sources */,
+				B22FFAA628EC600400A49255 /* UIScreenViewExtension.swift in Sources */,
 				3992665628A1BD4D001849E6 /* TestDetailView.swift in Sources */,
 				EEAD177D2882BE63009388DD /* ColorExtension.swift in Sources */,
 				B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */,
@@ -614,10 +618,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				INFOPLIST_FILE = Semo/Info.plist;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Semo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SETLIST;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -648,10 +652,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				INFOPLIST_FILE = Semo/Info.plist;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Semo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SETLIST;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
