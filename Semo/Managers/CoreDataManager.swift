@@ -30,7 +30,7 @@ class CoreDataManager {
                 // 추가 정보
                 newSong.gender = "남키"
                 newSong.level = "중"
-                newSong.tune = "0"
+                newSong.tune = "+0"
                 try viewContext.save()
                 print("title : \(songTitle), singer : \(songSinger) 저장 완료")
                 return
