@@ -13,6 +13,7 @@ struct SingingListDetailView: View {
     @State var isSingingListTitleEditing: Bool = false
     @State private var showSaveAlert: Bool = false
     @State var singingListViewFetch: Bool = false
+    @State var changedSingingListTitle: String = ""
     @Binding var songList: [Song]
     @Binding var listEditButtonTapped: Bool
     @Binding var songEditButtonTapped: Bool
@@ -51,7 +52,7 @@ struct SingingListDetailView: View {
                 .underlineTextField(isEditing: isSingingListTitleEditing, isFull: !singingListTitle.isEmpty, inset: 55, active: songEditButtonTapped)
                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 600, trailing: 10))
                 SingingListDetailCellView(singingListViewFetch: $singingListViewFetch, songEditButtonTap: $songEditButtonTapped, singingList: singingList)
-                    .padding(.top, 35)
+                    .padding(.top, 60)
             }
             .ignoresSafeArea(.all)
         }
@@ -59,6 +60,7 @@ struct SingingListDetailView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 SongEditButtonView(buttonName: songEditButtonTapped == true ? "완료" : "편집", buttonWidth: 50) {
                     self.songEditButtonTapped.toggle()
+                    CoreDataManager.shared.updateSingingListTitle(title: singingListTitle, singingList: singingList)
                 }
                 .padding(.trailing, 20)
             }
@@ -72,7 +74,8 @@ struct SingingListDetailView: View {
                     .navigationBarBackButtonHidden(true)
                 } else {
                     Button {
-                        self.showSaveAlert = true
+                        // TODO: - 뷰 리프레시 필요
+                        self.songEditButtonTapped.toggle()
                         print("리스트 편집 그만하기")
                     } label: {
                         Image(systemName: "xmark")
@@ -80,15 +83,6 @@ struct SingingListDetailView: View {
                             .foregroundColor(.white)
                     }
                     .navigationBarBackButtonHidden(true)
-                    .alert("변경사항을 저장하시겠습니까?", isPresented: $showSaveAlert) {
-                        Button("아니요", role: .cancel) {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
-                        Button("저장", role: .none) {
-                            // TODO: - 리스트 데이터 변경사항 코어데이터에 저장하는 코드
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
-                    }
                 }
             }
         }
