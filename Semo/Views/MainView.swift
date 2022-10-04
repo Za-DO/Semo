@@ -15,6 +15,8 @@ struct MainView: View {
     @State var mainFetch: Bool = false
     @State var isPopToRoot: Bool = false
     @State var songList: [Song] = CoreDataManager.shared.fetchSongList() ?? []
+    // 온보딩 로딩 트리거
+    @State var loading: Bool = true
     
     @Namespace var namespace
     
@@ -53,39 +55,46 @@ struct MainView: View {
                                            tab: index)
                         })
                     }
-                    Spacer()
+                    .tabViewStyle(.page(indexDisplayMode: .never))
+                    .edgesIgnoringSafeArea(.all)
+                    .navigationBarTitle("", displayMode: .inline)
                     
-                    // MARK: 우측 상단 노래 및 리스트 추가 버튼
                     
-                    if tabBarOptions[currentTab] == "전체 노래" {
-                        NavigationLink(destination: AddSongView(isPopToRoot: $isPopToRoot), isActive: self.$isPopToRoot) {
-                            Image("Songlistbuttonimage")
-                        }
-                        .isDetailLink(false)
-                    } else {
-                        Button {
-                            self.showSingingListModal = true
-                        } label: {
-                            Image(tabBarOptions[currentTab] == "전체 노래" ? "Songlistbuttonimage" : "Singinglistbuttonimage")
+                    // MARK: 커스텀된 TabBar 메뉴 버튼
+                    
+                    HStack {
+                        HStack {
+                            ForEach(Array(zip(self.tabBarOptions.indices,
+                                              self.tabBarOptions)),
+                                    id: \.0,
+                                    content: { index, name in
+                                TabBarItemView(tabBarItemName: name,
+                                               currentTab: self.$currentTab,
+                                               namespace: namespace.self,
+                                               tab: index)
+                            })
                         }
                         .sheet(isPresented: $showSingingListModal) {
                             SingingListModalView(listEditButtonTapped: $listEditButtonTapped)                            
                         }
                     }
+                    .padding(EdgeInsets(top: 120, leading: 10, bottom: 0, trailing: 24))
+                    // FIXME: - background 생략시 탭바가 아래로 밀리는 현상 발생
+                    .background(.clear)
+                    .frame(height: 32)
+                    
+                    // -------------------------------------------
+                    
                 }
-                .padding(EdgeInsets(top: 120, leading: 10, bottom: 0, trailing: 24))
-                // FIXME: - background 생략시 탭바가 아래로 밀리는 현상 발생
-                .background(.clear)
-                .frame(height: 32)
-                
-                // -------------------------------------------
-
+                .navigationBarHidden(true)
             }
-            .navigationBarHidden(true)
-        }
-        .accentColor(.mainPurpleColor)
-        .onAppear {
-            songList = CoreDataManager.shared.fetchSongList() ?? []
+            .accentColor(.mainPurpleColor)
+            .onAppear {
+                songList = CoreDataManager.shared.fetchSongList() ?? []
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                    loading.toggle()
+                })
+            }
         }
     }
 }
