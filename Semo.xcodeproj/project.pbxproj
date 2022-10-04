@@ -17,6 +17,7 @@
 		3916A13C2883AD0500C21828 /* SingingList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916A1382883AD0500C21828 /* SingingList+CoreDataProperties.swift */; };
 		3928C59A28A1800F006D3D19 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3928C59928A1800F006D3D19 /* CheckboxToggleStyle.swift */; };
 		3928C5A028A18962006D3D19 /* FinalConfirmButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3928C59F28A18962006D3D19 /* FinalConfirmButtonView.swift */; };
+		39551AFD28EAF3C900FC5EF7 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39551AFC28EAF3C900FC5EF7 /* OnBoardingView.swift */; };
 		395E629B289C67F900E374B7 /* SingingListToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395E629A289C67F900E374B7 /* SingingListToggleView.swift */; };
 		3992665428A1BC14001849E6 /* SingingListSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3992665328A1BC14001849E6 /* SingingListSheetView.swift */; };
 		3992665628A1BD4D001849E6 /* TestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3992665528A1BD4D001849E6 /* TestDetailView.swift */; };
@@ -66,6 +67,8 @@
 		3916A1382883AD0500C21828 /* SingingList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingingList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3928C59928A1800F006D3D19 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		3928C59F28A18962006D3D19 /* FinalConfirmButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalConfirmButtonView.swift; sourceTree = "<group>"; };
+		39551AFC28EAF3C900FC5EF7 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		39551AFF28EC59D400FC5EF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		395E629A289C67F900E374B7 /* SingingListToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListToggleView.swift; sourceTree = "<group>"; };
 		3992665328A1BC14001849E6 /* SingingListSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListSheetView.swift; sourceTree = "<group>"; };
 		3992665528A1BD4D001849E6 /* TestDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailView.swift; sourceTree = "<group>"; };
@@ -165,9 +168,18 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		39551AFE28EAF3E300FC5EF7 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				39551AFC28EAF3C900FC5EF7 /* OnBoardingView.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
 		39FE869328828D0E00D0F24F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				39551AFE28EAF3E300FC5EF7 /* OnBoarding */,
 				EEC3B54D2883A79C0036BE34 /* MainView.swift */,
 				B262DD0E288408C400E1B527 /* SongDetail */,
 				209E12DF2883F178006FB3A8 /* AddSong */,
@@ -240,6 +252,7 @@
 		EEAD176428828B46009388DD /* Semo */ = {
 			isa = PBXGroup;
 			children = (
+				39551AFF28EC59D400FC5EF7 /* Info.plist */,
 				3916A1352883AD0500C21828 /* Song+CoreDataClass.swift */,
 				3916A1362883AD0500C21828 /* Song+CoreDataProperties.swift */,
 				3916A1372883AD0500C21828 /* SingingList+CoreDataClass.swift */,
@@ -442,6 +455,7 @@
 				B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */,
 				EE6E6DE228A2738B004F030C /* SingingListModalView.swift in Sources */,
 				B242DEA92886C3D10052031C /* AddMoreInfoView.swift in Sources */,
+				39551AFD28EAF3C900FC5EF7 /* OnBoardingView.swift in Sources */,
 				EEC3B54A28839F250036BE34 /* TabBarItemView.swift in Sources */,
 				395E629B289C67F900E374B7 /* SingingListToggleView.swift in Sources */,
 				EEAD176628828B46009388DD /* SemoApp.swift in Sources */,
@@ -600,12 +614,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = KMT22L7NMB;
+				DEVELOPMENT_TEAM = PQ5FS4VVLR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Semo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -615,9 +629,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jungin.Semo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -630,12 +647,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Semo/Preview Content\"";
-				DEVELOPMENT_TEAM = KMT22L7NMB;
+				DEVELOPMENT_TEAM = PQ5FS4VVLR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Semo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -645,9 +662,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jungin.Semo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
