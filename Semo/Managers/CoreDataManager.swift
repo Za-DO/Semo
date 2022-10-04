@@ -117,6 +117,18 @@ class CoreDataManager {
         }
     }
     
+    // MARK: - 싱잉리스트 목록 가져오기
+    func fetchSingingListArray() -> [SingingList]? {
+        let fetchRequest = NSFetchRequest<SingingList>(entityName: "SingingList")
+        do {
+            let fetchedResults = try viewContext.fetch(fetchRequest)
+            return fetchedResults
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
     // MARK: - Song 삭제
     func deleteSong(song: Song) {
         do {
