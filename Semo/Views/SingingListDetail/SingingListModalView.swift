@@ -14,6 +14,8 @@ struct SingingListModalView: View {
     @State var singingListToggle: [UUID: Bool] = [:]
     @FocusState private var isTextFieldFocused: Bool
     
+    @Binding var listEditButtonTapped: Bool
+    
     var body: some View {
         ZStack {
             Color.backgroundBlack.ignoresSafeArea()
@@ -56,11 +58,8 @@ struct SingingListModalView: View {
                 }
             }
         }
-    }
-}
-
-struct SingingListModalView_Previews: PreviewProvider {
-    static var previews: some View {
-        SingingListModalView()
+        .onAppear {
+            self.listEditButtonTapped = false
+        }
     }
 }

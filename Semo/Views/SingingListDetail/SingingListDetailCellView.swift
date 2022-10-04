@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SingingListDetailCellView: View {
+    @Binding var singingListViewFetch: Bool
     @Binding var songEditButtonTap: Bool
     
     var singingList: SingingList
@@ -31,7 +32,7 @@ struct SingingListDetailCellView: View {
                     .background(Color.grayScale6)
                     .frame(width: 350)                
                 ForEach(singingList.songArray) {
-                    SongListCellView(songEditButtonTap: $songEditButtonTap, song: $0)
+                    SongListCellView(songEditButtonTap: $songEditButtonTap, refreshView: $singingListViewFetch, song: $0)
                     Divider()
                         .background(Color.grayScale6)
                         .frame(width: 350)
