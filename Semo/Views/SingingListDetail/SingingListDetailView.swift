@@ -81,9 +81,6 @@ struct SingingListDetailView: View {
             }
             .ignoresSafeArea(.all)
         }
-        .onChange(of: $listDetailEditButtonTapped, perform: {
-            
-        })
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 SongEditButtonView(buttonName: listDetailEditButtonTapped == true ? "완료" : "편집", buttonWidth: 50) {

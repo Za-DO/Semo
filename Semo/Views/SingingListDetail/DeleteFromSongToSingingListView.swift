@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DeleteFromSongToSingingListView: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @Binding var songEditButtonTapped: Bool
     
     var song: Song
@@ -15,7 +16,12 @@ struct DeleteFromSongToSingingListView: View {
     
     var body: some View {
         Button {
-            song.removeFromSongToSingingList(singingList)            
+            song.removeFromSongToSingingList(singingList)
+            do {
+                try viewContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
             self.songEditButtonTapped = false
             print("노래 리스트에서 삭제")
         } label: {
