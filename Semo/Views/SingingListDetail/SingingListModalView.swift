@@ -14,6 +14,8 @@ struct SingingListModalView: View {
     @State var singingListToggle: [UUID: Bool] = [:]
     @FocusState private var isTextFieldFocused: Bool
     
+    @Binding var singingListArray: [SingingList]
+    @Binding var refreshView: Bool
     @Binding var listEditButtonTapped: Bool
     
     var body: some View {
@@ -58,8 +60,16 @@ struct SingingListModalView: View {
                 }
             }
         }
+        .onChange(of: refreshView, perform: { _ in
+            singingListArray = CoreDataManager.shared.fetchSingingListArray() ?? []
+            print("노래 리프레쉬")
+        })
         .onAppear {
             self.listEditButtonTapped = false
+        }
+        .onDisappear {
+            self.refreshView.toggle()
+            self.singingListArray = CoreDataManager.shared.fetchSingingListArray() ?? []
         }
     }
 }

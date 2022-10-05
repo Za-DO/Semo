@@ -11,6 +11,7 @@ struct SingingListView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SingingList.timestamp, ascending: true)], animation: .default) private var singingList: FetchedResults<SingingList>
     @Binding var songList: [Song]
+    @Binding var refreshView: Bool
     @Binding var songEditButtonTapped: Bool
     @Binding var listEditButtonTapped: Bool
     
@@ -45,6 +46,13 @@ struct SingingListView: View {
             Spacer()
         }
         .padding(.top, 80)
+        .onChange(of: refreshView, perform: { _ in
+            print("싱잉리스트 리프레쉬")
+        })
+        .onAppear {
+            self.refreshView.toggle()
+            self.songList = CoreDataManager.shared.fetchSongList() ?? []
+        }
         .onDisappear {
             self.listEditButtonTapped = false
         }

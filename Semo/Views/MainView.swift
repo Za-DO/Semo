@@ -14,6 +14,7 @@ struct MainView: View {
     @State var mainFetch: Bool = false
     @State var isPopToRoot: Bool = false
     @State var songList: [Song] = CoreDataManager.shared.fetchSongList() ?? []
+    @State var singingListArray: [SingingList] = CoreDataManager.shared.fetchSingingListArray() ?? []
     
     @Namespace var namespace
     
@@ -31,7 +32,7 @@ struct MainView: View {
                 
                 TabView(selection: self.$currentTab) {
                     SongListView(songList: $songList, refreshView: $mainFetch, songEditButtonTap: $songEditButtonTapped).tag(0)
-                    SingingListView(songList: $songList, songEditButtonTapped: $songEditButtonTapped, listEditButtonTapped: $listEditButtonTapped).tag(1)
+                    SingingListView(songList: $songList, refreshView: $mainFetch, songEditButtonTapped: $songEditButtonTapped, listEditButtonTapped: $listEditButtonTapped).tag(1)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .edgesIgnoringSafeArea(.all)
@@ -68,7 +69,7 @@ struct MainView: View {
                             Image(tabBarOptions[currentTab] == "전체 노래" ? "Songlistbuttonimage" : "Singinglistbuttonimage")
                         }
                         .sheet(isPresented: $showSingingListModal) {
-                            SingingListModalView(listEditButtonTapped: $listEditButtonTapped)
+                            SingingListModalView(singingListArray: $singingListArray, refreshView: $mainFetch, listEditButtonTapped: $listEditButtonTapped)
                         }
                     }
                 }
