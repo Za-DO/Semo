@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DeleteSongButtonView: View {
     @State var showDeleteAlert: Bool = false
-    @State var songList: [Song] = CoreDataManager.shared.fetchSongList() ?? []
     @Binding var songEditButtonTapped: Bool
     
     var song: Song

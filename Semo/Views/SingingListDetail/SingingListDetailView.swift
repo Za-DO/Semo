@@ -75,13 +75,15 @@ struct SingingListDetailView: View {
                         // TODO: - 이후 업데이트에서 새 노래 추가가 아닌 기존 노래 추가로 기능 변경
         //                AddSongButtonView()
                         Spacer()
-
                     }
                 }
                 .padding(.top, 175)
             }
             .ignoresSafeArea(.all)
         }
+        .onChange(of: $listDetailEditButtonTapped, perform: {
+            
+        })
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 SongEditButtonView(buttonName: listDetailEditButtonTapped == true ? "완료" : "편집", buttonWidth: 50) {
