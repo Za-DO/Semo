@@ -18,6 +18,7 @@ struct DeleteFromSongToSingingListView: View {
     var body: some View {
         Button {
             song.removeFromSongToSingingList(singingList)
+            self.songEditButtonTapped = false
 //            self.showDeleteAlert = true
             print("노래 리스트에서 삭제")
         } label: {

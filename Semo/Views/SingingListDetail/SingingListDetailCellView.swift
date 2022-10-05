@@ -39,6 +39,7 @@ struct SingingListDetailCellView: View {
                     .animation(.easeInOut)
                     Spacer()
                     // MARK: - Tune 정보 표시
+                    // TODO: - 키 정보 나타내는 캡슐 모듈화
                     Capsule()
                         .frame(width: 72, height: 32)
                         .foregroundColor(.grayScale7)
