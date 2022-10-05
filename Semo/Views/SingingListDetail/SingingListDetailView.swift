@@ -15,8 +15,7 @@ struct SingingListDetailView: View {
     @State var singingListViewFetch: Bool = false
     @State var changedSingingListTitle: String = ""
     @Binding var songList: [Song]
-    @Binding var listEditButtonTapped: Bool
-    @Binding var songEditButtonTapped: Bool
+    @Binding var listDetailEditButtonTapped: Bool
     
     var singingList: SingingList
     
@@ -35,8 +34,8 @@ struct SingingListDetailView: View {
                 Rectangle()
                     .edgesIgnoringSafeArea(.all)
                     .frame(height: UIScreen.main.bounds.height * 0.16)
-                    .foregroundColor(songEditButtonTapped == true ? .grayScale7 : .grayScale6)
-                    .opacity(songEditButtonTapped == true ? 1 : 0.4)
+                    .foregroundColor(listDetailEditButtonTapped == true ? .grayScale7 : .grayScale6)
+                    .opacity(listDetailEditButtonTapped == true ? 1 : 0.4)
                     .padding(.bottom, 650)
                 TextField("", text: $singingListTitle, onEditingChanged: { changed in
                     self.isSingingListTitleEditing = changed
@@ -48,18 +47,45 @@ struct SingingListDetailView: View {
                         .font(.system(size: 28, weight: .semibold))
                         .foregroundColor(.grayScale2)
                 }
-                .disabled(!songEditButtonTapped)
-                .underlineTextField(isEditing: isSingingListTitleEditing, isFull: !singingListTitle.isEmpty, inset: 55, active: songEditButtonTapped)
+                .disabled(!listDetailEditButtonTapped)
+                .underlineTextField(isEditing: isSingingListTitleEditing, isFull: !singingListTitle.isEmpty, inset: 55, active: listDetailEditButtonTapped)
                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 600, trailing: 10))
-                SingingListDetailCellView(singingListViewFetch: $singingListViewFetch, songEditButtonTap: $songEditButtonTapped, singingList: singingList)
-                    .padding(.top, 60)
+                VStack {
+                    // MARK: - 전체 노래 리스트 상단 바
+                    HStack {
+                        Text("노래 목록 (\(singingList.count))")
+                            .font(.subheadline)
+                            .foregroundColor(.grayScale2)
+                            .fontWeight(.medium)
+                        Spacer()
+                    }
+                    .padding(EdgeInsets(top: 15, leading: 20, bottom: 15, trailing: 0))
+                    // MARK: - 노래 리스트 생성 및 스크롤 추가
+                    ScrollView {
+                        Divider()
+                            .background(Color.grayScale6)
+                            .frame(width: 350)
+                        ForEach(singingList.songArray) {
+                            SingingListDetailCellView(singingListViewFetch: $singingListViewFetch, listDetailEditButtonTapped: $listDetailEditButtonTapped, singingList: singingList, song: $0)
+                            Divider()
+                                .background(Color.grayScale6)
+                                .frame(width: 350)
+                        }
+                        .padding(.top, 10)
+                        // TODO: - 이후 업데이트에서 새 노래 추가가 아닌 기존 노래 추가로 기능 변경
+        //                AddSongButtonView()
+                        Spacer()
+
+                    }
+                }
+                .padding(.top, 175)
             }
             .ignoresSafeArea(.all)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                SongEditButtonView(buttonName: songEditButtonTapped == true ? "완료" : "편집", buttonWidth: 50) {
-                    self.songEditButtonTapped.toggle()
+                SongEditButtonView(buttonName: listDetailEditButtonTapped == true ? "완료" : "편집", buttonWidth: 50) {
+                    self.listDetailEditButtonTapped.toggle()
                     CoreDataManager.shared.updateSingingListTitle(title: singingListTitle, singingList: singingList)
                 }
                 .padding(.trailing, 20)
@@ -67,7 +93,7 @@ struct SingingListDetailView: View {
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                if songEditButtonTapped == false {
+                if listDetailEditButtonTapped == false {
                     CustomBackButton(buttonName: "") {
                         self.presentationMode.wrappedValue.dismiss()
                     }
@@ -75,7 +101,7 @@ struct SingingListDetailView: View {
                 } else {
                     Button {
                         // TODO: - 뷰 리프레시 필요
-                        self.songEditButtonTapped.toggle()
+                        self.listDetailEditButtonTapped.toggle()
                         print("리스트 편집 그만하기")
                     } label: {
                         Image(systemName: "xmark")
@@ -93,7 +119,7 @@ struct SingingListDetailView: View {
             }
         })
         .onDisappear {
-            self.songEditButtonTapped = false
+            self.listDetailEditButtonTapped = false
         }
         .onChange(of: singingListViewFetch, perform: { _ in
             songList = CoreDataManager.shared.fetchSongList() ?? []

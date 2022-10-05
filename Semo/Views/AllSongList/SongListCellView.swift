@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SongListCellView: View {
-    @Binding var songEditButtonTap: Bool
+    @Binding var songEditButtonTapped: Bool
     @Binding var refreshView: Bool
     
     var song: Song
@@ -18,8 +18,8 @@ struct SongListCellView: View {
         Button {
         } label: {
             HStack {
-                if songEditButtonTap == true {
-                    DeleteSongButtonView(songEditButtonTap: $songEditButtonTap, song: song)
+                if songEditButtonTapped == true {
+                    DeleteSongButtonView(songEditButtonTapped: $songEditButtonTapped, song: song)
                         .padding(.trailing, 8)
                         .transition(.move(edge: .leading))
                         .animation(.easeInOut)
@@ -54,7 +54,7 @@ struct SongListCellView: View {
                                     .foregroundColor(.grayScale1)
                             }
                         })
-                        .disabled(songEditButtonTap)
+                        .disabled(songEditButtonTapped)
                 }
             }
             .padding(.horizontal, 20)
