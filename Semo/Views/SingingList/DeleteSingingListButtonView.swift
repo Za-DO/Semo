@@ -26,14 +26,8 @@ struct DeleteSingingListButtonView: View {
             Button("삭제", role: .destructive) {
                 // TODO: - 리스트 삭제 코드
                 CoreDataManager.shared.deleteSingingList(singingList: singingList)
-                listEditButtonTapped = false
+                self.listEditButtonTapped = false
             }
         }
     }
 }
-
-//struct DeleteSingingListButtonView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DeleteSingingListButtonView()
-//    }
-//}

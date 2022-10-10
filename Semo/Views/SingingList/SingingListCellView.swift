@@ -26,15 +26,17 @@ struct SingingListCellView: View {
                     // TODO: - animation(_:value:)로 변경
                         .animation(.easeInOut)
                 }
-                NavigationLink(destination: SingingListDetailView(songList: $songList, listEditButtonTapped: $listEditButtonTapped, songEditButtonTapped: $songEditButtonTapped, singingList: singingList, singingListTitle: singingList.title ?? "제목없음")) {
+                NavigationLink(destination: SingingListDetailView(songList: $songList, listDetailEditButtonTapped: $listEditButtonTapped, singingList: singingList, singingListTitle: singingList.title ?? "제목없음")) {
                     // MARK: - 노래 정보 표시
                     VStack(alignment: .leading, spacing: 10) {
                         Text(singingList.title ?? "제목없음")
                             .font(.system(size: 20, weight: .semibold))
                             .foregroundColor(.grayScale1)
+                            .multilineTextAlignment(.leading)
                         Text("총 \(singingList.count)곡")
                             .font(.system(size: 15, weight: .medium))
                             .foregroundColor(.grayScale2)
+                            .multilineTextAlignment(.leading)
                     }
                     .transition(.slide)
                     .animation(.easeInOut)

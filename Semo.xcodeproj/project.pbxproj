@@ -54,6 +54,7 @@
 		EEC3B553288408390036BE34 /* SingingListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B552288408390036BE34 /* SingingListDetailView.swift */; };
 		EEC3B55728843AE80036BE34 /* AddSongButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B55628843AE80036BE34 /* AddSongButtonView.swift */; };
 		EEC3B55A288441590036BE34 /* SingingListDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3B559288441590036BE34 /* SingingListDetailCellView.swift */; };
+		EEDF24BB28ED5522005923EC /* DeleteFromSongToSingingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDF24BA28ED5522005923EC /* DeleteFromSongToSingingListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +109,7 @@
 		EEC3B552288408390036BE34 /* SingingListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListDetailView.swift; sourceTree = "<group>"; };
 		EEC3B55628843AE80036BE34 /* AddSongButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongButtonView.swift; sourceTree = "<group>"; };
 		EEC3B559288441590036BE34 /* SingingListDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingListDetailCellView.swift; sourceTree = "<group>"; };
+		EEDF24BA28ED5522005923EC /* DeleteFromSongToSingingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFromSongToSingingListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +328,7 @@
 				EE6E6DE128A2738B004F030C /* SingingListModalView.swift */,
 				EEC3B552288408390036BE34 /* SingingListDetailView.swift */,
 				EEC3B559288441590036BE34 /* SingingListDetailCellView.swift */,
+				EEDF24BA28ED5522005923EC /* DeleteFromSongToSingingListView.swift */,
 				EEC3B55628843AE80036BE34 /* AddSongButtonView.swift */,
 			);
 			path = SingingListDetail;
@@ -454,6 +457,7 @@
 				EEC3B54C28839FB30036BE34 /* TabBarView.swift in Sources */,
 				EEAD17842882E4CD009388DD /* SingingListCellView.swift in Sources */,
 				B22FFAA628EC600400A49255 /* UIScreenViewExtension.swift in Sources */,
+				EEDF24BB28ED5522005923EC /* DeleteFromSongToSingingListView.swift in Sources */,
 				3992665628A1BD4D001849E6 /* TestDetailView.swift in Sources */,
 				EEAD177D2882BE63009388DD /* ColorExtension.swift in Sources */,
 				B262DD0D2883F86F00E1B527 /* SongDetailView.swift in Sources */,

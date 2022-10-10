@@ -17,10 +17,12 @@ struct SongInfoView: View {
             Text(song.title ?? "제목 없음")
                 .font(.system(size: 24, weight: .semibold))
                 .foregroundColor(.white)
+                .multilineTextAlignment(.center)
             Text(song.singer ?? "가수 없음")
                 .font(.system(size: 18, weight: .medium))
                 .foregroundColor(.grayScale2)
                 .padding(EdgeInsets(top: 2, leading: 0, bottom: 0, trailing: 0))
+                .multilineTextAlignment(.center)
         }
     }
 }
