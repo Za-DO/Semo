@@ -76,6 +76,11 @@ struct SingingListSheetView: View {
         // view가 보일때 singingListToggle 배열 false로 초기화
         .onAppear(perform: {
             for i in singingList {
+                if song.songToSingingList?.contains(i) ?? false {
+                    print("체크된것 \(i)")
+                    singingListToggle[i.id!] = true
+                    continue
+                }
                 singingListToggle[i.id!] = false
             }
         })
