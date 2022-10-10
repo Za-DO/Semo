@@ -2,16 +2,16 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Semo/SingingList+CoreDataClass.swift">
+      location = "group:NSManagedObject/SingingList+CoreDataClass.swift">
    </FileRef>
    <FileRef
-      location = "group:Semo/SingingList+CoreDataProperties.swift">
+      location = "group:NSManagedObject/SingingList+CoreDataProperties.swift">
    </FileRef>
    <FileRef
-      location = "group:Semo/Song+CoreDataClass.swift">
+      location = "group:NSManagedObject/Song+CoreDataClass.swift">
    </FileRef>
    <FileRef
-      location = "group:Semo/Song+CoreDataProperties.swift">
+      location = "group:NSManagedObject/Song+CoreDataProperties.swift">
    </FileRef>
    <FileRef
       location = "group:Semo.xcodeproj">
