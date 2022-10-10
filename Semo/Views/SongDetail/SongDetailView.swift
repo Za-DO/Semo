@@ -80,10 +80,6 @@ struct SongDetailView: View {
                             isPresented.toggle()
                         }
                         .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 34))
-                        .onChange(of: song.singingListArray, perform: { _ in
-                            isChanged = true
-                            print("changed")
-                        })
                     }
                     
                     ForEach(song.singingListArray) {
