@@ -1,8 +1,8 @@
 //
 //  SingingList+CoreDataProperties.swift
-//  Semo
+//  
 //
-//  Created by Terry Koo on 2022/07/17.
+//  Created by Terry Koo on 2022/10/10.
 //
 //
 
@@ -11,15 +11,14 @@ import CoreData
 
 
 extension SingingList {
-    
+
     @nonobjc public class func fetchRequest() -> NSFetchRequest<SingingList> {
         return NSFetchRequest<SingingList>(entityName: "SingingList")
     }
-    
-    @NSManaged public var count: Int64
-    @NSManaged public var title: String?
+
     @NSManaged public var id: UUID?
     @NSManaged public var timestamp: Date?
+    @NSManaged public var title: String?
     @NSManaged public var singingListToSong: NSSet?
     
     public var songArray: [Song] {

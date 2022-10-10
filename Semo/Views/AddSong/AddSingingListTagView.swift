@@ -97,7 +97,6 @@ struct AddSingingListTagView: View {
         newSingingList.timestamp = Date()
         newSingingList.id = UUID()
         newSingingList.title = newSingingListTitle
-        newSingingList.count = 0
         // 새로 추가한 싱잉리스트는 자동 선택하게 토글 활성화
         singingListToggle.updateValue(true, forKey: newSingingList.id!)
         do {
@@ -128,8 +127,6 @@ struct AddSingingListTagView: View {
             // 새로운 싱잉리스트 저장
             for i in singingList {
                 if singingListToggle[i.id!] == true {
-                    // 새로운 노래가 추가 되니 count 1 증가
-                    i.count += 1
                     // 싱잉리스트에 해당 노래 추가
                     i.addToSingingListToSong(newSong)
                 }

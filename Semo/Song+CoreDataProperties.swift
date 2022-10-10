@@ -1,11 +1,10 @@
 //
 //  Song+CoreDataProperties.swift
-//  Semo
+//  
 //
-//  Created by Terry Koo on 2022/07/17.
+//  Created by Terry Koo on 2022/10/10.
 //
 //
-
 import Foundation
 import CoreData
 
