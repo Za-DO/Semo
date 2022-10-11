@@ -37,6 +37,7 @@ struct SingingListDetailCellView: View {
                             .foregroundColor(.grayScale2)
                             .multilineTextAlignment(.leading)
                     }
+                    .multilineTextAlignment(.leading)
                     .transition(.slide)
                     .animation(.easeInOut)
                     Spacer()
