@@ -5,7 +5,7 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIImageName</key>
-		<string>OnboardingImage</string>
+		<string>LaunchScreenImage</string>
 		<key>UILaunchScreen</key>
 		<dict/>
 	</dict>
