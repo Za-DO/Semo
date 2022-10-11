@@ -11,7 +11,7 @@ struct OnBoardingView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .top) {
-                Image("OnboardingImage")
+                Image("LaunchScreenImage")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
