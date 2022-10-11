@@ -1,11 +1,10 @@
 //
 //  SingingList+CoreDataProperties.swift
-//  Semo
+//  
 //
-//  Created by Terry Koo on 2022/07/17.
+//  Created by Terry Koo on 2022/10/10.
 //
 //
-
 import Foundation
 import CoreData
 
@@ -16,17 +15,20 @@ extension SingingList {
         return NSFetchRequest<SingingList>(entityName: "SingingList")
     }
 
-    @NSManaged public var count: Int64
-    @NSManaged public var title: String?
     @NSManaged public var id: UUID?
     @NSManaged public var timestamp: Date?
+    @NSManaged public var title: String?
     @NSManaged public var singingListToSong: NSSet?
-
+    
     public var songArray: [Song] {
         let set = singingListToSong as? Set<Song> ?? []
         return set.sorted {
             $0.timestamp! < $1.timestamp!
         }
+    }
+    
+    public var songCount: Int {
+        singingListToSong?.count ?? 0
     }
 }
 

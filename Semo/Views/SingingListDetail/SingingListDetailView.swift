@@ -53,7 +53,7 @@ struct SingingListDetailView: View {
                 VStack {
                     // MARK: - 전체 노래 리스트 상단 바
                     HStack {
-                        Text("노래 목록 (\(singingList.count))")
+                        Text("노래 목록 (\(singingList.songCount))")
                             .font(.subheadline)
                             .foregroundColor(.grayScale2)
                             .fontWeight(.medium)

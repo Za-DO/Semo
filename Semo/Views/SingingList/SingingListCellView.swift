@@ -33,7 +33,7 @@ struct SingingListCellView: View {
                             .font(.system(size: 20, weight: .semibold))
                             .foregroundColor(.grayScale1)
                             .multilineTextAlignment(.leading)
-                        Text("총 \(singingList.count)곡")
+                        Text("총 \(singingList.songCount)곡")
                             .font(.system(size: 15, weight: .medium))
                             .foregroundColor(.grayScale2)
                             .multilineTextAlignment(.leading)

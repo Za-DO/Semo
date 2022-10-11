@@ -94,7 +94,6 @@ class CoreDataManager {
                 newSingingList.timestamp = Date()
                 newSingingList.id = UUID()
                 newSingingList.title = singingListTitle
-                newSingingList.count = 0
                 try viewContext.save()
                 print("title : \(singingListTitle) 싱잉리스트 생성 완료")
                 return
