@@ -31,10 +31,13 @@ struct SingingListDetailCellView: View {
                         Text(song.title ?? "제목 없음")
                             .font(.system(size: 20, weight: .semibold))
                             .foregroundColor(.grayScale1)
+                            .multilineTextAlignment(.leading)
                         Text(song.singer ?? "가수 없음")
                             .font(.system(size: 15, weight: .medium))
                             .foregroundColor(.grayScale2)
+                            .multilineTextAlignment(.leading)
                     }
+                    .multilineTextAlignment(.leading)
                     .transition(.slide)
                     .animation(.easeInOut)
                     Spacer()
