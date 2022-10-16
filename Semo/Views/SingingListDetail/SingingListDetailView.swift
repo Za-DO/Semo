@@ -103,9 +103,9 @@ struct SingingListDetailView: View {
                         self.listDetailEditButtonTapped.toggle()
                         print("리스트 편집 그만하기")
                     } label: {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 16, weight: .medium))
-                            .foregroundColor(.white)
+//                        Image(systemName: "xmark")
+//                            .font(.system(size: 16, weight: .medium))
+//                            .foregroundColor(.white)
                     }
                     .navigationBarBackButtonHidden(true)
                 }

@@ -32,9 +32,3 @@ struct AddSongButtonView: View {
         .padding(EdgeInsets(top: 15, leading: 20, bottom: 120, trailing: 0))
     }
 }
-
-//struct AddSongButtonView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddSongButtonView()
-//    }
-//}
