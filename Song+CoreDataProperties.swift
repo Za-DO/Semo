@@ -1,6 +1,6 @@
 //
 //  Song+CoreDataProperties.swift
-//  
+//
 //
 //  Created by Terry Koo on 2022/10/10.
 //
