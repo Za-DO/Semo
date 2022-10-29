@@ -30,13 +30,17 @@ struct SingingListDetailView: View {
         GeometryReader { _ in
             ZStack {
                 Image("backgroundImage")
-                    .ignoresSafeArea(.all)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: UIScreen.getWidth(390), height: UIScreen.getHeight(844))
+                    .ignoresSafeArea()
                 Rectangle()
-                    .edgesIgnoringSafeArea(.all)
-                    .frame(height: UIScreen.main.bounds.height * 0.16)
+                    .foregroundColor(.grayScale6)
+                    .frame(height: UIScreen.getHeight(220))
                     .foregroundColor(listDetailEditButtonTapped == true ? .grayScale7 : .grayScale6)
                     .opacity(listDetailEditButtonTapped == true ? 1 : 0.4)
                     .padding(.bottom, 650)
+                    .ignoresSafeArea()
                 TextField("", text: $singingListTitle, onEditingChanged: { changed in
                     self.isSingingListTitleEditing = changed
                 })
@@ -77,7 +81,8 @@ struct SingingListDetailView: View {
                         Spacer()
                     }
                 }
-                .padding(.top, 175)
+                .padding(.top, UIScreen.getHeight(220))
+                .ignoresSafeArea()
             }
             .ignoresSafeArea(.all)
         }
