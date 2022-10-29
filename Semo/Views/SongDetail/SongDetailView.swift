@@ -34,20 +34,26 @@ struct SongDetailView: View {
     var body: some View {
         ZStack(alignment: .top) {
             Image("backgroundImage")
+                .resizable()
+                .scaledToFill()
+                .frame(width: UIScreen.getWidth(390), height: UIScreen.getHeight(844))
                 .ignoresSafeArea()
             
             Rectangle()
                 .foregroundColor(.grayScale6)
                 .opacity(0.4)
-                .frame(height: 220)
+                .frame(height: UIScreen.getHeight(220))
                 .ignoresSafeArea()
             
             // MARK: - 디테일뷰 컨텐츠
             
             VStack {
                 SongInfoView(song: song)
-                    .padding(.bottom, 46)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: UIScreen.getHeight(40), trailing: 0))
+                Spacer()
+            }
                 
+            VStack {
                 ScrollView {
                     LevelPickerView(levelIndexBase: $levelPickerIndex, levelItems: levelPickerItems)
                         .onChange(of: levelPickerIndex, perform: { _ in
@@ -59,7 +65,7 @@ struct SongDetailView: View {
                     
                     TunePickerView(genderIndexBase: $genderIndex, genderItems: genderItems, tuneIndexBase: $tunePickerIndex, tuneItems: tunePickerItems)
                     // TODO: Padding 세부 간격 조절 필요
-                        .padding(.bottom, 42)
+                        .padding(.bottom, UIScreen.getHeight(42))
                         .onChange(of: genderIndex, perform: { _ in
                             if genderIndex != song.gender {
                                 isChanged = true
@@ -79,7 +85,7 @@ struct SongDetailView: View {
                         SongEditButtonView(buttonName: "추가하기", buttonWidth: 80){
                             isPresented.toggle()
                         }
-                        .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 34))
+                        .padding(EdgeInsets(top: UIScreen.getHeight(16), leading: 0, bottom: 0, trailing: UIScreen.getWidth(34)))
                     }
                     
                     ForEach(song.singingListArray) {
@@ -93,7 +99,7 @@ struct SongDetailView: View {
                         self.showDeleteAlert = true
                     }, label: {
                         ConfirmButtonView(buttonName: "노래 삭제하기", buttonColor: Color.grayScale7.opacity(0.2), textColor: .red)
-                            .padding(.top, 30)
+                            .padding(.top, UIScreen.getHeight(30))
                     })
                     .alert("이 노래를 삭제하시겠습니까?", isPresented: $showDeleteAlert) {
                         Button("취소", role: .cancel) {}
@@ -103,23 +109,25 @@ struct SongDetailView: View {
                         }
                     }
                 }
+                .padding(.top, UIScreen.getHeight(220))
+                .ignoresSafeArea()
                 
                 // MARK: - 상단 네비게이션 바 저장 버튼
                 
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        SongEditButtonView(buttonName: "저장", buttonWidth: 50) {
+                        SongEditButtonView(buttonName: "저장", buttonWidth: UIScreen.getHeight(50)) {
                             // 노래 데이터 변경사항 코어데이터에 저장하는 코드
                             CoreDataManager.shared.updateSongAdditionalInformation(song: song, gender: genderIndex, level: levelPickerItems[levelPickerIndex], tune: tunePickerItems[tunePickerIndex])
                             print("기록 저장하기")
                             isChanged = false
                         }
-                        .padding(.trailing, 20)
+                        .padding(.trailing, UIScreen.getWidth(20))
                         .opacity(isChanged == true ? 1 : 0.2)
                         .disabled(!isChanged)
                     }
                 }
-                .padding(.bottom, 100)
+                .padding(.bottom, UIScreen.getHeight(100))
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         if !isChanged {
@@ -184,15 +192,15 @@ struct SongDetailView: View {
             } label: {
                 Image(systemName: "minus.circle.fill")
                     .foregroundColor(.grayScale4)
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
+                    .padding(EdgeInsets(top: 0, leading: UIScreen.getWidth(20), bottom: 0, trailing: UIScreen.getWidth(10)))
             }
             HStack {
                 Text(singingList.title ?? "제목 없음")
-                    .font(.system(size: 20, weight: .semibold))
+                    .font(.system(size: 20 * Font.setSize(), weight: .semibold))
                     .foregroundColor(.white)
             }
             Spacer()
         }
-        .padding(.top, 20)
+        .padding(.top, UIScreen.getHeight(20))
     }
 }

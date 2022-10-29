@@ -64,12 +64,12 @@ struct SingingListDetailView: View {
                     ScrollView {
                         Divider()
                             .background(Color.grayScale6)
-                            .frame(width: 350)
+                            .frame(width: UIScreen.getWidth(350))
                         ForEach(singingList.songArray) {
                             SingingListDetailCellView(singingListViewFetch: $singingListViewFetch, listDetailEditButtonTapped: $listDetailEditButtonTapped, singingList: singingList, song: $0)
                             Divider()
                                 .background(Color.grayScale6)
-                                .frame(width: 350)
+                                .frame(width: UIScreen.getWidth(350))
                         }
                         .padding(.top, 10)
                         // TODO: - 이후 업데이트에서 새 노래 추가가 아닌 기존 노래 추가로 기능 변경
