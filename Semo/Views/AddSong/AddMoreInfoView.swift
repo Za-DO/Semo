@@ -35,15 +35,15 @@ struct AddMoreInfoView: View {
             // MARK: - 추가 정보 입력란
             
             VStack(alignment: .center) {
-                Text("노래방에서 필요한 정보를 \n입력하세요.")
-                    .lineSpacing(10)
+                Text("노래방에서 필요한 정보를\n입력하세요.")
+                    .lineSpacing(UIScreen.getHeight(10))
                     .frame(width: UIScreen.main.bounds.width, alignment: .leading)
                     .foregroundColor(.white)
-                    .font(.system(size: 24, weight: .semibold))
-                    .padding(EdgeInsets(top: 14, leading: 20, bottom: 0, trailing: 0))
+                    .font(.system(size: 24 * Font.setSize(), weight: .semibold))
+                    .padding(EdgeInsets(top: UIScreen.getHeight(14), leading: UIScreen.getWidth(20), bottom: 0, trailing: 0))
                 
                 LevelPickerView(levelIndexBase: $levelPickerIndex, levelItems: levelPickerItems)
-                    .padding(.top, 60)
+                    .padding(.top, UIScreen.getHeight(60))
                 
                 TunePickerView(genderIndexBase: $genderIndex, genderItems: genderItems, tuneIndexBase: $tunePickerIndex, tuneItems: tunePickerItems)
                 
@@ -69,7 +69,7 @@ struct AddMoreInfoView: View {
                     Text("건너뛰기")
                         .foregroundColor(.grayScale1)
                         .font(.system(size: 16, weight: .semibold))
-                        .padding(EdgeInsets(top: 28, leading: 0, bottom: 60, trailing: 0))
+                        .padding(EdgeInsets(top: UIScreen.getHeight(28), leading: 0, bottom: UIScreen.getHeight(60), trailing: 0))
                 })
             }
         }

@@ -30,13 +30,17 @@ struct SingingListDetailView: View {
         GeometryReader { _ in
             ZStack {
                 Image("backgroundImage")
-                    .ignoresSafeArea(.all)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: UIScreen.getWidth(390), height: UIScreen.getHeight(844))
+                    .ignoresSafeArea()
                 Rectangle()
-                    .edgesIgnoringSafeArea(.all)
-                    .frame(height: UIScreen.main.bounds.height * 0.16)
+                    .foregroundColor(.grayScale6)
+                    .frame(height: UIScreen.getHeight(220))
                     .foregroundColor(listDetailEditButtonTapped == true ? .grayScale7 : .grayScale6)
                     .opacity(listDetailEditButtonTapped == true ? 1 : 0.4)
                     .padding(.bottom, 650)
+                    .ignoresSafeArea()
                 TextField("", text: $singingListTitle, onEditingChanged: { changed in
                     self.isSingingListTitleEditing = changed
                 })
@@ -64,12 +68,12 @@ struct SingingListDetailView: View {
                     ScrollView {
                         Divider()
                             .background(Color.grayScale6)
-                            .frame(width: 350)
+                            .frame(width: UIScreen.getWidth(350))
                         ForEach(singingList.songArray) {
                             SingingListDetailCellView(singingListViewFetch: $singingListViewFetch, listDetailEditButtonTapped: $listDetailEditButtonTapped, singingList: singingList, song: $0)
                             Divider()
                                 .background(Color.grayScale6)
-                                .frame(width: 350)
+                                .frame(width: UIScreen.getWidth(350))
                         }
                         .padding(.top, 10)
                         // TODO: - 이후 업데이트에서 새 노래 추가가 아닌 기존 노래 추가로 기능 변경
@@ -77,7 +81,8 @@ struct SingingListDetailView: View {
                         Spacer()
                     }
                 }
-                .padding(.top, 175)
+                .padding(.top, UIScreen.getHeight(220))
+                .ignoresSafeArea()
             }
             .ignoresSafeArea(.all)
         }

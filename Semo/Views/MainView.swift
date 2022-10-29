@@ -24,64 +24,69 @@ struct MainView: View {
     // MARK: - BODY
     var body: some View {
         NavigationView {
-            ZStack(alignment: .top) {
-                Image("backgroundImage")
-                    .ignoresSafeArea()
-                
-                // MARK: - 상단 TabBar
-                // -------------------------------------------
-                
-                TabView(selection: self.$currentTab) {
-                    SongListView(songList: $songList, refreshView: $mainFetch, songEditButtonTapped: $songEditButtonTapped).tag(0)
-                    SingingListView(songList: $songList, refreshView: $mainFetch, songEditButtonTapped: $songEditButtonTapped, listEditButtonTapped: $listEditButtonTapped).tag(1)
-                }
-                .tabViewStyle(.page(indexDisplayMode: .never))
-                .edgesIgnoringSafeArea(.all)
-                .navigationBarTitle("", displayMode: .inline)
-                
-                
-                // MARK: 커스텀된 TabBar 메뉴 버튼
-                
-                HStack {
+            GeometryReader { geometry in
+                ZStack(alignment: .top) {
+                    Image("backgroundImage")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: UIScreen.getWidth(390), height: UIScreen.getHeight(844))
+                        .ignoresSafeArea()
+                    
+                    // MARK: - 상단 TabBar
+                    // -------------------------------------------
+                    
+                    TabView(selection: self.$currentTab) {
+                        SongListView(songList: $songList, refreshView: $mainFetch, songEditButtonTapped: $songEditButtonTapped).tag(0)
+                        SingingListView(songList: $songList, refreshView: $mainFetch, songEditButtonTapped: $songEditButtonTapped, listEditButtonTapped: $listEditButtonTapped).tag(1)
+                    }
+                    .tabViewStyle(.page(indexDisplayMode: .never))
+                    .edgesIgnoringSafeArea(.all)
+                    .navigationBarTitle("", displayMode: .inline)
+                    
+                    
+                    // MARK: 커스텀된 TabBar 메뉴 버튼
+                    
                     HStack {
-                        ForEach(Array(zip(self.tabBarOptions.indices,
-                                          self.tabBarOptions)),
-                                id: \.0,
-                                content: { index, name in
-                            TabBarItemView(tabBarItemName: name,
-                                           currentTab: self.$currentTab,
-                                           namespace: namespace.self,
-                                           tab: index)
-                        })
+                        HStack {
+                            ForEach(Array(zip(self.tabBarOptions.indices,
+                                              self.tabBarOptions)),
+                                    id: \.0,
+                                    content: { index, name in
+                                TabBarItemView(tabBarItemName: name,
+                                               currentTab: self.$currentTab,
+                                               namespace: namespace.self,
+                                               tab: index)
+                            })
+                        }
+                        Spacer()
+                        
+                        // MARK: 우측 상단 노래 및 리스트 추가 버튼
+                        
+                        if tabBarOptions[currentTab] == "전체 노래" {
+                            NavigationLink(destination: AddSongView(isPopToRoot: $isPopToRoot), isActive: self.$isPopToRoot) {
+                                Image("Songlistbuttonimage")
+                            }
+                            .isDetailLink(false)
+                        } else {
+                            Button {
+                                self.showSingingListModal = true
+                            } label: {
+                                Image(tabBarOptions[currentTab] == "전체 노래" ? "Songlistbuttonimage" : "Singinglistbuttonimage")
+                            }
+                            .sheet(isPresented: $showSingingListModal) {
+                                SingingListModalView(singingListArray: $singingListArray, refreshView: $mainFetch, listEditButtonTapped: $listEditButtonTapped)
+                            }
+                        }
                     }
-                    Spacer()
+                    .padding(EdgeInsets(top: geometry.safeAreaInsets.top, leading: 10, bottom: 0, trailing: UIScreen.getWidth(24)))
+                    // FIXME: - background 생략시 탭바가 아래로 밀리는 현상 발생
+                    .background(.clear)
+                    .frame(height: UIScreen.getHeight(32))
                     
-                    // MARK: 우측 상단 노래 및 리스트 추가 버튼
-                    
-                    if tabBarOptions[currentTab] == "전체 노래" {
-                        NavigationLink(destination: AddSongView(isPopToRoot: $isPopToRoot), isActive: self.$isPopToRoot) {
-                            Image("Songlistbuttonimage")
-                        }
-                        .isDetailLink(false)
-                    } else {
-                        Button {
-                            self.showSingingListModal = true
-                        } label: {
-                            Image(tabBarOptions[currentTab] == "전체 노래" ? "Songlistbuttonimage" : "Singinglistbuttonimage")
-                        }
-                        .sheet(isPresented: $showSingingListModal) {
-                            SingingListModalView(singingListArray: $singingListArray, refreshView: $mainFetch, listEditButtonTapped: $listEditButtonTapped)
-                        }
-                    }
+                    // -------------------------------------------
                 }
-                .padding(EdgeInsets(top: 120, leading: 10, bottom: 0, trailing: 24))
-                // FIXME: - background 생략시 탭바가 아래로 밀리는 현상 발생
-                .background(.clear)
-                .frame(height: 32)
-                
-                // -------------------------------------------
+                .navigationBarHidden(true)
             }
-            .navigationBarHidden(true)
         }
         .accentColor(.mainPurpleColor)
         .onAppear {

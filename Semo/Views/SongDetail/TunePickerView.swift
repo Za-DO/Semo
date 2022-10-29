@@ -42,7 +42,7 @@ struct TunePickerView: View {
                 }
             }
             .pickerStyle(SegmentedPickerStyle())
-            .padding(EdgeInsets(top: 24, leading: 24, bottom: 48, trailing: 24))
+            .padding(EdgeInsets(top: UIScreen.getHeight(24), leading: UIScreen.getWidth(24), bottom: UIScreen.getHeight(48), trailing: UIScreen.getWidth(24)))
             
             // MARK: - 키 조절값 설정 Picker
             
@@ -50,19 +50,19 @@ struct TunePickerView: View {
                 Circle()
                     .foregroundColor(.mainPurpleColor)
                     .opacity(0.5)
-                    .frame(width: 64, height: 64, alignment: .center)
-                    .shadow(color: .mainPurpleColor, radius: 10, x: 0, y: 0)
+                    .frame(width: UIScreen.getWidth(64), height: UIScreen.getHeight(64), alignment: .center)
+                    .shadow(color: .mainPurpleColor, radius: UIScreen.getWidth(10), x: 0, y: 0)
                 SwiftUIWheelPicker($tuneIndexBase, items: tuneItems) { value in
                     GeometryReader { reader in
                         Text("\(value)")
                             .frame(width: reader.size.width, height: reader.size.height,
                                    alignment: .center)
-                            .font(.system(size: 24, weight: .semibold))
+                            .font(.system(size: 24 * Font.setSize(), weight: .semibold))
                     }
                 }
                 .scrollAlpha(0.1)
-                .frame(width: UIScreen.main.bounds.width, height: 30, alignment: .center)
-            .padding(.horizontal, -20)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.getHeight(30), alignment: .center)
+                .padding(.horizontal, -UIScreen.getHeight(20))
             }
         }
     }

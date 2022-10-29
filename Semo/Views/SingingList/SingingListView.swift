@@ -34,12 +34,12 @@ struct SingingListView: View {
             ScrollView {
                 Divider()
                     .background(Color.grayScale6)
-                    .frame(width: 350)
+                    .frame(width: UIScreen.getWidth(350))
                 ForEach(singingList) {
                     SingingListCellView(songList: $songList, songEditButtonTapped: $songEditButtonTapped, listEditButtonTapped: $listEditButtonTapped, singingList: $0)
                     Divider()
                         .background(Color.grayScale6)
-                        .frame(width: 350)
+                        .frame(width: UIScreen.getWidth(350))
                 }
                 .padding(.top, 10)
             }

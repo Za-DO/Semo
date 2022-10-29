@@ -38,11 +38,11 @@ struct LevelPickerView: View {
                         Text("\(value)")
                             .frame(width: reader.size.width, height: reader.size.height,
                                    alignment: .center)
-                            .font(.system(size: 24, weight: .semibold))
+                            .font(.system(size: 24 * Font.setSize(), weight: .semibold))
                     }
                 }
                 .scrollAlpha(0.1)
-                .frame(width: UIScreen.main.bounds.width, height: 30, alignment: .center)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.getHeight(30), alignment: .center)
             }
         }
     }
