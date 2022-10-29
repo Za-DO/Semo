@@ -20,7 +20,7 @@ struct SingingListDetailCellView: View {
         } label: {
             HStack {
                 if listDetailEditButtonTapped == true {
-                    DeleteFromSongToSingingListView(songEditButtonTapped: $listDetailEditButtonTapped, song: song, singingList: singingList)
+                    DeleteFromSongToSingingListView(listDetailEditButtonTapped: $listDetailEditButtonTapped, song: song, singingList: singingList)
                         .padding(.trailing, 8)
                         .transition(.move(edge: .leading))
                         .animation(.easeInOut)
