@@ -1,49 +1,38 @@
-# Semo
 
-# Team Za:DO
-자, 두가자!
+# SETLIST
 
-![iOS](https://img.shields.io/badge/Swift-iOS-51a9e8?logo=Swift)
+[App Store 바로가기](https://apps.apple.com/us/app/setlist/id6443660710)
 
+여러분이 부르고 싶은 노래, 기억하고 싶은 노래 셋리스트에 모두 담아보세요!
 
-## Git Commit Message
-|Type|Subject|
-|:---|:---|
-|**[feat]**|새로운 기능 추가|
-|**[fix]**|버그 수정|
-|**[test]**|테스트 코드|
-|**[refactor]**|코드 리팩토링| 
-|**[style]**|스타일 (코드 형식, 세미콜론 추가: 비즈니스 로직에 변경 없는 경우)|
-|**[chore]**|빌드, 설정 파일|
-|**[comment]**|주석 추가|
-
-ex) [Type] #이슈번호 커밋메세지 `git commit -m '[feat] #12 로그인 버튼 추가'`
+SETLIST는 노래방에서 부르고 싶은 노래, 연습하고 싶은 노래를 보다 쉽고 자세하게 기록할 수 있는 앱입니다.
 
 
-## Git Branch
-|브랜치명|작업 내용|
-|:---|:---|
-|**main**|배포|
-|**develop**|개발된 기능(feature)을 통합|
-|**chore**|빌드, 설정 파일|
-|**feat**|각 기능별 개발 진행|
-|**hotfix**|긴급한 버그 수정|
 
 
-## :pushpin: Features
-
-
-## :technologist: Authors
-- [@Terry](https://github.com/terry-koo) | [@Gary](https://github.com/Anti9uA) | [@Thina](https://github.com/yoo86) | [@Anna](https://github.com/Eunbi-Cho) | [@Sasha](https://github.com/erabhre)
-
-## :triangular_flag_on_post: Demo
 
 ## :green_heart: Screenshots
+|<img src = "https://user-images.githubusercontent.com/67509011/215311649-c0633ddd-6d0a-4cd9-8a78-4332924d80f7.png" width="100%" height="100%">| <img src = "https://user-images.githubusercontent.com/67509011/215311654-edb24678-8374-4d45-9e88-d3af0d8d6fde.png" width="100%" height="100%">|
+|:---:|:---:|
+|<img src = "https://user-images.githubusercontent.com/67509011/215311659-28a42ff7-ad92-4d23-bf56-f6fd38550d1e.png" width="100%" height="100%">|<img src = "https://user-images.githubusercontent.com/67509011/215311664-55eb8dcd-6015-4c94-a203-bf7ab2ea4dfb.png" width="100%" height="100%">|
+
+
+
+
 
 ## :sparkles: Skills & Tech Stack
+<img width="89" alt="badge" src="https://img.shields.io/badge/iOS-15.0+-silver">
+
 - SwiftUI
 - UIKit
 - CoreData
+
+
+## Members
+|<img src="https://github.com/terry-koo.png">|<img src="https://github.com/Eunbi-Cho.png">|<img src="https://github.com/yoo86.png">|<img src="https://github.com/Anti9uA.png">|<img src="https://github.com/erabhre.png">|
+|:-:|:-:|:-:|:-:|:-:|
+|[Dev_Terry](https://github.com/terry-koo)|[Dev_Anna](https://github.com/Eunbi-Cho)|[Dev_Thina](https://github.com/yoo86)|[Dev_Gary](https://github.com/Anti9uA)|[Design_Sasha](https://github.com/erabhre)|
+
 
 ## :lock_with_ink_pen: License
 [MIT](https://choosealicense.com/licenses/mit/)
