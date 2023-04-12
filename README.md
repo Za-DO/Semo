@@ -29,7 +29,7 @@ SETLIST는 노래방에서 부르고 싶은 노래, 연습하고 싶은 노래�
 
 
 ## Members
-|<img src="https://github.com/terry-koo.png">|<img src="https://github.com/Eunbi-Cho.png">|<img src="https://github.com/yoo86.png">|<img src="https://github.com/Anti9uA.png">|<img src="https://github.com/erabhre.png">|
+|<img src="https://github.com/terry-koo.png">|<img src="https://github.com/Eunbi-Cho.png">|<img src="https://github.com/junginyu.png">|<img src="https://github.com/Anti9uA.png">|<img src="https://github.com/erabhre.png">|
 |:-:|:-:|:-:|:-:|:-:|
 |[Dev_Terry](https://github.com/terry-koo)|[Dev_Anna](https://github.com/Eunbi-Cho)|[Dev_Thina](https://github.com/junginyu)|[Dev_Gary](https://github.com/Anti9uA)|[Design_Sasha](https://github.com/erabhre)|
 
